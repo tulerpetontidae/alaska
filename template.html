@@ -27,6 +27,7 @@
     /* categories: Okabe–Ito, every marker also carries a letter */
     --c-ski:#0072B2; --c-rink:#56B4E9; --c-ice:#009E73; --c-sight:#E69F00; --c-tour:#CC79A7; --c-event:#D55E00; --c-food:#8C6A4F; --c-stay:#0F1A24; --c-warm:#6A4C93; --c-gear:#2F6F6F;
     --day:#FFF4D6; --twi:#F2E7CF; --night:#E4E9EE;
+    --hz-nogo:#B3261E; --hz-nogo-bg:#FBEAE8; --hz-high:#C25400; --hz-high-bg:#FDF0E4; --hz-caut:#C79A00; --hz-caut-t:#7A5D00; --hz-caut-bg:#FBF6E4;
     --disp:'Big Shoulders Display','Arial Narrow',sans-serif;
     --body:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
     --mono:'IBM Plex Mono','SF Mono',Menlo,monospace;
@@ -37,6 +38,7 @@
     --hero-bg:#13212F; --hero-fg:#F2F5F7;
     --c-stay:#F2F5F7; --c-food:#B48C6C; --c-warm:#A78BD0; --c-gear:#5FA8A8;
     --day:#3A3320; --twi:#272A26; --night:#12171C;
+    --hz-nogo:#F28B82; --hz-nogo-bg:#3A1D1B; --hz-high:#F6A65A; --hz-high-bg:#3A2716; --hz-caut:#E3C255; --hz-caut-t:#E3C255; --hz-caut-bg:#302A16;
   }
   html,body{background:var(--page);margin:0}
   .ak{font-family:var(--body);color:var(--ink);line-height:1.45;max-width:1120px;margin:0 auto;padding:0 16px 56px;-webkit-font-smoothing:antialiased}
@@ -90,7 +92,8 @@
   .ak-pin.hot{transform:scale(1.35);z-index:1000}
   .leaflet-popup-content-wrapper{border-radius:3px;background:var(--paper);color:var(--ink)}
   .leaflet-popup-tip{background:var(--paper)}
-  .leaflet-popup-content{margin:12px 14px;font-size:12.5px;line-height:1.45;max-width:280px}
+  .leaflet-popup-content{margin:12px 14px;font-size:12.5px;line-height:1.45;max-width:300px}
+  .ak-pop .ak-hz div{font-size:11.5px;grid-template-columns:1fr;gap:1px}
   .ak-pop b{display:block;font-size:13.5px}
   .ak-pop small{display:block;font-family:var(--mono);font-size:10.5px;color:var(--muted);margin-top:2px}
   .ak-pop p{margin:6px 0 0}
@@ -133,6 +136,14 @@
   .ak-item .n b{display:block;font-family:var(--disp);font-weight:800;font-size:18px;color:var(--ink)}
   .ak-go{width:28px;height:28px;border-radius:3px;border:1px solid var(--rule);background:var(--paper);color:var(--ink);cursor:pointer;font-size:13px;padding:0}
   .ak-go:hover{border-color:var(--ink-2)}
+  .ak-hz{margin:7px 0 2px;display:flex;flex-direction:column;gap:3px;max-width:80ch}
+  .ak-hz div{display:grid;grid-template-columns:auto 1fr;gap:8px;align-items:baseline;font-size:12px;line-height:1.45;padding:5px 9px;border-radius:2px;border-left:3px solid;color:var(--ink)}
+  .ak-hz b{font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+  .ak-hz .nogo{border-color:var(--hz-nogo);background:var(--hz-nogo-bg)} .ak-hz .nogo b{color:var(--hz-nogo)}
+  .ak-hz .high{border-color:var(--hz-high);background:var(--hz-high-bg)} .ak-hz .high b{color:var(--hz-high)}
+  .ak-hz .caution{border-color:var(--hz-caut);background:var(--hz-caut-bg)} .ak-hz .caution b{color:var(--hz-caut-t)}
+  .ak-pin .hzb{position:absolute;right:-5px;top:-5px;width:11px;height:11px;border-radius:50%;border:1.5px solid var(--paper);font:700 7px/8px var(--body);color:#fff;text-align:center}
+  .ak-pin{position:relative}
   .ak-empty{font-size:12.5px;color:var(--muted);padding:12px 0}
   .ak-notes{font-size:12.5px;color:var(--ink-2);line-height:1.6;max-width:80ch}
   .ak-notes h3{font-family:var(--disp);font-weight:800;font-size:18px;margin:16px 0 2px;color:var(--ink)}
@@ -344,15 +355,20 @@
     el.innerHTML='<span class="ak-tk-h">Trail lines</span>'+["moa_both","moa_skate","osm","bc"].map(function(k){ return '<span>'+line(TSTY[k],k)+TSTY[k].n+' · '+Math.round(km[k]||0)+' km</span>'; }).join("")+
       '<span><svg width="26" height="10" aria-hidden="true"><line x1="3" y1="5" x2="23" y2="5" stroke="'+glow+'" stroke-width="9" stroke-linecap="round" opacity=".6"/><line x1="1" y1="5" x2="25" y2="5" stroke="'+c+'" stroke-width="3"/></svg>Lit · '+Math.round(lit)+' km</span>'+
       '<span class="ak-tk-note">'+(LIVEOK?'Live grooming status loaded from the Municipality of Anchorage: hover a groomed trail for when it was last groomed.':'Official groomed trails: Municipality of Anchorage / NSAA grooming layer. Open this page online to load live grooming status.')+'</span>'; }
+  var HZL={nogo:["⛔","No-go"],high:["▲","High risk"],caution:["!","Caution"]};
+  function hzBox(p,short){ var H=p.hazards||[]; if(!H.length) return "";
+    var order={nogo:0,high:1,caution:2}; H=H.slice().sort(function(a,b){ return order[a.lv]-order[b.lv]; });
+    return '<div class="ak-hz">'+H.map(function(z){ return '<div class="'+z.lv+'"><b>'+HZL[z.lv][0]+' '+HZL[z.lv][1]+' · '+esc(z.kind)+'</b><span>'+esc(short&&z.text.length>140?z.text.slice(0,137)+"…":z.text)+'</span></div>'; }).join("")+'</div>'; }
+  function worst(p){ var H=p.hazards||[]; return H.some(function(z){ return z.lv==="nogo"; })?"nogo":H.some(function(z){ return z.lv==="high"; })?"high":null; }
   function pop(p){ var g=GOF[p.cat], dm=driveMin(p);
-    return '<div class="ak-pop"><b>'+esc(p.name)+'</b><small>'+g.name+(p.area?' · '+esc(p.area):'')+(dm!=null?' · ~'+dm+' min drive':'')+'</small>'+
+    return '<div class="ak-pop"><b>'+esc(p.name)+'</b><small>'+g.name+(p.area?' · '+esc(p.area):'')+(dm!=null?' · ~'+dm+' min drive':'')+'</small>'+hzBox(p,true)+
       (p.highlights||p.notes?'<p>'+esc(p.highlights||p.notes)+'</p>':'')+
       (p.url?'<p><a href="'+esc(p.url)+'" target="_blank" rel="noopener">More</a></p>':'')+'</div>'; }
   function drawPins(fit){
     layer.clearLayers(); pins={}; var pts=[];
     all().forEach(function(p){ if(!visible(p) || p.lat==null) return; var g=GOF[p.cat];
       var ic=L.divIcon({className:"",iconSize:[22,22],iconAnchor:[11,11],
-        html:'<div class="ak-pin'+(g.k==="stay"?" stay":"")+'" style="background:'+col(g)+'">'+g.L+'</div>'});
+        html:'<div class="ak-pin'+(g.k==="stay"?" stay":"")+'" style="background:'+col(g)+'">'+g.L+(worst(p)?'<span class="hzb" style="background:var(--hz-'+worst(p)+')">'+(worst(p)==="nogo"?"×":"!")+'</span>':'')+'</div>'});
       var m=L.marker([p.lat,p.lon],{icon:ic,title:p.name,zIndexOffset:g.k==="stay"?500:0}).bindPopup(pop(p)).addTo(layer);
       pins[p.id]=m; pts.push([p.lat,p.lon]); });
     if(fit) zoomTo(ZOOMS[0]);
@@ -432,7 +448,7 @@
       html+='<div class="ak-group"><h3><i style="background:'+col(g)+'">'+g.L+'</i>'+g.name+' <span>'+items.length+'</span></h3>'+items.map(function(p){
         var dm=driveMin(p), k=p.lat!=null?km(fp,p):null;
         return '<div class="ak-item"><div class="t"><b>'+esc(p.name)+'</b><span class="area">'+esc(p.area||"")+'</span>'+
-          tags(p)+meta(p)+(p.highlights?'<p>'+esc(p.highlights)+'</p>':'')+(p.notes?'<p>'+esc(p.notes)+'</p>':'')+(p.grooming&&known(p.grooming)?'<p class="meta">grooming: '+esc(p.grooming)+'</p>':'')+
+          tags(p)+hzBox(p,false)+meta(p)+(p.highlights?'<p>'+esc(p.highlights)+'</p>':'')+(p.notes?'<p>'+esc(p.notes)+'</p>':'')+(p.grooming&&known(p.grooming)?'<p class="meta">grooming: '+esc(p.grooming)+'</p>':'')+
           (p.url?'<p class="meta"><a href="'+esc(p.url)+'" target="_blank" rel="noopener">'+esc(p.url.replace(/^https?:\/\/(www\.)?/,"").split(/[/?#]/)[0])+'</a></p>':'')+'</div>'+
           '<div class="n">'+(dm!=null?'<b>~'+dm+' min</b>drive':'')+(k!=null?'<br>'+(k<1?Math.round(k*1000)+' m':k.toFixed(k<10?1:0)+' km')+' straight':'')+'</div>'+
           (p.lat!=null?'<button type="button" class="ak-go" data-id="'+esc(p.id)+'" aria-label="Show '+esc(p.name)+' on the map" title="Show on map">&#9906;</button>':'<span></span>')+'</div>';

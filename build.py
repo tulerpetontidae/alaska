@@ -140,6 +140,13 @@ def main():
         for p in json.load(open(f)):
             if p["id"] in seen: raise SystemExit("duplicate id %s in %s" % (p["id"], f))
             seen.add(p["id"]); places.append(p)
+    if os.path.exists("hazards.json"):
+        hz = json.load(open("hazards.json")); dflt = hz.get("_default", {})
+        for p in places:
+            h = hz.get(p["id"]) or dflt.get(p["cat"])
+            if h: p["hazards"] = [{"lv": a, "kind": b, "text": c} for a, b, c in h]
+        unknown = [k for k in hz if not k.startswith("_") and k not in seen]
+        if unknown: raise SystemExit("hazards for unknown ids: %s" % unknown)
     drive = json.load(open("drive.json")) if os.path.exists("drive.json") else {}
     origins = [DOWNTOWN] + base["stays"]
     todo = [p for p in places if p.get("lat") is not None and any(p["id"] not in drive.get(o["id"], {}) for o in origins)]
