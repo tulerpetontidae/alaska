@@ -1,0 +1,87 @@
+{
+ "trip": {
+  "from": "2026-12-23",
+  "to": "2027-01-03",
+  "base": "Anchorage"
+ },
+ "stays": [
+  {
+   "id": "h1",
+   "name": "Stylish Spenard Getaway (our house)",
+   "short": "Spenard",
+   "area": "Spenard",
+   "lat": 61.1997,
+   "lon": -149.9012,
+   "url": "https://www.airbnb.com/rooms/1252154298981076441",
+   "notes": "Pin is approximate."
+  }
+ ],
+ "plan": [
+  {
+   "date": "2026-12-31",
+   "start": "19:00",
+   "end": "21:00",
+   "id": "nye-anchorage",
+   "note": "NYE downtown, fireworks ~8pm (2025 pattern; 2026 not confirmed)"
+  }
+ ],
+ "notes": [
+  {
+   "h": "Daylight",
+   "p": [
+    "Sun up about 10:15–15:45 the whole trip (5h 27m on 23 Dec, 5h 44m on 3 Jan). Civil twilight adds about an hour at each end, so usable light runs roughly 09:15–16:45. Do long drives in that window and use lit trails after."
+   ]
+  },
+  {
+   "h": "Weather",
+   "p": [
+    "Anchorage normals: highs around −5 °C, lows −9 to −12 °C, about 17 in of snow in December, often overcast. Cold snaps to −25 °C happen, and so do chinook thaws with rain and glare ice.",
+    "Girdwood and Turnagain Arm get far more snow; Palmer, the Matanuska valley and Hatcher Pass run colder and windier."
+   ]
+  },
+  {
+   "h": "Snow",
+   "p": [
+    "Anchorage averages about 18–19 in of snowfall in December, but chinook thaws are common and cover can be thin, especially on the coast. Kincaid's ~6 km snowmaking loop (mostly lit) is the safest bet in town; Glen Alps at ~2,200 ft is often the first natural-snow grooming, and Hillside holds snow a bit better than Kincaid.",
+    "Backups: Independence Mine at Hatcher Pass (~3,500 ft) is normally the earliest reliable grooming in Southcentral, though this season's grooming permit and road plowing are in flux, so check the Mat-Su Ski Club trail report. Turnagain Pass has the deepest snowpack (median ~57 in by 1 Jan) but is ungroomed avalanche terrain. Girdwood gets far more snow than town but is rain-prone.",
+    "Grooming reports: Nordic Pulse (one page per venue) and NSAA's live trail map. The Seward Nordic Ski Club usually holds a New Year's Eve luminary ski (2026 date unconfirmed)."
+   ]
+  },
+  {
+   "h": "Aurora",
+   "p": [
+    "Anchorage needs roughly Kp 4+ for a good show. The moon is full around 24 Dec and bright until about 29 Dec; the darkest nights are 30 Dec – 3 Jan. Clouds are the main limit, so chase clear skies (Glen Alps, Eklutna, Hatcher Pass) and watch the UAF aurora forecast."
+   ]
+  },
+  {
+   "h": "Ice",
+   "p": [
+    "The city plows or floods lake ice only once it is 12 in thick, and late December varies a lot: Westchester Lagoon opened 27 Nov in 2024, but at the end of 2023 it had only 8 in under deep snow. The flooded rinks (Cuddy oval, Delaney, Tikishla, the Muldoon ribbon) and the indoor arenas are the safe bets.",
+    "Wild glare ice peaks in Oct–Nov; by late December most lakes are under snow and become ski-touring lakes. Wind-scoured spots like the Palmer Hay Flats (Rabbit Slough), or Eklutna Lake after wind or a thaw, are the exceptions.",
+    "Natural ice: at least 4 in of clear hard ice for one person (white ice about twice that), test as you go, carry ice picks and a throw rope, never alone. Stay off Lake Hood and Lake Spenard (seaplane base). Ice reports: Wild Ice Skating Club of Alaska and NordicSkate-SouthCentral Alaska on Facebook, Ermine Skate, Winterbear."
+   ]
+  },
+  {
+   "h": "Holiday closures",
+   "p": [
+    "Alaska Wildlife Conservation Center: closed 24, 25 Dec and 1 Jan; open 23 and 26–31 Dec, 2–3 Jan.",
+    "Alaska Native Heritage Center: weekdays only, closed 24–25 Dec; 31 Dec and 1 Jan unconfirmed.",
+    "Anchorage Museum: closed Mondays (28 Dec) and probably 25 Dec and 1 Jan.",
+    "Begich, Boggs Visitor Center at Portage is closed all winter."
+   ]
+  },
+  {
+   "h": "Book ahead for six",
+   "p": [
+    "Nordic Spa, Alyeska lift tickets, tram dinner, Matanuska glacier walk, dog sledding, Denali flightseeing, Zoo Lights and Brighter Winter Nights all fill up in holiday week."
+   ]
+  },
+  {
+   "h": "Safety",
+   "p": [
+    "Avalanche terrain: Byron Glacier Trail (avoid in winter), the Flattop summit gully, Hatcher Pass off-road, and the Portage and Eklutna side valleys. Check the Chugach avalanche forecast (cnfaic.org) and hpavalanche.org.",
+    "The Seward Highway along Turnagain Arm has wind, ice, avalanche-control closures and a bad crash record: daylight, headlights on, check 511.alaska.gov."
+   ]
+  }
+ ]
+}

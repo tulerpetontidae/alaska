@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Alaska winter</title>
+<meta name="description" content="Ski trails, ice and everything else around Anchorage, 23 Dec 2026 – 3 Jan 2027.">
+<meta name="theme-color" content="#0B1F33">
+<script>
+  (function(){
+    var m="auto"; try{ m=localStorage.getItem("ak-theme")||"auto"; }catch(e){}
+    var r=document.documentElement; r.setAttribute("data-mode",m);
+    r.setAttribute("data-theme", m!=="auto" ? m :
+      (window.matchMedia && matchMedia("(prefers-color-scheme:dark)").matches ? "dark" : "light"));
+  })();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>/*LEAFLET_CSS*/</style>
+<script>/*LEAFLET_JS*/</script>
+<style>
+  :root{
+    --page:#EEF2F4; --paper:#FFFFFF; --ink:#0F1A24; --ink-2:#3E4C58; --muted:#7A8792; --muted-d:#A3ADB5;
+    --rule:#D5DDE2; --rule-2:#E7ECEF;
+    --hero-bg:#0B1F33; --hero-fg:#EEF2F4;
+    /* categories: Okabe–Ito, every marker also carries a letter */
+    --c-ski:#0072B2; --c-rink:#56B4E9; --c-ice:#009E73; --c-sight:#E69F00; --c-tour:#CC79A7; --c-event:#D55E00; --c-food:#8C6A4F; --c-stay:#0F1A24;
+    --day:#FFF4D6; --twi:#F2E7CF; --night:#E4E9EE;
+    --disp:'Big Shoulders Display','Arial Narrow',sans-serif;
+    --body:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    --mono:'IBM Plex Mono','SF Mono',Menlo,monospace;
+  }
+  :root[data-theme="dark"]{
+    --page:#0B0F13; --paper:#151B21; --ink:#F2F5F7; --ink-2:#C2CBD2; --muted:#85909A; --muted-d:#5F6A73;
+    --rule:#26303A; --rule-2:#1D252D;
+    --hero-bg:#13212F; --hero-fg:#F2F5F7;
+    --c-stay:#F2F5F7; --c-food:#B48C6C;
+    --day:#3A3320; --twi:#272A26; --night:#12171C;
+  }
+  html,body{background:var(--page);margin:0}
+  .ak{font-family:var(--body);color:var(--ink);line-height:1.45;max-width:1120px;margin:0 auto;padding:0 16px 56px;-webkit-font-smoothing:antialiased}
+  .ak *{box-sizing:border-box}
+  .ak a{color:inherit}
+  .ak-themebar{display:flex;justify-content:flex-end;padding-top:14px}
+  .ak-theme{display:inline-flex;gap:2px;border:1px solid var(--rule);border-radius:99px;padding:2px;background:var(--paper)}
+  .ak-theme button{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:5px 11px;border:0;background:transparent;color:var(--muted);border-radius:99px;cursor:pointer}
+  .ak-theme button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+
+  .ak-hero{background:var(--hero-bg);color:var(--hero-fg);border-radius:3px;padding:30px 28px 26px;margin-top:14px}
+  .ak-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;opacity:.7}
+  .ak-title{font-family:var(--disp);font-weight:800;font-size:64px;line-height:.95;margin:8px 0 6px}
+  .ak-sub{font-size:15px;opacity:.85;margin:0;max-width:60ch}
+  .ak-facts{display:flex;flex-wrap:wrap;gap:26px;margin-top:22px}
+  .ak-fact{font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;opacity:.62}
+  .ak-fact b{display:block;font-family:var(--disp);font-weight:800;font-size:30px;letter-spacing:0;opacity:1;margin-top:2px}
+  .ak-fact small{display:block;font-size:9.5px;letter-spacing:.08em;margin-top:1px;text-transform:none}
+
+  .ak-card{background:var(--paper);border:1px solid var(--rule);border-radius:3px;padding:20px;margin-top:18px}
+  .ak-h{font-family:var(--disp);font-weight:800;font-size:27px;margin:0}
+  .ak-p{font-size:12.5px;color:var(--muted);margin:6px 0 0;max-width:78ch;line-height:1.55}
+
+  /* filters */
+  .ak-filters{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+  .ak-chip{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;
+    padding:5px 10px;border:1px solid var(--rule);border-radius:99px;background:var(--paper);color:var(--ink-2);cursor:pointer;white-space:nowrap}
+  .ak-chip i{width:14px;height:14px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-style:normal;font-size:8.5px;font-weight:600;color:#fff;letter-spacing:0}
+  .ak-chip[aria-pressed="false"]{opacity:.45}
+  .ak-chip[aria-pressed="false"] i{background:var(--muted-d)!important}
+  .ak-chip span{color:var(--muted)}
+  .ak-sub2{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;margin-top:8px;font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+  .ak-seg{display:inline-flex;gap:2px;padding:2px;border:1px solid var(--rule);border-radius:3px;background:var(--rule-2)}
+  .ak-seg button{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border:0;border-radius:2px;background:transparent;color:var(--muted);cursor:pointer}
+  .ak-seg button[aria-pressed="true"]{background:var(--paper);color:var(--ink);box-shadow:0 0 0 1px var(--rule)}
+  .ak-sub2 select{font-family:var(--mono);font-size:10.5px;padding:3px 6px;border:1px solid var(--rule);border-radius:3px;background:var(--paper);color:var(--ink)}
+
+  .ak-tkey{display:flex;flex-wrap:wrap;align-items:center;gap:6px 16px;margin-top:10px;font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+  .ak-tkey span{display:inline-flex;align-items:center;gap:6px}
+  .ak-tkey .ak-tk-h{color:var(--ink-2)}
+  .leaflet-tooltip{font-family:var(--body);font-size:12px;line-height:1.4;background:var(--paper);color:var(--ink);border:1px solid var(--rule);box-shadow:0 2px 8px rgba(0,0,0,.15)}
+  .ak-map{height:560px;margin-top:14px;border:1px solid var(--rule);border-radius:3px;overflow:hidden}
+  .leaflet-container{font-family:var(--body);background:var(--rule-2)}
+  .ak-pin{width:22px;height:22px;border-radius:50%;border:2px solid var(--paper);display:flex;align-items:center;justify-content:center;
+    color:#fff;font:600 10px/1 var(--body);box-shadow:0 1px 3px rgba(0,0,0,.35)}
+  .ak-pin.stay{border-radius:4px;color:var(--paper)}
+  .ak-pin.hot{transform:scale(1.35);z-index:1000}
+  .leaflet-popup-content-wrapper{border-radius:3px;background:var(--paper);color:var(--ink)}
+  .leaflet-popup-tip{background:var(--paper)}
+  .leaflet-popup-content{margin:12px 14px;font-size:12.5px;line-height:1.45;max-width:280px}
+  .ak-pop b{display:block;font-size:13.5px}
+  .ak-pop small{display:block;font-family:var(--mono);font-size:10.5px;color:var(--muted);margin-top:2px}
+  .ak-pop p{margin:6px 0 0}
+
+  /* schedule */
+  .ak-sched{margin-top:14px}
+  .ak-axis,.ak-drow{display:grid;grid-template-columns:128px 1fr;gap:10px;align-items:center}
+  .ak-axis .tl{position:relative;height:16px;font-family:var(--mono);font-size:9.5px;color:var(--muted)}
+  .ak-axis .tl span{position:absolute;transform:translateX(-50%)}
+  .ak-drow{padding:5px 0;border-top:1px solid var(--rule-2)}
+  .ak-drow .d{font-family:var(--mono);font-size:11px;color:var(--ink-2)}
+  .ak-drow .d b{display:block;font-family:var(--disp);font-weight:800;font-size:17px;color:var(--ink);line-height:1.05}
+  .ak-drow .d small{display:block;color:var(--muted);font-size:9.5px}
+  .ak-tl{position:relative;height:38px;border-radius:2px;background:var(--night);overflow:hidden}
+  .ak-tl .tw,.ak-tl .dl{position:absolute;top:0;bottom:0}
+  .ak-tl .tw{background:var(--twi)}
+  .ak-tl .dl{background:var(--day)}
+  .ak-tl .ev{position:absolute;top:5px;bottom:5px;border-radius:2px;color:#fff;font-size:10.5px;font-weight:500;padding:0 6px;display:flex;align-items:center;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cursor:pointer;border:1px solid var(--paper)}
+  .ak-tl .grid{position:absolute;top:0;bottom:0;width:1px;background:var(--rule)}
+  .ak-dnote{grid-column:2;font-size:11.5px;color:var(--muted);margin:2px 0 0}
+  .ak-key{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:10px;font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+  .ak-key i{display:inline-block;width:14px;height:9px;border-radius:1px;margin-right:5px;vertical-align:-1px;border:1px solid var(--rule)}
+
+  /* list */
+  .ak-group{margin-top:22px}
+  .ak-group h3{display:flex;align-items:center;gap:8px;font-family:var(--disp);font-weight:800;font-size:20px;margin:0 0 4px}
+  .ak-group h3 i{width:16px;height:16px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font:600 9px/1 var(--body);color:#fff;font-style:normal}
+  .ak-group h3 span{font-family:var(--mono);font-weight:400;font-size:11px;color:var(--muted)}
+  .ak-item{display:grid;grid-template-columns:minmax(0,1fr) 150px 28px;gap:4px 20px;padding:12px 0;border-top:1px solid var(--rule-2)}
+  .ak-item .t b{font-weight:600;font-size:14px}
+  .ak-item .t .area{font-family:var(--mono);font-size:10.5px;color:var(--muted);margin-left:6px}
+  .ak-item .t p{margin:4px 0 0;font-size:12.5px;color:var(--ink-2);max-width:80ch}
+  .ak-item .t p.meta{font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+  .ak-tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:5px}
+  .ak-tag{font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;padding:1px 5px;border:1px solid var(--rule);border-radius:2px;color:var(--ink-2)}
+  .ak-tag.on{border-color:var(--ink-2)}
+  .ak-tag.warn{border-style:dashed;color:var(--muted)}
+  .ak-item .n{font-family:var(--mono);font-size:10.5px;color:var(--muted);text-align:right}
+  .ak-item .n b{display:block;font-family:var(--disp);font-weight:800;font-size:18px;color:var(--ink)}
+  .ak-go{width:28px;height:28px;border-radius:3px;border:1px solid var(--rule);background:var(--paper);color:var(--ink);cursor:pointer;font-size:13px;padding:0}
+  .ak-go:hover{border-color:var(--ink-2)}
+  .ak-empty{font-size:12.5px;color:var(--muted);padding:12px 0}
+  .ak-notes{font-size:12.5px;color:var(--ink-2);line-height:1.6;max-width:80ch}
+  .ak-notes h3{font-family:var(--disp);font-weight:800;font-size:18px;margin:16px 0 2px;color:var(--ink)}
+  .ak-notes p{margin:4px 0}
+  .ak-foot{font-size:11px;color:var(--muted);margin-top:22px;line-height:1.6}
+
+  @media (max-width:760px){
+    .ak-hero{padding:24px 18px 20px}
+    .ak-title{font-size:48px}
+    .ak-card{padding:16px}
+    .ak-map{height:440px}
+    .ak-axis,.ak-drow{grid-template-columns:64px 1fr;gap:8px}
+    .ak-drow .d b{font-size:15px}
+    .ak-item{grid-template-columns:minmax(0,1fr) 28px}
+    .ak-item .n{grid-column:1;grid-row:2;text-align:left}
+    .ak-item .n b{display:inline;font-size:15px;margin-right:6px}
+    .ak-item .ak-go{grid-column:2;grid-row:1}
+  }
+</style>
+</head>
+<body>
+<div class="ak">
+  <div class="ak-themebar"><div class="ak-theme" role="group" aria-label="Colour theme">
+    <button type="button" data-theme-set="auto">Auto</button><button type="button" data-theme-set="light">Light</button><button type="button" data-theme-set="dark">Dark</button>
+  </div></div>
+
+  <div class="ak-hero">
+    <div class="ak-eyebrow" id="ak-range">—</div>
+    <h1 class="ak-title">Alaska winter</h1>
+    <p class="ak-sub">Ski trails, ice and everything else around Anchorage, for twelve short days at midwinter.</p>
+    <div class="ak-facts" id="ak-facts"></div>
+  </div>
+
+  <div class="ak-card">
+    <h2 class="ak-h">Map</h2>
+    <p class="ak-p">Everything on the list. Tap a category to hide or show it; tap a pin for details. The house pin is Airbnb's approximate location.</p>
+    <div class="ak-filters" id="ak-filters"></div>
+    <div class="ak-sub2">
+      <span>Ski style</span><span class="ak-seg" id="ak-style"></span>
+      <span>Distances from</span><select id="ak-from" aria-label="Distances from"></select>
+      <span>Zoom to</span><span class="ak-seg" id="ak-zoom"></span>
+    </div>
+    <div class="ak-map" id="ak-map"></div>
+    <div class="ak-tkey" id="ak-tkey" hidden></div>
+  </div>
+
+  <div class="ak-card">
+    <h2 class="ak-h">Schedule</h2>
+    <p class="ak-p" id="ak-schedp">Each row is a day, midnight to midnight. The pale band is daylight, the darker edges civil twilight.</p>
+    <div class="ak-sched" id="ak-sched"></div>
+    <div class="ak-key" id="ak-skey"></div>
+  </div>
+
+  <div class="ak-card">
+    <h2 class="ak-h">The list</h2>
+    <p class="ak-p">Grouped by kind, following the map filters. Drive times are by road from our house in Spenard (or downtown, if picked above), without winter conditions.</p>
+    <div id="ak-list"></div>
+  </div>
+
+  <div class="ak-card" id="ak-notescard" hidden>
+    <h2 class="ak-h">Good to know</h2>
+    <div class="ak-notes" id="ak-notes"></div>
+  </div>
+
+  <div class="ak-foot" id="ak-foot"></div>
+</div>
+
+<script type="application/json" id="ak-data">/*DATA*/</script>
+<script type="application/json" id="ak-tracks">/*TRACKS*/</script>
+<script>
+(function(){
+  var D=null, MON=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"], DOW=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+  var root=document.documentElement;
+  var GROUPS=[
+    {k:"ski",   name:"Cross-country ski", L:"S", cats:["ski"]},
+    {k:"rink",  name:"Skating rinks",     L:"R", cats:["rink-outdoor","rink-indoor"]},
+    {k:"ice",   name:"Wild ice & lakes",  L:"I", cats:["wild-ice","lake-ski"]},
+    {k:"sight", name:"Sights & hikes",    L:"V", cats:["sight","hike"]},
+    {k:"tour",  name:"Tours & downhill",  L:"T", cats:["tour","downhill"]},
+    {k:"event", name:"Events",            L:"E", cats:["event"]},
+    {k:"food",  name:"Food & drink",      L:"F", cats:["food"]},
+    {k:"stay",  name:"Our house",         L:"H", cats:["stay"]}
+  ];
+  var GOF={}; GROUPS.forEach(function(g){ g.cats.forEach(function(c){ GOF[c]=g; }); });
+  var ON={}; GROUPS.forEach(function(g){ ON[g.k]=true; });
+  var STYLE="all", FROM=null, map=null, layer=null, tlayer=null, pins={}, T=null;
+  var TSTY={both:{n:"Classic + skate",w:3,d:null}, classic:{n:"Classic only",w:3,d:"7 5"}, skate:{n:"Skate only",w:3,d:"2 5"},
+            bc:{n:"Backcountry",w:2,d:"1 5"}, "?":{n:"Grooming not mapped",w:2,d:null,o:.55}};
+  function decode(s){ var pts=[],i=0,lat=0,lon=0;
+    while(i<s.length){ for(var k=0;k<2;k++){ var res=0,sh=0,b; do{ b=s.charCodeAt(i++)-63; res|=(b&31)<<sh; sh+=5; }while(b>=32);
+      var d=(res&1)?~(res>>1):(res>>1); if(k===0) lat+=d; else lon+=d; } pts.push([lat/1e5,lon/1e5]); } return pts; }
+  var col=function(g){ return getComputedStyle(document.querySelector(".ak")).getPropertyValue("--c-"+g.k).trim(); };
+  var esc=function(s){ return String(s==null?"":s).replace(/[&<>"]/g,function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); };
+  var known=function(v){ return v!=null && v!=="" && !/^\s*\?/.test(String(v)); };
+
+  /* ---------- sun: NOAA solar position, local time in Alaska standard time (UTC-9) ---------- */
+  var HOME={lat:61.2181, lon:-149.9003}, TZ=-9;
+  function sunTimes(iso, zen){
+    var d=new Date(iso+"T12:00:00Z"), jd=d/864e5+2440587.5, n=jd-2451545.0+0.0008;
+    var Js=n-HOME.lon/360, M=(357.5291+0.98560028*Js)%360, r=Math.PI/180;
+    var C=1.9148*Math.sin(M*r)+0.02*Math.sin(2*M*r)+0.0003*Math.sin(3*M*r), lam=(M+C+180+102.9372)%360;
+    var Jt=2451545+Js+0.0053*Math.sin(M*r)-0.0069*Math.sin(2*lam*r);
+    var dec=Math.asin(Math.sin(lam*r)*Math.sin(23.44*r));
+    var cw=(Math.cos(zen*r)-Math.sin(HOME.lat*r)*Math.sin(dec))/(Math.cos(HOME.lat*r)*Math.cos(dec));
+    if(cw>1||cw<-1) return null; var w=Math.acos(cw)/r;
+    var toH=function(j){ var h=((j-2440587.5)*24+TZ)%24; return h<0?h+24:h; };
+    return {rise:toH(Jt-w/360), set:toH(Jt+w/360), noon:toH(Jt)};
+  }
+  function hm(h){ var m=Math.round(h*60); return String(Math.floor(m/60)%24).padStart(2,"0")+":"+String(m%60).padStart(2,"0"); }
+  function dur(h){ var m=Math.round(h*60); return Math.floor(m/60)+"h "+String(m%60).padStart(2,"0")+"m"; }
+  function days(){ var out=[], d=new Date(D.trip.from+"T12:00:00Z"), e=new Date(D.trip.to+"T12:00:00Z");
+    for(;d<=e;d=new Date(+d+864e5)) out.push(d.toISOString().slice(0,10)); return out; }
+  function dd(iso){ var d=new Date(iso+"T12:00:00Z"); return {dow:DOW[d.getUTCDay()], d:d.getUTCDate(), m:MON[d.getUTCMonth()], y:d.getUTCFullYear()}; }
+
+  /* ---------- distances ---------- */
+  function km(a,b){ var r=Math.PI/180, x=Math.sin((b.lat-a.lat)*r/2), y=Math.sin((b.lon-a.lon)*r/2);
+    return 12742*Math.asin(Math.sqrt(x*x+Math.cos(a.lat*r)*Math.cos(b.lat*r)*y*y)); }
+  function driveMin(p){ // from the routing table when built, else the researched downtown figure
+    var o=FROM||"downtown"; if(D.drive && D.drive[o] && D.drive[o][p.id]!=null) return D.drive[o][p.id];
+    return known(p.driveFromDowntownMin)?p.driveFromDowntownMin:null; }
+  function fromPt(){ if(!FROM) return HOME; var s=D.stays.filter(function(s){ return s.id===FROM; })[0]; return s||HOME; }
+
+  /* ---------- header ---------- */
+  function drawHead(){
+    var a=dd(D.trip.from), b=dd(D.trip.to), first=sunTimes(D.trip.from,90.833), last=sunTimes(D.trip.to,90.833);
+    document.getElementById("ak-range").textContent=a.d+" "+a.m+" "+a.y+" – "+b.d+" "+b.m+" "+b.y+" · Anchorage, Alaska";
+    var nights=days().length-1, P=D.places;
+    var n=function(g){ return P.filter(function(p){ return GOF[p.cat]&&GOF[p.cat].k===g; }).length; };
+    document.getElementById("ak-facts").innerHTML=
+      '<div class="ak-fact">Nights<b>'+nights+'</b></div>'+
+      '<div class="ak-fact">Ski trail systems<b>'+n("ski")+'</b></div>'+
+      '<div class="ak-fact">Places to skate<b>'+(n("rink")+n("ice"))+'</b></div>'+
+      '<div class="ak-fact">Daylight on arrival<b>'+dur(first.set-first.rise)+'</b><small>sun '+hm(first.rise)+' – '+hm(first.set)+'</small></div>'+
+      '<div class="ak-fact">By 3 Jan<b>'+dur(last.set-last.rise)+'</b><small>+'+Math.round((last.set-last.rise-(first.set-first.rise))*60)+' min</small></div>';
+  }
+
+  /* ---------- filters ---------- */
+  function drawFilters(){
+    var P=all();
+    document.getElementById("ak-filters").innerHTML=GROUPS.map(function(g){
+      var c=P.filter(function(p){ return GOF[p.cat]===g; }).length; if(!c && !(g.k==="ski"&&T)) return "";
+      return '<button type="button" class="ak-chip" data-g="'+g.k+'" aria-pressed="'+ON[g.k]+'"><i style="background:'+col(g)+'">'+g.L+'</i>'+g.name+' <span>'+c+'</span></button>';
+    }).join("");
+    Array.prototype.forEach.call(document.querySelectorAll("#ak-filters .ak-chip"),function(b){ b.onclick=function(){
+      var g=b.getAttribute("data-g"); ON[g]=!ON[g]; b.setAttribute("aria-pressed",ON[g]); drawTracks(); drawPins(); drawList(); }; });
+    var st=[["all","All"],["classic","Classic"],["skate","Skate"],["backcountry","Backcountry"]];
+    document.getElementById("ak-style").innerHTML=st.map(function(s){ return '<button type="button" data-s="'+s[0]+'" aria-pressed="'+(STYLE===s[0])+'">'+s[1]+'</button>'; }).join("");
+    Array.prototype.forEach.call(document.querySelectorAll("#ak-style button"),function(b){ b.onclick=function(){
+      STYLE=b.getAttribute("data-s"); drawFilters(); drawTracks(); drawPins(); drawList(); }; });
+    var sel=document.getElementById("ak-from");
+    if(!sel.options.length){
+      sel.innerHTML=D.stays.map(function(s){ return '<option value="'+s.id+'">Our house · '+esc(s.short||s.name)+'</option>'; }).join("")+'<option value="">Downtown</option>';
+      FROM=D.stays.length?D.stays[0].id:null;
+      sel.onchange=function(){ FROM=sel.value||null; drawList(); };
+    }
+  }
+  function all(){ return D.places.concat(D.stays.map(function(s,i){ return Object.assign({cat:"stay",no:i+1},s); })); }
+  function visible(p){ var g=GOF[p.cat]; if(!g||!ON[g.k]) return false;
+    if(g.k==="ski" && STYLE!=="all" && (p.styles||[]).indexOf(STYLE)<0) return false; return true; }
+
+  /* ---------- map ---------- */
+  function tiles(){
+    var dark=root.getAttribute("data-theme")==="dark";
+    return dark ? L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}",{maxZoom:16,attribution:"Tiles &copy; Esri"})
+                : L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}",{maxZoom:18,attribution:"Tiles &copy; Esri"});
+  }
+  function buildMap(){
+    if(map){ map.remove(); map=null; }
+    map=L.map("ak-map",{zoomControl:true,scrollWheelZoom:false}); tiles().addTo(map);
+    map.createPane("tracks"); map.getPane("tracks").style.zIndex=410;
+    tlayer=L.layerGroup().addTo(map); layer=L.layerGroup().addTo(map); drawTracks(); drawPins(true);
+    if(document.readyState!=="complete") window.addEventListener("load",function(){ map.invalidateSize(); zoomTo(ZOOMS[0]); },{once:true});
+  }
+  function trackOn(w){ if(!ON.ski) return false; if(STYLE==="all") return true;
+    if(STYLE==="classic") return w.s==="both"||w.s==="classic"; if(STYLE==="skate") return w.s==="both"||w.s==="skate"; return w.s==="bc"; }
+  function drawTracks(){ if(!tlayer||!T) return; tlayer.clearLayers();
+    var c=col(GROUPS[0]), glow=root.getAttribute("data-theme")==="dark"?"#d9c23a":"#F0E442", byId={};
+    D.places.forEach(function(p){ byId[p.id]=p; });
+    T.ways.forEach(function(w){ if(!trackOn(w)) return; var pts=w._pts||(w._pts=decode(w.p)), s=TSTY[w.s]||TSTY["?"];
+      if(w.l) L.polyline(pts,{pane:"tracks",color:glow,weight:9,opacity:.6,interactive:false,lineCap:"round"}).addTo(tlayer);
+      var tip='<b>'+esc(w.n||"Unnamed trail")+'</b><br>'+s.n+(w.l?' · lit':'')+' · '+(w.k<1?Math.round(w.k*1000)+' m':w.k.toFixed(1)+' km')+(w.sys&&byId[w.sys]?'<br>'+esc(byId[w.sys].name):'');
+      L.polyline(pts,{pane:"tracks",color:c,weight:s.w,opacity:s.o||.95,dashArray:s.d,lineCap:"butt"}).bindTooltip(tip,{sticky:true}).addTo(tlayer);
+    });
+  }
+  function drawTKey(){ var el=document.getElementById("ak-tkey"); if(!T){ el.hidden=true; return; } el.hidden=false;
+    var c=col(GROUPS[0]), glow=root.getAttribute("data-theme")==="dark"?"#d9c23a":"#F0E442";
+    var line=function(s){ return '<svg width="26" height="10" aria-hidden="true"><line x1="1" y1="5" x2="25" y2="5" stroke="'+c+'" stroke-width="'+s.w+'"'+(s.d?' stroke-dasharray="'+s.d+'"':'')+' opacity="'+(s.o||1)+'"/></svg>'; };
+    var tot=0, lit=0; T.ways.forEach(function(w){ tot+=w.k; if(w.l) lit+=w.k; });
+    el.innerHTML='<span class="ak-tk-h">Trails, '+Math.round(tot)+' km mapped</span>'+["both","classic","skate","bc","?"].map(function(k){ return '<span>'+line(TSTY[k])+TSTY[k].n+'</span>'; }).join("")+
+      '<span><svg width="26" height="10" aria-hidden="true"><line x1="3" y1="5" x2="23" y2="5" stroke="'+glow+'" stroke-width="9" stroke-linecap="round" opacity=".6"/><line x1="1" y1="5" x2="25" y2="5" stroke="'+c+'" stroke-width="3"/></svg>Lit, '+Math.round(lit)+' km</span>'; }
+  function pop(p){ var g=GOF[p.cat], dm=driveMin(p);
+    return '<div class="ak-pop"><b>'+esc(p.name)+'</b><small>'+g.name+(p.area?' · '+esc(p.area):'')+(dm!=null?' · ~'+dm+' min drive':'')+'</small>'+
+      (p.highlights||p.notes?'<p>'+esc(p.highlights||p.notes)+'</p>':'')+
+      (p.url?'<p><a href="'+esc(p.url)+'" target="_blank" rel="noopener">More</a></p>':'')+'</div>'; }
+  function drawPins(fit){
+    layer.clearLayers(); pins={}; var pts=[];
+    all().forEach(function(p){ if(!visible(p) || p.lat==null) return; var g=GOF[p.cat];
+      var ic=L.divIcon({className:"",iconSize:[22,22],iconAnchor:[11,11],
+        html:'<div class="ak-pin'+(g.k==="stay"?" stay":"")+'" style="background:'+col(g)+'">'+g.L+'</div>'});
+      var m=L.marker([p.lat,p.lon],{icon:ic,title:p.name,zIndexOffset:g.k==="stay"?500:0}).bindPopup(pop(p)).addTo(layer);
+      pins[p.id]=m; pts.push([p.lat,p.lon]); });
+    if(fit) zoomTo(ZOOMS[0]);
+  }
+  var ZOOMS=[{n:"Anchorage",b:[[61.08,-150.08],[61.24,-149.70]]},{n:"Eagle River",b:[[61.27,-149.62],[61.46,-149.10]]},
+             {n:"Mat-Su",b:[[61.50,-149.60],[61.82,-148.95]]},{n:"Girdwood",b:[[60.90,-149.25],[61.02,-148.95]]},
+             {n:"Turnagain & Kenai",b:[[60.10,-149.80],[60.95,-148.70]]},{n:"Everything",b:null}];
+  function zoomTo(z){ if(z.b) return map.fitBounds(z.b);
+    var pts=all().filter(function(p){ return p.lat!=null && km(HOME,p)<250; }).map(function(p){ return [p.lat,p.lon]; }); map.fitBounds(pts,{padding:[20,20]}); }
+  function drawZoom(){ var el=document.getElementById("ak-zoom");
+    el.innerHTML=ZOOMS.map(function(z,i){ return '<button type="button" data-z="'+i+'">'+z.n+'</button>'; }).join("");
+    Array.prototype.forEach.call(el.querySelectorAll("button"),function(b){ b.onclick=function(){ zoomTo(ZOOMS[+b.getAttribute("data-z")]); }; }); }
+  function showOnMap(id){ var m=pins[id]; if(!m) return;
+    document.getElementById("ak-map").scrollIntoView({behavior:"smooth",block:"center"});
+    map.setView(m.getLatLng(),Math.max(map.getZoom(),12)); m.openPopup(); }
+
+  /* ---------- schedule ---------- */
+  function drawSched(){
+    var H0=6, H1=24, x=function(h){ return ((Math.min(Math.max(h,H0),H1)-H0)/(H1-H0)*100).toFixed(2)+"%"; };
+    var w=function(a,b){ return ((Math.min(b,H1)-Math.max(a,H0))/(H1-H0)*100).toFixed(2)+"%"; };
+    var axis='<div class="ak-axis"><span></span><div class="tl">'+[6,9,12,15,18,21,24].map(function(h){ return '<span style="left:'+x(h)+'">'+(h===24?"24":String(h).padStart(2,"0"))+'</span>'; }).join("")+'</div></div>';
+    var byId={}; all().forEach(function(p){ byId[p.id]=p; });
+    var rows=days().map(function(iso){
+      var s=sunTimes(iso,90.833), c=sunTimes(iso,96), t=dd(iso);
+      var items=(D.plan||[]).filter(function(e){ return e.date===iso; });
+      var ev=items.map(function(e){ var p=byId[e.id]||{}, g=GOF[p.cat]||GROUPS[5], a=tod(e.start), b=e.end?tod(e.end):a+1; if(b<=a) b=24;
+        return '<div class="ev" style="left:'+x(a)+';width:'+w(a,b)+';background:'+col(g)+'" data-id="'+esc(e.id||"")+'" title="'+esc((e.start||"")+(e.end?"–"+e.end:"")+" · "+(e.title||p.name||""))+'">'+esc(e.title||p.name||"")+'</div>'; }).join("");
+      var grid=[9,12,15,18,21].map(function(h){ return '<div class="grid" style="left:'+x(h)+'"></div>'; }).join("");
+      var notes=items.filter(function(e){ return e.note; }).map(function(e){ return esc(e.note); }).join(" · ");
+      return '<div class="ak-drow"><div class="d"><b>'+t.dow+' '+t.d+' '+t.m+'</b><small>'+hm(s.rise)+'–'+hm(s.set)+' · '+dur(s.set-s.rise)+'</small></div>'+
+        '<div class="ak-tl"><div class="tw" style="left:'+x(c.rise)+';width:'+w(c.rise,c.set)+'"></div><div class="dl" style="left:'+x(s.rise)+';width:'+w(s.rise,s.set)+'"></div>'+grid+ev+'</div>'+
+        (notes?'<p class="ak-dnote">'+notes+'</p>':'')+'</div>';
+    }).join("");
+    document.getElementById("ak-sched").innerHTML=axis+rows;
+    document.getElementById("ak-skey").innerHTML='<span><i style="background:var(--day)"></i>sun up</span><span><i style="background:var(--twi)"></i>civil twilight</span><span><i style="background:var(--night)"></i>dark</span>'+
+      ((D.plan||[]).length?'':'<span>Nothing planned yet: the list below is the menu.</span>');
+    Array.prototype.forEach.call(document.querySelectorAll("#ak-sched .ev"),function(b){ b.onclick=function(){ var id=b.getAttribute("data-id"); if(id) showOnMap(id); }; });
+  }
+  function tod(s){ if(!s) return 12; var p=s.split(":"); return +p[0]+(+p[1]||0)/60; }
+
+  /* ---------- list ---------- */
+  function tags(p){ var t=[];
+    (p.styles||[]).forEach(function(s){ t.push('<span class="ak-tag on">'+s+'</span>'); });
+    if(known(p.lit) && !/^no\b/i.test(p.lit)) t.push('<span class="ak-tag">lit</span>');
+    if(p.kind||p.cat==="rink-indoor") {}
+    if(p.cat==="rink-indoor") t.push('<span class="ak-tag">indoor</span>');
+    if(p.cat==="rink-outdoor") t.push('<span class="ak-tag">outdoor</span>');
+    if(p.cat==="wild-ice") t.push('<span class="ak-tag warn">natural ice · check first</span>');
+    if(p.cat==="lake-ski") t.push('<span class="ak-tag">lake ski</span>');
+    if(p.bookAhead===true) t.push('<span class="ak-tag warn">book ahead</span>');
+    if(known(p.dogs) && /no|not/i.test(p.dogs)) t.push('<span class="ak-tag">no dogs</span>');
+    return t.length?'<div class="ak-tags">'+t.join("")+'</div>':""; }
+  function meta(p){ var m=[];
+    if(p.osm && p.osm.km>=1) m.push("≈"+p.osm.km+" km of mapped trail nearest this trailhead (classic "+p.osm.classic+", skate "+p.osm.skate+(p.osm.lit?", lit "+p.osm.lit:"")+")");
+    if(known(p.km)) m.push(p.km+(typeof p.km==="number"?" km":""));
+    if(known(p.groomedBy)) m.push("groomed by "+p.groomedBy);
+    if(known(p.maintainedBy)) m.push(p.maintainedBy);
+    if(known(p.surface)) m.push(p.surface);
+    if(known(p.lit) && !/^no\b/i.test(p.lit)) m.push("lit: "+p.lit);
+    if(known(p.hours)) m.push(p.hours);
+    if(known(p.hoursOrDates)) m.push(p.hoursOrDates);
+    if(known(p.fee)) m.push(p.fee);
+    if(known(p.cost)) m.push(p.cost);
+    return m.length?'<p class="meta">'+esc(m.join(" · "))+'</p>':""; }
+  function drawList(){
+    var P=all(), fp=fromPt(), html="";
+    GROUPS.forEach(function(g){ if(!ON[g.k]) return;
+      var items=P.filter(function(p){ return GOF[p.cat]===g && visible(p); });
+      if(!items.length) return;
+      items.sort(function(a,b){ var da=driveMin(a), db=driveMin(b);
+        if(da!=null||db!=null) return (da==null?1e9:da)-(db==null?1e9:db); return km(fp,a)-km(fp,b); });
+      html+='<div class="ak-group"><h3><i style="background:'+col(g)+'">'+g.L+'</i>'+g.name+' <span>'+items.length+'</span></h3>'+items.map(function(p){
+        var dm=driveMin(p), k=p.lat!=null?km(fp,p):null;
+        return '<div class="ak-item"><div class="t"><b>'+esc(p.name)+'</b><span class="area">'+esc(p.area||"")+'</span>'+
+          tags(p)+meta(p)+(p.highlights?'<p>'+esc(p.highlights)+'</p>':'')+(p.notes?'<p>'+esc(p.notes)+'</p>':'')+(p.grooming&&known(p.grooming)?'<p class="meta">grooming: '+esc(p.grooming)+'</p>':'')+
+          (p.url?'<p class="meta"><a href="'+esc(p.url)+'" target="_blank" rel="noopener">'+esc(p.url.replace(/^https?:\/\/(www\.)?/,"").split(/[/?#]/)[0])+'</a></p>':'')+'</div>'+
+          '<div class="n">'+(dm!=null?'<b>~'+dm+' min</b>drive':'')+(k!=null?'<br>'+(k<1?Math.round(k*1000)+' m':k.toFixed(k<10?1:0)+' km')+' straight':'')+'</div>'+
+          (p.lat!=null?'<button type="button" class="ak-go" data-id="'+esc(p.id)+'" aria-label="Show '+esc(p.name)+' on the map" title="Show on map">&#9906;</button>':'<span></span>')+'</div>';
+      }).join("")+'</div>';
+    });
+    document.getElementById("ak-list").innerHTML=html||'<p class="ak-empty">Nothing matches these filters.</p>';
+    Array.prototype.forEach.call(document.querySelectorAll("#ak-list .ak-go"),function(b){ b.onclick=function(){ showOnMap(b.getAttribute("data-id")); }; });
+  }
+
+  function drawNotes(){
+    var N=D.notes||[]; document.getElementById("ak-notescard").hidden=!N.length;
+    document.getElementById("ak-notes").innerHTML=N.map(function(n){ return '<h3>'+esc(n.h)+'</h3>'+n.p.map(function(t){ return '<p>'+esc(t)+'</p>'; }).join(""); }).join("");
+    document.getElementById("ak-foot").innerHTML='Map tiles &copy; Esri. Trailhead and place positions from OpenStreetMap contributors via Nominatim; drive times from OSRM on OpenStreetMap roads, without winter conditions. '+
+      'Sunrise and sunset computed for downtown Anchorage. Grooming, hours and ice change daily: check the linked source before going.'+(D.generated?' Updated '+esc(D.generated)+'.':'');
+  }
+
+  /* ---------- theme ---------- */
+  function setTheme(m){ try{ localStorage.setItem("ak-theme",m); }catch(e){}
+    root.setAttribute("data-mode",m);
+    root.setAttribute("data-theme", m!=="auto"?m:(matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"));
+    Array.prototype.forEach.call(document.querySelectorAll("[data-theme-set]"),function(b){ b.setAttribute("aria-pressed",b.getAttribute("data-theme-set")===m); });
+    if(D){ drawFilters(); buildMap(); drawTKey(); drawSched(); drawList(); } }
+  Array.prototype.forEach.call(document.querySelectorAll("[data-theme-set]"),function(b){ b.onclick=function(){ setTheme(b.getAttribute("data-theme-set")); }; });
+  Array.prototype.forEach.call(document.querySelectorAll("[data-theme-set]"),function(b){ b.setAttribute("aria-pressed",b.getAttribute("data-theme-set")===root.getAttribute("data-mode")); });
+  if(window.matchMedia) matchMedia("(prefers-color-scheme:dark)").addEventListener("change",function(){ if(root.getAttribute("data-mode")==="auto") setTheme("auto"); });
+
+  D=JSON.parse(document.getElementById("ak-data").textContent);
+  var tj=document.getElementById("ak-tracks"); T=tj&&tj.textContent.trim()?JSON.parse(tj.textContent):null;
+  drawHead(); drawFilters(); drawZoom(); buildMap(); drawTKey(); drawSched(); drawList(); drawNotes();
+})();
+</script>
+</body>
+</html>
