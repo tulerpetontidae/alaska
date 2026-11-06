@@ -222,7 +222,7 @@
     moa_both:{n:"Groomed: classic track + skate",w:3.6},
     moa_skate:{n:"Groomed: skate / corduroy, no classic track",w:3.6,d:"9 4"},
     osm:{n:"Other mapped ski trail (OSM; grooming unconfirmed)",w:2,o:.7},
-    bc:{n:"Backcountry route (ungroomed)",w:3.2,d:"6 3",o:1}};
+    bc:{n:"Backcountry route (ungroomed)",w:2.2,d:"3 4",o:.85}};
   function tkey(w){ return w.src==="moa"?(w.s==="both"?"moa_both":"moa_skate"):w.src==="bc"?"bc":"osm"; }
   var LIVE={}, LIVEOK=false;
   function ago(ms){ var d=(Date.now()-ms)/864e5; return d<1?Math.max(1,Math.round(d*24))+" h ago":Math.round(d)+(Math.round(d)===1?" day ago":" days ago"); }
@@ -330,13 +330,13 @@
         (lv&&fresh(lv.Grooming_Date)?'<br><b>Last groomed '+ago(lv.Grooming_Date)+'</b>'+(lv.Grooming_Comments?': '+esc(lv.Grooming_Comments):''):'')+
         (lv&&lv.Conditions_Warning&&lv.Conditions_Warning!=="No"?'<br>⚠ '+esc(lv.Conditions_Warning):'')+
         (w.sys&&byId[w.sys]?'<br><span style="color:var(--muted)">'+esc(byId[w.sys].name)+'</span>':'');
-      var colr=w.src==="bc"?(root.getAttribute("data-theme")==="dark"?"#c9d6e2":"#24384d"):c;
+      var colr=w.src==="bc"?(root.getAttribute("data-theme")==="dark"?"#aebfcf":"#3a5269"):c;
       L.polyline(pts,{pane:"tracks",color:colr,weight:s.w,opacity:s.o||.95,dashArray:s.d||null,lineCap:"butt"}).bindTooltip(tip,{sticky:true}).addTo(tlayer);
     });
   }
   function drawTKey(){ var el=document.getElementById("ak-tkey"); if(!T){ el.hidden=true; return; } el.hidden=false;
     var c=col(GROUPS[0]), glow=root.getAttribute("data-theme")==="dark"?"#d9c23a":"#F0E442";
-    var bcc=root.getAttribute("data-theme")==="dark"?"#c9d6e2":"#24384d";
+    var bcc=root.getAttribute("data-theme")==="dark"?"#aebfcf":"#3a5269";
     var line=function(s,k){ return '<svg width="26" height="10" aria-hidden="true"><line x1="1" y1="5" x2="25" y2="5" stroke="'+(k==="bc"?bcc:c)+'" stroke-width="'+s.w+'"'+(s.d?' stroke-dasharray="'+s.d+'"':'')+' opacity="'+(s.o||1)+'"/></svg>'; };
     var km={}, lit=0; T.ways.forEach(function(w){ var k=tkey(w); km[k]=(km[k]||0)+w.k; if(w.l) lit+=w.k; });
     el.innerHTML='<span class="ak-tk-h">Trail lines</span>'+["moa_both","moa_skate","osm","bc"].map(function(k){ return '<span>'+line(TSTY[k],k)+TSTY[k].n+' · '+Math.round(km[k]||0)+' km</span>'; }).join("")+
