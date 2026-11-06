@@ -32,11 +32,20 @@
 
   .ak-hero{background:var(--hero-bg);color:var(--hero-fg);border-radius:3px;padding:30px 28px 26px;margin-top:14px;position:relative;overflow:hidden}
   .ak-hero > *:not(.ak-flag){position:relative;z-index:1}
-  .ak-flag{position:absolute;right:3%;top:50%;height:104%;width:auto;opacity:.3;transform:translateY(-50%) rotate(10deg);pointer-events:none}
+  .ak-flag{position:absolute;right:4%;top:50%;height:83%;width:auto;transform:translateY(-50%);pointer-events:none;filter:drop-shadow(0 0 6px rgba(255,182,18,.35))}
+  .ak-flag polygon{opacity:0;transform-box:fill-box;transform-origin:center;
+    animation:akIn .7s ease-out forwards,akTw 3.4s ease-in-out infinite;
+    animation-delay:calc(var(--i)*.38s + .3s),calc(var(--i)*.38s + 1s + var(--j))}
+  .ak-flag .ak-dip{fill:none;stroke:#FFB612;stroke-width:3;stroke-dasharray:4 10;opacity:0;animation:akLine 1.2s ease-out 3.6s forwards}
+  @keyframes akIn{from{opacity:0;transform:scale(.2)}to{opacity:.42;transform:scale(1)}}
+  @keyframes akTw{0%,100%{opacity:.42}45%{opacity:.14}55%{opacity:.5}}
+  @keyframes akLine{to{opacity:.14}}
+  @media (prefers-reduced-motion:reduce){ .ak-flag polygon{animation:none;opacity:.42} .ak-flag .ak-dip{animation:none;opacity:.14} }
   .ak-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;opacity:.7}
   .ak-title{font-family:var(--disp);font-weight:800;font-size:64px;line-height:.95;margin:8px 0 6px}
   .ak-sub{font-size:15px;opacity:.85;margin:0;max-width:60ch}
-  .ak-facts{display:flex;flex-wrap:wrap;gap:26px;margin-top:22px}
+  .ak-facts{display:flex;flex-direction:column;gap:18px;margin-top:22px}
+  .ak-frow{display:flex;flex-wrap:wrap;gap:26px 30px}
   .ak-fact{font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;opacity:.62}
   .ak-fact b{display:block;font-family:var(--disp);font-weight:800;font-size:30px;letter-spacing:0;opacity:1;margin-top:2px}
   .ak-fact small{display:block;font-size:9.5px;letter-spacing:.08em;margin-top:1px;text-transform:none}
@@ -145,7 +154,7 @@
   @media (max-width:760px){
     .ak-hero{padding:24px 18px 20px}
     .ak-title{font-size:48px}
-    .ak-flag{height:auto;width:90%;right:4%;top:40%;opacity:.22}
+    .ak-flag{height:auto;width:66%;right:4%;top:220px;transform:none}
     .ak-facts{max-width:none}
     .ak-card{padding:16px}
     .ak-map{height:440px}
@@ -163,7 +172,7 @@
   <div class="ak-themebar"></div>
 
   <div class="ak-hero">
-    <svg class="ak-flag" viewBox="150 120 1100 780" aria-hidden="true"><g fill="#FFB612"><polygon points="229,365 237,388 261,388 241,403 249,427 229,412 209,427 217,403 197,388 221,388"/><polygon points="396,427 404,450 428,450 408,465 416,489 396,474 376,489 384,465 364,450 388,450"/><polygon points="479,516 487,539 511,539 491,554 499,578 479,563 459,578 467,554 447,539 471,539"/><polygon points="563,609 571,632 595,632 575,647 583,671 563,656 543,671 551,647 531,632 555,632"/><polygon points="552,740 560,763 584,763 564,778 572,802 552,787 532,802 540,778 520,763 544,763"/><polygon points="740,802 748,825 772,825 752,840 760,864 740,849 720,864 728,840 708,825 732,825"/><polygon points="813,698 821,721 845,721 825,736 833,760 813,745 793,760 801,736 781,721 805,721"/><polygon points="1158,130 1171,170 1213,170 1179,194 1192,234 1158,209 1124,234 1137,194 1103,170 1145,170"/></g></svg>
+    <svg class="ak-flag" viewBox="170 110 1080 790" aria-hidden="true"><polyline class="ak-dip" points="229,399 396,461 479,550 563,643 552,774 740,836 813,732 563,643"/><g fill="#FFB612"><polygon style="--i:0;--j:0.8s" points="229,369 236,389 258,390 240,403 247,423 229,411 211,423 218,403 200,390 222,389"/><polygon style="--i:1;--j:0.4s" points="396,431 403,451 425,452 407,465 414,485 396,473 378,485 385,465 367,452 389,451"/><polygon style="--i:2;--j:1.6s" points="479,520 486,540 508,541 490,554 497,574 479,562 461,574 468,554 450,541 472,540"/><polygon style="--i:3;--j:0.2s" points="563,613 570,633 592,634 574,647 581,667 563,655 545,667 552,647 534,634 556,633"/><polygon style="--i:4;--j:1.3s" points="552,744 559,764 581,765 563,778 570,798 552,786 534,798 541,778 523,765 545,764"/><polygon style="--i:5;--j:0.9s" points="740,806 747,826 769,827 751,840 758,860 740,848 722,860 729,840 711,827 733,826"/><polygon style="--i:6;--j:0.1s" points="813,702 820,722 842,723 824,736 831,756 813,744 795,756 802,736 784,723 806,722"/><polygon style="--i:8;--j:1.2s" points="1158,138 1170,171 1206,172 1177,194 1187,228 1158,208 1129,228 1139,194 1110,172 1146,171"/></g></svg>
     <div class="ak-eyebrow" id="ak-range">—</div>
     <h1 class="ak-title">Alaska New Year</h1>
     <p class="ak-sub">Ski trails, ice and everything else around Anchorage, for twelve short days at midwinter.</p>
@@ -280,11 +289,11 @@
     if(T) T.ways.forEach(function(w){ if(w.src==="moa") groomed+=w.k; });
     var F=D.feasts||[], A=D.aurora||{};
     document.getElementById("ak-facts").innerHTML=
-      '<div class="ak-fact">Trail systems to ski<b>'+n("ski")+'</b>'+(groomed?'<small>'+Math.round(groomed)+' km groomed in Anchorage</small>':'')+'</div>'+
+      '<div class="ak-frow"><div class="ak-fact">Trail systems to ski<b>'+n("ski")+'</b>'+(groomed?'<small>'+Math.round(groomed)+' km groomed in Anchorage</small>':'')+'</div>'+
       '<div class="ak-fact">Ice to skate<b>'+skate.length+'</b><small>'+rinks+' rinks · '+(skate.length-rinks)+' lakes & lagoons</small></div>'+
       (A.value?'<div class="ak-fact">Aurora chance (est.)<b>'+esc(A.value)+'</b><small>'+esc(A.note||"")+'</small></div>':'')+
-      (F.length?'<div class="ak-fact">Holiday feasts to cook<b>'+F.length+'</b><small>'+F.map(function(f){ var t=dd(f.date); return esc(f.name)+' '+t.d+' '+t.m; }).join(" · ")+'</small></div>':'')+
-      '<div class="ak-fact">Sunrise – sunset<b>'+hm(first.rise)+'–'+hm(first.set)+'</b><small>'+dur(first.set-first.rise)+' of sun, '+dur(last.set-last.rise)+' by 3 Jan</small></div>';
+      '</div><div class="ak-frow">'+(F.length?'<div class="ak-fact">Holiday feasts to cook<b>'+F.length+'</b><small>'+F.map(function(f){ var t=dd(f.date); return esc(f.name)+' '+t.d+' '+t.m; }).join(" · ")+'</small></div>':'')+
+      '<div class="ak-fact">Sunrise – sunset<b>'+hm(first.rise)+'–'+hm(first.set)+'</b><small>'+dur(first.set-first.rise)+' of sun, '+dur(last.set-last.rise)+' by 3 Jan</small></div></div>';
   }
 
   /* ---------- filters ---------- */
