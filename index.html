@@ -146,6 +146,11 @@
   .ak-hz .nogo{border-color:var(--hz-nogo);background:var(--hz-nogo-bg)} .ak-hz .nogo b{color:var(--hz-nogo)}
   .ak-hz .high{border-color:var(--hz-high);background:var(--hz-high-bg)} .ak-hz .high b{color:var(--hz-high)}
   .ak-hz .caution{border-color:var(--hz-caut)} .ak-hz .caution b{color:var(--hz-caut-t)}
+  .ak-hz[hidden]{display:none}
+  .ak-hzt{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
+  .ak-hzc{font-family:var(--mono);font-size:9px;letter-spacing:.06em;text-transform:uppercase;padding:0 5px;line-height:15px;border:1px solid;border-radius:2px;background:transparent;cursor:pointer}
+  .ak-hzc.high{color:var(--hz-high);border-color:var(--hz-high)}
+  .ak-hzc.caution{color:var(--hz-caut-t);border-color:var(--hz-caut)}
   .ak-pin .hzb{position:absolute;right:-5px;top:-5px;width:11px;height:11px;border-radius:50%;border:1.5px solid var(--paper);font:700 7px/8px var(--body);color:#fff;text-align:center}
   .ak-pin{position:relative}
   .ak-empty{font-size:12.5px;color:var(--muted);padding:12px 0}
@@ -369,6 +374,12 @@
   function hzBox(p,short){ var H=p.hazards||[]; if(!H.length) return "";
     var order={nogo:0,high:1,caution:2}; H=H.slice().sort(function(a,b){ return order[a.lv]-order[b.lv]; });
     return '<div class="ak-hz">'+H.map(function(z){ return '<div class="'+z.lv+'" title="'+HZL[z.lv][1]+'"><b>'+HZL[z.lv][0]+' '+esc(z.kind)+'</b>'+esc(short&&z.text.length>140?z.text.slice(0,137)+"…":z.text)+'</div>'; }).join("")+'</div>'; }
+  function hzList(p){ var H=p.hazards||[]; if(!H.length) return "";
+    var order={nogo:0,high:1,caution:2}; H=H.slice().sort(function(a,b){ return order[a.lv]-order[b.lv]; });
+    var nogo=H.filter(function(z){ return z.lv==="nogo"; }), rest=H.filter(function(z){ return z.lv!=="nogo"; });
+    return (nogo.length?'<div class="ak-hz">'+nogo.map(function(z){ return '<div class="nogo" title="No-go"><b>⛔ '+esc(z.kind)+'</b>'+esc(z.text)+'</div>'; }).join("")+'</div>':'')+
+      (rest.length?'<div class="ak-hzt">'+rest.map(function(z,i){ return '<button type="button" class="ak-hzc '+z.lv+'" data-i="'+i+'" title="'+HZL[z.lv][1]+': '+esc(z.text)+'">'+HZL[z.lv][0]+' '+esc(z.kind)+'</button>'; }).join("")+'</div>'+
+        '<div class="ak-hz ak-hzx" hidden>'+rest.map(function(z){ return '<div class="'+z.lv+'"><b>'+HZL[z.lv][0]+' '+esc(z.kind)+'</b>'+esc(z.text)+'</div>'; }).join("")+'</div>':''); }
   function worst(p){ var H=p.hazards||[]; return H.some(function(z){ return z.lv==="nogo"; })?"nogo":H.some(function(z){ return z.lv==="high"; })?"high":null; }
   function clip(s,n){ s=String(s); if(s.length<=n) return s; var c=s.slice(0,n), k=Math.max(c.lastIndexOf(". "),c.lastIndexOf("; ")); return (k>n*0.5?c.slice(0,k+1):c.replace(/\s+\S*$/,"")+"…"); }
   function pop(p){ var g=GOF[p.cat], dm=driveMin(p);
@@ -426,7 +437,6 @@
     (p.rents||[]).forEach(function(s){ t.push('<span class="ak-tag on">'+esc(s)+'</span>'); });
     if(known(p.lit) && !/^no\b/i.test(p.lit)) t.push('<span class="ak-tag">lit</span>');
     if(p.cat==="rink-outdoor") t.push('<span class="ak-tag'+(p.muni?' on">city-maintained':'">outdoor')+'</span>');
-    if(p.cat==="wild-ice") t.push('<span class="ak-tag warn">natural ice · check first</span>');
     if(p.cat==="lake-ski") t.push('<span class="ak-tag">lake ski</span>');
     if(p.kind==="hot-spring") t.push('<span class="ak-tag on">hot spring</span>');
     if(p.kind==="spa") t.push('<span class="ak-tag on">spa</span>');
@@ -468,7 +478,7 @@
       html+='<div class="ak-group"><h3><i style="background:'+col(g)+'">'+g.L+'</i>'+g.name+' <span>'+items.length+'</span></h3>'+items.map(function(p){
         var dm=driveMin(p), k=p.lat!=null?km(fp,p):null;
         return '<div class="ak-item"><div class="t"><b>'+esc(p.name)+'</b><span class="area">'+esc(p.area||"")+'</span>'+
-          tags(p)+hzBox(p,false)+meta(p)+moreP([p.highlights,p.notes].filter(Boolean).join(" "))+(p.grooming&&known(p.grooming)?'<p class="meta">grooming: '+esc(p.grooming)+'</p>':'')+
+          tags(p)+hzList(p)+meta(p)+moreP([p.highlights,p.notes].filter(Boolean).join(" "))+(p.grooming&&known(p.grooming)?'<p class="meta">grooming: '+esc(p.grooming)+'</p>':'')+
           (p.url?'<p class="meta"><a href="'+esc(p.url)+'" target="_blank" rel="noopener">'+esc(p.url.replace(/^https?:\/\/(www\.)?/,"").split(/[/?#]/)[0])+'</a></p>':'')+'</div>'+
           '<div class="n">'+(dm!=null?'<b>~'+dm+' min</b>drive':'')+(k!=null?'<br>'+(k<1?Math.round(k*1000)+' m':k.toFixed(k<10?1:0)+' km')+' straight':'')+'</div>'+
           (p.lat!=null?'<button type="button" class="ak-go" data-id="'+esc(p.id)+'" aria-label="Show '+esc(p.name)+' on the map" title="Show on map">&#9906;</button>':'<span></span>')+'</div>';
@@ -476,6 +486,7 @@
     });
     document.getElementById("ak-list").innerHTML=html||'<p class="ak-empty">Nothing matches these filters.</p>';
     Array.prototype.forEach.call(document.querySelectorAll("#ak-list .ak-go"),function(b){ b.onclick=function(){ showOnMap(b.getAttribute("data-id")); }; });
+    Array.prototype.forEach.call(document.querySelectorAll("#ak-list .ak-hzc"),function(b){ b.onclick=function(){ var x=b.parentNode.nextElementSibling; x.hidden=!x.hidden; }; });
     Array.prototype.forEach.call(document.querySelectorAll("#ak-list .ak-more"),function(b){ b.onclick=function(){ var q=b.previousElementSibling, open=q.classList.toggle("open"); b.textContent=open?"less":"more"; }; });
   }
 
