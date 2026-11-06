@@ -627,36 +627,5 @@
   "durationHours": 2,
   "notes": "Classic Alaska seafood with Cook Inlet sunset views. Since sunset is ~15:45, book an early slot to see it.",
   "url": "https://www.simonandseaforts.com/"
- },
- {
-  "id": "girdwood-food",
-  "name": "Girdwood: The Bake Shop, Jack Sprat, Girdwood Brewing",
-  "cat": "food",
-  "area": "Girdwood",
-  "lat": 60.9603575,
-  "lon": -149.108144,
-  "coordNote": "The Bake Shop; Jack Sprat 60.9609515,-149.1103107; Girdwood Brewing 60.9603902,-149.1239837",
-  "driveFromDowntownMin": 45,
-  "hoursOrDates": "Varies. Holiday hours ?",
-  "cost": "$-$$$",
-  "bookAhead": true,
-  "durationHours": 1.5,
-  "notes": "The Bake Shop for sourdough pancakes and soup at the base, Jack Sprat for dinner (reserve), Girdwood Brewing for après with food trucks.",
-  "url": "https://www.visitgirdwood.com/"
- },
- {
-  "id": "talkeetna-roadhouse",
-  "name": "Talkeetna Roadhouse",
-  "cat": "food",
-  "area": "Talkeetna",
-  "lat": 62.3229741,
-  "lon": -150.1151209,
-  "driveFromDowntownMin": 135,
-  "hoursOrDates": "Year-round. Winter public meal hours ?",
-  "cost": "$",
-  "bookAhead": false,
-  "durationHours": 1,
-  "notes": "Historic roadhouse with sourdough flapjacks and baked goods. Check whether it is serving the public in winter.",
-  "url": "https://www.talkeetnaroadhouse.com/"
  }
 ]
