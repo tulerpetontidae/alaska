@@ -32,30 +32,15 @@
 
   .ak-hero{background:var(--hero-bg);color:var(--hero-fg);border-radius:3px;padding:30px 28px 26px;margin-top:14px;position:relative;overflow:hidden}
   .ak-hero > *:not(.ak-sky):not(.ak-aurora){position:relative;z-index:1}
-  .ak-aurora{position:absolute;top:-30%;right:-8%;width:78%;height:150%;z-index:0;pointer-events:none;overflow:hidden;opacity:0;animation:akShow var(--P) ease-in-out var(--D) infinite;
-    -webkit-mask-image:radial-gradient(ellipse 70% 60% at 60% 45%,#000 30%,transparent 75%);mask-image:radial-gradient(ellipse 70% 60% at 60% 45%,#000 30%,transparent 75%)}
-  .ak-aurora i{position:absolute;left:5%;width:95%;height:24%;border-radius:50% 50% 40% 40%;filter:blur(9px);mix-blend-mode:screen;opacity:0;
-    background:repeating-linear-gradient(90deg,rgba(255,255,255,0) 0 5px,rgba(255,255,255,.22) 5px 7px,rgba(255,255,255,0) 7px 13px),
-               linear-gradient(180deg,transparent 0%,var(--a1) 40%,var(--a2) 78%,transparent 100%);
-    -webkit-mask-image:linear-gradient(90deg,transparent,#000 18%,#000 82%,transparent);mask-image:linear-gradient(90deg,transparent,#000 18%,#000 82%,transparent);
-    transform-origin:50% 100%;opacity:1;animation:akAur var(--t) ease-in-out var(--dl) infinite alternate}
-  .ak-aurora i:nth-child(1){top:26%;--a1:rgba(120,255,190,.55);--a2:rgba(40,210,160,.35);--t:17s;--dl:.4s;--r:-9deg;--x:-6%}
-  .ak-aurora i:nth-child(2){top:16%;--a1:rgba(150,120,255,.28);--a2:rgba(90,255,200,.38);--t:23s;--dl:1.6s;--r:-14deg;--x:8%;width:80%;left:18%}
-  .ak-aurora i:nth-child(3){top:38%;--a1:rgba(60,230,210,.32);--a2:rgba(110,255,170,.30);--t:29s;--dl:3s;--r:-5deg;--x:-12%;height:26%}
-  .ak-aurora i:nth-child(4){top:8%;--a1:rgba(190,140,255,.18);--a2:rgba(120,255,200,.2);--t:37s;--dl:5s;--r:-18deg;--x:14%;width:60%;left:35%;height:24%}
+  .ak-aurora{position:absolute;top:-6%;right:-4%;width:74%;height:112%;z-index:0;pointer-events:none;filter:blur(1.2px) saturate(1.15);
+    -webkit-mask-image:radial-gradient(ellipse 62% 68% at 58% 52%,#000 40%,transparent 80%);mask-image:radial-gradient(ellipse 62% 68% at 58% 52%,#000 40%,transparent 80%)}
   .ak-hero{--P:60s;--D:10s}
   .ak-sky .sw{transform-box:fill-box;transform-origin:center;animation:akDim var(--P) ease-in-out var(--D) infinite}
   .ak-sky .st .core{transform-box:fill-box;transform-origin:center;animation:akDimCore var(--P) ease-in-out var(--D) infinite}
   .ak-sky .lns{animation:akDimLn var(--P) ease-in-out var(--D) infinite}
-  @keyframes akShow{0%{opacity:0}9%{opacity:1}27%{opacity:1}36%{opacity:0}100%{opacity:0}}
   @keyframes akDim{0%{opacity:1;transform:scale(1)}7%{opacity:0;transform:scale(.25)}29%{opacity:0;transform:scale(.25)}38%{opacity:1;transform:scale(1)}100%{opacity:1;transform:scale(1)}}
   @keyframes akDimCore{0%{opacity:1;transform:scale(1)}7%{opacity:.75;transform:scale(.55)}29%{opacity:.75;transform:scale(.55)}38%{opacity:1;transform:scale(1)}100%{opacity:1;transform:scale(1)}}
   @keyframes akDimLn{0%{opacity:1}7%{opacity:0}29%{opacity:0}38%{opacity:1}100%{opacity:1}}
-  @keyframes akAur{
-    0%{transform:translateX(0) rotate(var(--r)) skewX(-18deg) scaleY(1)}
-    35%{transform:translateX(var(--x)) rotate(calc(var(--r) + 4deg)) skewX(-6deg) scaleY(1.25)}
-    70%{transform:translateX(calc(var(--x) * -.6)) rotate(calc(var(--r) - 3deg)) skewX(-24deg) scaleY(.85)}
-    100%{transform:translateX(calc(var(--x) * .4)) rotate(var(--r)) skewX(-12deg) scaleY(1.1)}}
   .ak-sky{position:absolute;right:-6%;top:50%;height:86%;width:56%;transform:translateY(-50%);pointer-events:none;overflow:visible;opacity:.62}
   .ak-sky .bg{fill:#fff;opacity:0;animation:akBg var(--d) ease-in-out var(--dl) infinite}
   .ak-sky .ln{stroke:#CFE3FF;stroke-width:2;stroke-linecap:round;opacity:.28;stroke-dasharray:var(--len);stroke-dashoffset:var(--len);animation:akDraw .55s ease-out var(--dl) forwards}
@@ -70,7 +55,7 @@
   @keyframes akTwinkle{0%,100%{opacity:1;transform:scale(1) rotate(0)}30%{opacity:calc(var(--s)*.5);transform:scale(.72) rotate(8deg)}55%{opacity:1;transform:scale(1.12) rotate(-4deg)}}
   @keyframes akPulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.35);opacity:.6}}
   @media (prefers-reduced-motion:reduce){
-    .ak-sky *,.ak-aurora,.ak-aurora i{animation:none!important} .ak-aurora{opacity:0}
+    .ak-sky *{animation:none!important} .ak-aurora{display:none}
     .ak-sky .st{opacity:1} .ak-sky .ln{stroke-dashoffset:0} .ak-sky .bg{opacity:var(--o)}
   }
   .ak-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;opacity:.7}
@@ -186,7 +171,7 @@
   @media (max-width:760px){
     .ak-hero{padding:24px 18px 20px}
     .ak-title{font-size:48px}
-    .ak-aurora{top:130px;right:-20%;width:140%;height:300px}
+    .ak-aurora{top:225px;right:-4%;width:108%;height:200px}
     .ak-sky{position:relative;display:block;right:auto;top:auto;transform:none;width:100%;height:170px;margin:10px 0 0;opacity:.8}
     .ak-facts{max-width:none}
     .ak-card{padding:16px}
@@ -205,7 +190,7 @@
   <div class="ak-themebar"></div>
 
   <div class="ak-hero">
-    <div class="ak-aurora" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    <canvas class="ak-aurora" aria-hidden="true"></canvas>
     <div class="ak-eyebrow" id="ak-range">—</div>
     <h1 class="ak-title">Alaska New Year</h1>
     <p class="ak-sub">Ski trails, ice and everything else around Anchorage, for twelve short days at midwinter.</p>
@@ -523,6 +508,41 @@
     document.getElementById("ak-foot").innerHTML='Map tiles &copy; Esri. Groomed trails from the Municipality of Anchorage NordicTrails layer (NSAA, Anchorage Parks &amp; Rec, Girdwood Nordic Ski Club); other trail lines and place positions &copy; OpenStreetMap contributors; drive times from OSRM on OpenStreetMap roads, without winter conditions. '+
       'Sunrise and sunset computed for downtown Anchorage. Grooming, hours and ice change daily: check the linked source before going.'+(D.generated?' Updated '+esc(D.generated)+'.':'');
   }
+
+  /* ---------- aurora: ray curtains on a canvas, shown ~20 s each minute ---------- */
+  (function(){
+    var cv=document.querySelector(".ak-aurora"); if(!cv||!cv.getContext) return;
+    if(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    var ctx=cv.getContext("2d"), W=0, H=0, t0=performance.now(), P=60, DL=10;
+    var spr=document.createElement("canvas"); spr.width=1; spr.height=256;
+    var sg=spr.getContext("2d"), g=sg.createLinearGradient(0,0,0,256);
+    g.addColorStop(0,"rgba(150,70,210,0)"); g.addColorStop(.38,"rgba(160,90,220,.10)"); g.addColorStop(.62,"rgba(60,205,175,.30)");
+    g.addColorStop(.88,"rgba(90,255,170,.85)"); g.addColorStop(.935,"rgba(190,255,215,1)"); g.addColorStop(1,"rgba(120,255,180,0)");
+    sg.fillStyle=g; sg.fillRect(0,0,1,256);
+    var bands=[{y:.70,h:.56,a1:.14,k1:.9,w1:.05,a2:.035,k2:3.1,w2:.18,amp:.58,ph:0},
+               {y:.50,h:.38,a1:.08,k1:.62,w1:-.04,a2:.025,k2:2.4,w2:.14,amp:.30,ph:2.1},
+               {y:.84,h:.26,a1:.05,k1:1.6,w1:.08,a2:.02,k2:4.7,w2:.25,amp:.16,ph:4.0}];
+    function size(){ var r=cv.getBoundingClientRect(); W=Math.max(2,Math.round(r.width/2)); H=Math.max(2,Math.round(r.height/2)); cv.width=W; cv.height=H; }
+    function env(s){ if(s<DL) return 0; var f=((s-DL)%P)/P, sm=function(x){ x=Math.max(0,Math.min(1,x)); return x*x*(3-2*x); };
+      return f<.09?sm(f/.09):f<.27?1:f<.36?1-sm((f-.27)/.09):0; }
+    var shown=true;
+    function frame(now){ var s=(now-t0)/1000, e=env(s);
+      if(e<=0){ if(shown){ ctx.clearRect(0,0,W,H); shown=false; } return requestAnimationFrame(frame); }
+      shown=true; ctx.clearRect(0,0,W,H); ctx.globalCompositeOperation="lighter";
+      for(var b=0;b<bands.length;b++){ var B=bands[b];
+        for(var x=0;x<W;x+=1.5){ var u=x/W, edge=Math.pow(Math.sin(Math.PI*u),.8);
+          var base=H*(B.y+B.a1*Math.sin(2*Math.PI*B.k1*u+s*B.w1+B.ph)+B.a2*Math.sin(2*Math.PI*B.k2*u-s*B.w2));
+          var ray=.42+.58*(.5+.5*Math.sin(u*38+s*.9+B.ph+2.2*Math.sin(u*9-s*.23)));
+          var shimmer=.75+.25*Math.sin(u*230+s*5.5+b);
+          var I=e*B.amp*edge*Math.pow(ray,1.6)*shimmer; if(I<.01) continue;
+          var hh=H*B.h*(.65+.35*Math.sin(u*17+s*.35+B.ph));
+          ctx.globalAlpha=Math.min(1,I); ctx.drawImage(spr,x,base-hh,1.6,hh*1.06);
+          ctx.globalAlpha=Math.min(1,I*.25); ctx.drawImage(spr,x-2,base-hh*1.1,5,hh*1.12);
+        }
+      }
+      ctx.globalAlpha=1; ctx.globalCompositeOperation="source-over"; requestAnimationFrame(frame); }
+    size(); window.addEventListener("resize",size); requestAnimationFrame(frame);
+  })();
 
   D=JSON.parse(document.getElementById("ak-data").textContent);
   var tj=document.getElementById("ak-tracks"); T=tj&&tj.textContent.trim()?JSON.parse(tj.textContent):null;
