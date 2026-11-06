@@ -25,7 +25,7 @@
     --rule:#D5DDE2; --rule-2:#E7ECEF;
     --hero-bg:#0B1F33; --hero-fg:#EEF2F4;
     /* categories: Okabe–Ito, every marker also carries a letter */
-    --c-ski:#0072B2; --c-rink:#56B4E9; --c-ice:#009E73; --c-sight:#E69F00; --c-tour:#CC79A7; --c-event:#D55E00; --c-food:#8C6A4F; --c-stay:#0F1A24; --c-warm:#6A4C93; --c-gear:#2F6F6F;
+    --c-ski:#0072B2; --c-rink:#56B4E9; --c-ice:#009E73; --c-sight:#E69F00; --c-tour:#CC79A7; --c-event:#D55E00; --c-food:#8C6A4F; --c-stay:#0F1A24; --c-warm:#6A4C93; --c-gear:#2F6F6F; --c-shop:#5B6770;
     --day:#FFF4D6; --twi:#F2E7CF; --night:#E4E9EE;
     --hz-nogo:#B3261E; --hz-nogo-bg:#FBEAE8; --hz-high:#C25400; --hz-high-bg:#FDF0E4; --hz-caut:#C79A00; --hz-caut-t:#7A5D00; --hz-caut-bg:#FBF6E4;
     --disp:'Big Shoulders Display','Arial Narrow',sans-serif;
@@ -36,7 +36,7 @@
     --page:#0B0F13; --paper:#151B21; --ink:#F2F5F7; --ink-2:#C2CBD2; --muted:#85909A; --muted-d:#5F6A73;
     --rule:#26303A; --rule-2:#1D252D;
     --hero-bg:#13212F; --hero-fg:#F2F5F7;
-    --c-stay:#F2F5F7; --c-food:#B48C6C; --c-warm:#A78BD0; --c-gear:#5FA8A8;
+    --c-stay:#F2F5F7; --c-food:#B48C6C; --c-warm:#A78BD0; --c-gear:#5FA8A8; --c-shop:#9AA6AF;
     --day:#3A3320; --twi:#272A26; --night:#12171C;
     --hz-nogo:#F28B82; --hz-nogo-bg:#3A1D1B; --hz-high:#F6A65A; --hz-high-bg:#3A2716; --hz-caut:#E3C255; --hz-caut-t:#E3C255; --hz-caut-bg:#302A16;
   }
@@ -226,6 +226,7 @@
     {k:"tour",  name:"Tours & downhill",  L:"T", cats:["tour","downhill"]},
     {k:"event", name:"Events",            L:"E", cats:["event"]},
     {k:"food",  name:"Food & drink",      L:"F", cats:["food"]},
+    {k:"shop",  name:"Groceries",         L:"M", cats:["grocery"]},
     {k:"stay",  name:"Our house",         L:"H", cats:["stay"]}
   ];
   var GOF={}; GROUPS.forEach(function(g){ g.cats.forEach(function(c){ GOF[c]=g; }); });
@@ -278,14 +279,18 @@
   function drawHead(){
     var a=dd(D.trip.from), b=dd(D.trip.to), first=sunTimes(D.trip.from,90.833), last=sunTimes(D.trip.to,90.833);
     document.getElementById("ak-range").textContent=a.d+" "+a.m+" "+a.y+" – "+b.d+" "+b.m+" "+b.y+" · Anchorage, Alaska";
-    var nights=days().length-1, P=D.places;
+    var P=D.places;
     var n=function(g){ return P.filter(function(p){ return GOF[p.cat]&&GOF[p.cat].k===g; }).length; };
+    var skate=P.filter(function(p){ return (p.cat==="rink-outdoor"||p.cat==="wild-ice") && !(p.hazards||[]).some(function(z){ return z.lv==="nogo"; }); });
+    var rinks=skate.filter(function(p){ return p.cat==="rink-outdoor"; }).length, groomed=0;
+    if(T) T.ways.forEach(function(w){ if(w.src==="moa") groomed+=w.k; });
+    var F=D.feasts||[], A=D.aurora||{};
     document.getElementById("ak-facts").innerHTML=
-      '<div class="ak-fact">Nights<b>'+nights+'</b></div>'+
-      '<div class="ak-fact">Ski trail systems<b>'+n("ski")+'</b></div>'+
-      '<div class="ak-fact">Places to skate<b>'+(n("rink")+n("ice"))+'</b></div>'+
-      '<div class="ak-fact">Daylight on arrival<b>'+dur(first.set-first.rise)+'</b><small>sun '+hm(first.rise)+' – '+hm(first.set)+'</small></div>'+
-      '<div class="ak-fact">By 3 Jan<b>'+dur(last.set-last.rise)+'</b><small>+'+Math.round((last.set-last.rise-(first.set-first.rise))*60)+' min</small></div>';
+      '<div class="ak-fact">Trail systems to ski<b>'+n("ski")+'</b>'+(groomed?'<small>'+Math.round(groomed)+' km groomed in Anchorage</small>':'')+'</div>'+
+      '<div class="ak-fact">Ice to skate<b>'+skate.length+'</b><small>'+rinks+' rinks · '+(skate.length-rinks)+' lakes & lagoons</small></div>'+
+      (A.value?'<div class="ak-fact">Aurora chance (est.)<b>'+esc(A.value)+'</b><small>'+esc(A.note||"")+'</small></div>':'')+
+      (F.length?'<div class="ak-fact">Holiday feasts to cook<b>'+F.length+'</b><small>'+F.map(function(f){ return esc(f.name.replace(/ dinner$/,"")); }).join(" · ")+'</small></div>':'')+
+      '<div class="ak-fact">Sunrise – sunset<b>'+hm(first.rise)+'–'+hm(first.set)+'</b><small>'+dur(first.set-first.rise)+' of sun, '+dur(last.set-last.rise)+' by 3 Jan</small></div>';
   }
 
   /* ---------- filters ---------- */

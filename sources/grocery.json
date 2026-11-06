@@ -1,0 +1,334 @@
+[
+ {
+  "id": "shop-carrs-891698567",
+  "name": "Carrs (midtown)",
+  "cat": "grocery",
+  "area": "Anchorage",
+  "lat": 61.19381,
+  "lon": -149.87137,
+  "notes": "Albertsons/Safeway-owned supermarket with deli and bakery. Holiday hours vary; check."
+ },
+ {
+  "id": "shop-carrs-129384366",
+  "name": "Carrs (Abbott Road)",
+  "cat": "grocery",
+  "area": "Anchorage",
+  "lat": 61.14224,
+  "lon": -149.84386,
+  "notes": "Albertsons/Safeway-owned supermarket with deli and bakery. Holiday hours vary; check."
+ },
+ {
+  "id": "shop-carrs-129383931",
+  "name": "Carrs (Business Park Blvd.)",
+  "cat": "grocery",
+  "area": "Eagle River / Chugiak",
+  "lat": 61.32486,
+  "lon": -149.57293,
+  "notes": "Albertsons/Safeway-owned supermarket with deli and bakery. Holiday hours vary; check."
+ },
+ {
+  "id": "shop-carrs-129384127",
+  "name": "Carrs (Debarr Road)",
+  "cat": "grocery",
+  "area": "Anchorage",
+  "lat": 61.20812,
+  "lon": -149.77711,
+  "hours": "PH,Mo-Su 05:00-24:00",
+  "notes": "Albertsons/Safeway-owned supermarket with deli and bakery. Holiday hours vary; check."
+ },
+ {
+  "id": "shop-carrs-129384159",
+  "name": "Carrs (Dimond Blvd.)",
+  "cat": "grocery",
+  "area": "Anchorage",
+  "lat": 61.13637,
+  "lon": -149.95382,
+  "hours": "Mo-Su 06:00-24:00",
+  "notes": "Albertsons/Safeway-owned supermarket with deli and bakery. Holiday hours vary; check."
+ },
+ {
+  "id": "shop-carrs-129384189",
+  "name": "Carrs (East Northern Lights Boulevard)",
+  "cat": "grocery",
+  "area": "Anchorage",
+  "lat": 61.19664,
+  "lon": -149.73631,
+  "notes": "Albertsons/Safeway-owned supermarket with deli and bakery. Holiday hours vary; check."
+ },
+ {
+  "id": "shop-carrs-241583551",
+  "name": "Carrs (East Parks Highway)",
+  "cat": "grocery",
+  "area": "Mat-Su · Wasilla",
+  "lat": 61.58268,
+  "lon": -149.43575,
+  "hours": "24/7",
+  "notes": "Albertsons/Safeway-owned supermarket with deli and bakery. Holiday hours vary; check."
+ },
+ {
+  "id": "shop-carrs-197126976",
+  "name": "Carrs (Huffman Road)",
+  "cat": "grocery",
+  "area": "Anchorage",
+  "lat": 61.10941,
+  "lon": -149.85369,
+  "hours": "Mo-Su 05:00-01:00",
+  "notes": "Albertsons/Safeway-owned supermarket with deli and bakery. Holiday hours vary; check."
+ },
+ {
+  "id": "shop-carrs-303111232",
+  "name": "Carrs (West Evergreen Avenue)",
+  "cat": "grocery",
+  "area": "Mat-Su · Palmer",
+  "lat": 61.59806,
+  "lon": -149.12698,
+  "hours": "05:00-01:00",
+  "notes": "Albertsons/Safeway-owned supermarket with deli and bakery. Holiday hours vary; check."
+ },
+ {
+  "id": "shop-carrs-28614928",
+  "name": "Carrs (West Northern Lights Blvd.)",
+  "cat": "grocery",
+  "area": "Anchorage",
+  "lat": 61.19418,
+  "lon": -149.91579,
+  "hours": "24/7",
+  "notes": "Albertsons/Safeway-owned supermarket with deli and bakery. Holiday hours vary; check."
+ },
+ {
+  "id": "shop-costco-733419056",
+  "name": "Costco (DeBarr Road)",
+  "cat": "grocery",
+  "area": "Anchorage",
+  "lat": 61.21117,
+  "lon": -149.80379,
+  "hours": "Mo-Fr 10:00-20:30; Sa 09:30-18:00; Su 10:00-18:00",
+  "notes": "Membership needed. Costco closes on Christmas Day and New Year's Day and closes early on Christmas Eve. Good for the big holiday shop, booze aisle and rotisserie chickens."
+ },
+ {
+  "id": "shop-costco-183107551",
+  "name": "Costco (West Dimond Boulevard)",
+  "cat": "grocery",
+  "area": "Anchorage",
+  "lat": 61.14303,
+  "lon": -149.88423,
+  "hours": "Mo-Fr 10:00-20:30; Sa 09:30-18:00; Su 10:00-18:00",
+  "notes": "Membership needed. Costco closes on Christmas Day and New Year's Day and closes early on Christmas Eve. Good for the big holiday shop, booze aisle and rotisserie chickens."
+ },
+ {
+  "id": "shop-costco-business-center-641655758",
+  "name": "Costco Business Center (North Muldoon Road)",
+  "cat": "grocery",
+  "area": "Anchorage",
+  "lat": 61.22938,
+  "lon": -149.73635,
+  "hours": "Mo-Sa 07:00-18:00; Su 08:00-16:00",
+  "notes": "Membership needed. Costco closes on Christmas Day and New Year's Day and closes early on Christmas Eve. The Business Center is the bulk / restaurant-supply format."
+ },
+ {
+  "id": "shop-crow-creek-mercantile-332534316",
+  "name": "Crow Creek Mercantile (Hightower Road)",
+  "cat": "grocery",
+  "area": "Girdwood",
+  "lat": 60.96273,
+  "lon": -149.13425,
+  "hours": "Mo-Fr 07:00-24:00; Sa-Su 08:00-24:00",
+  "notes": "Girdwood's small grocery: basics, deli and beer. Pricier; stock up in Anchorage."
+ },
+ {
+  "id": "shop-fred-meyer-634088178",
+  "name": "Fred Meyer (Mat-Su · Wasilla)",
+  "cat": "grocery",
+  "area": "Mat-Su · Wasilla",
+  "lat": 61.57954,
+  "lon": -149.40896,
+  "hours": "Mo-Su 06:00-23:00",
+  "notes": "Kroger-owned superstore: groceries plus outdoor gear, clothing and a liquor section. Holiday hours vary; check."
+ },
+ {
+  "id": "shop-fred-meyer-29357468",
+  "name": "Fred Meyer (Abbott Road)",
+  "cat": "grocery",
+  "area": "Anchorage",
+  "lat": 61.13585,
+  "lon": -149.83857,
+  "hours": "Mo-Su 06:00-23:00",
+  "notes": "Kroger-owned superstore: groceries plus outdoor gear, clothing and a liquor section. Holiday hours vary; check."
+ },
+ {
+  "id": "shop-fred-meyer-182967300",
+  "name": "Fred Meyer (Debarr Road)",
+  "cat": "grocery",
+  "area": "Anchorage",
+  "lat": 61.21151,
+  "lon": -149.73678,
+  "hours": "Mo-Su 07:00-22:00",
+  "notes": "Kroger-owned superstore: groceries plus outdoor gear, clothing and a liquor section. Holiday hours vary; check."
+ },
+ {
+  "id": "shop-fred-meyer-28614828",
+  "name": "Fred Meyer (East Northern Lights Boulevard)",
+  "cat": "grocery",
+  "area": "Anchorage",
+  "lat": 61.19439,
+  "lon": -149.86422,
+  "hours": "Mo-Su 06:00-23:00",
+  "notes": "Kroger-owned superstore: groceries plus outdoor gear, clothing and a liquor section. Holiday hours vary; check."
+ },
+ {
+  "id": "shop-fred-meyer-243610991",
+  "name": "Fred Meyer (Old Glenn Highway)",
+  "cat": "grocery",
+  "area": "Eagle River / Chugiak",
+  "lat": 61.3413,
+  "lon": -149.5556,
+  "hours": "Mo-Su 07:00-22:00",
+  "notes": "Kroger-owned superstore: groceries plus outdoor gear, clothing and a liquor section. Holiday hours vary; check."
+ },
+ {
+  "id": "shop-fred-meyer-131301749",
+  "name": "Fred Meyer (West Dimond Boulevard)",
+  "cat": "grocery",
+  "area": "Anchorage",
+  "lat": 61.13602,
+  "lon": -149.91937,
+  "hours": "Mo-Sa 06:00-23:00",
+  "notes": "Kroger-owned superstore: groceries plus outdoor gear, clothing and a liquor section. Holiday hours vary; check."
+ },
+ {
+  "id": "shop-fred-meyer-632036625",
+  "name": "Fred Meyer (West Evergreen Avenue)",
+  "cat": "grocery",
+  "area": "Mat-Su · Palmer",
+  "lat": 61.60079,
+  "lon": -149.1253,
+  "hours": "Mo-Su 07:00-23:00",
+  "notes": "Kroger-owned superstore: groceries plus outdoor gear, clothing and a liquor section. Holiday hours vary; check."
+ },
+ {
+  "id": "shop-new-sagaya-city-market-129383993",
+  "name": "New Sagaya City Market (West 13th Ave.)",
+  "cat": "grocery",
+  "area": "Anchorage",
+  "lat": 61.20941,
+  "lon": -149.90019,
+  "hours": "Mo-Sa 07:00 - 21:00",
+  "notes": "Local favourite for seafood (fresh Alaska fish), Asian groceries and a good deli."
+ },
+ {
+  "id": "shop-new-sagaya-midtown-market-891698566",
+  "name": "New Sagaya Midtown Market (Old Seward Hwy.)",
+  "cat": "grocery",
+  "area": "Anchorage",
+  "lat": 61.18719,
+  "lon": -149.86991,
+  "notes": "Local favourite for seafood (fresh Alaska fish), Asian groceries and a good deli."
+ },
+ {
+  "id": "shop-raw-market-company-476371305",
+  "name": "Raw Market Company (Holmgren Place)",
+  "cat": "grocery",
+  "area": "Girdwood",
+  "lat": 60.96322,
+  "lon": -149.13572,
+  "notes": "Small natural-foods market in Girdwood."
+ },
+ {
+  "id": "shop-target-183107542",
+  "name": "Target (West 100th Avenue)",
+  "cat": "grocery",
+  "area": "Anchorage",
+  "lat": 61.1295,
+  "lon": -149.88045,
+  "hours": "Mo-Su 08:00-22:00",
+  "notes": "Holiday hours vary; check."
+ },
+ {
+  "id": "shop-three-bears-510570166",
+  "name": "Three Bears (Mat-Su)",
+  "cat": "grocery",
+  "area": "Mat-Su",
+  "lat": 61.58443,
+  "lon": -149.6294,
+  "notes": "Alaska grocery-and-hardware chain: handy stop on the way to Hatcher Pass or Eklutna."
+ },
+ {
+  "id": "shop-three-bears-alaska-507080604",
+  "name": "Three Bears Alaska (Birchwood Loop Road)",
+  "cat": "grocery",
+  "area": "Eagle River / Chugiak",
+  "lat": 61.40389,
+  "lon": -149.46633,
+  "hours": "Mo-Fr 07:00-21:00; Sa 07:00-22:00; Su 08:00-21:00",
+  "notes": "Alaska grocery-and-hardware chain: handy stop on the way to Hatcher Pass or Eklutna."
+ },
+ {
+  "id": "shop-three-bears-alaska-353359419",
+  "name": "Three Bears Alaska (East Palmer-Wasilla Highway)",
+  "cat": "grocery",
+  "area": "Mat-Su · Palmer",
+  "lat": 61.60043,
+  "lon": -149.24544,
+  "hours": "Mo-Sa 07:00-22:00; Su 08:00-21:00",
+  "notes": "Alaska grocery-and-hardware chain: handy stop on the way to Hatcher Pass or Eklutna."
+ },
+ {
+  "id": "shop-three-bears-alaska-601137465",
+  "name": "Three Bears Alaska (Knik-Goose Bay Road)",
+  "cat": "grocery",
+  "area": "Mat-Su · Wasilla",
+  "lat": 61.53684,
+  "lon": -149.58113,
+  "notes": "Alaska grocery-and-hardware chain: handy stop on the way to Hatcher Pass or Eklutna."
+ },
+ {
+  "id": "shop-walmart-supercenter-28615011",
+  "name": "Walmart Supercenter (A Street)",
+  "cat": "grocery",
+  "area": "Anchorage",
+  "lat": 61.19231,
+  "lon": -149.87965,
+  "hours": "Mo-Su 06:00-24:00",
+  "notes": "Holiday hours vary; check."
+ },
+ {
+  "id": "shop-walmart-supercenter-567610066",
+  "name": "Walmart Supercenter (Debarr Road)",
+  "cat": "grocery",
+  "area": "Anchorage",
+  "lat": 61.21196,
+  "lon": -149.74322,
+  "hours": "Mo-Su 06:00-24:00",
+  "notes": "Holiday hours vary; check."
+ },
+ {
+  "id": "shop-walmart-supercenter-243119579",
+  "name": "Walmart Supercenter (Eagle River Road)",
+  "cat": "grocery",
+  "area": "Eagle River / Chugiak",
+  "lat": 61.30911,
+  "lon": -149.53559,
+  "hours": "Mo-Su 05:00-01:00",
+  "notes": "Holiday hours vary; check."
+ },
+ {
+  "id": "shop-walmart-supercenter-303613027",
+  "name": "Walmart Supercenter (Old Seward Highway)",
+  "cat": "grocery",
+  "area": "Anchorage",
+  "lat": 61.14022,
+  "lon": -149.87003,
+  "hours": "Mo-Su 06:00-24:00",
+  "notes": "Holiday hours vary; check."
+ },
+ {
+  "id": "shop-walmart-supercenter-298000790",
+  "name": "Walmart Supercenter (South Seward Meridian Parkway)",
+  "cat": "grocery",
+  "area": "Mat-Su · Wasilla",
+  "lat": 61.56878,
+  "lon": -149.36503,
+  "hours": "Mo-Su 05:00-02:00",
+  "notes": "Holiday hours vary; check."
+ }
+]

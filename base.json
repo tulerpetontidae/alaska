@@ -23,6 +23,20 @@
    "end": "21:00",
    "id": "nye-anchorage",
    "note": "NYE downtown, fireworks ~8pm (2025 pattern; 2026 not confirmed)"
+  },
+  {
+   "date": "2026-12-25",
+   "start": "17:00",
+   "end": "20:30",
+   "id": "h1",
+   "title": "Christmas dinner at home"
+  },
+  {
+   "date": "2026-12-31",
+   "start": "21:30",
+   "end": "24:00",
+   "id": "h1",
+   "title": "New Year's Eve dinner at home"
   }
  ],
  "notes": [
@@ -83,5 +97,19 @@
     "The Seward Highway along Turnagain Arm has wind, ice, avalanche-control closures and a bad crash record: daylight, headlights on, check 511.alaska.gov."
    ]
   }
- ]
+ ],
+ "feasts": [
+  {
+   "date": "2026-12-25",
+   "name": "Christmas dinner"
+  },
+  {
+   "date": "2026-12-31",
+   "name": "New Year's Eve dinner"
+  }
+ ],
+ "aurora": {
+  "value": "~1 in 2",
+  "note": "≥1 good display in 11 nights; darkest 30 Dec–3 Jan"
+ }
 }
