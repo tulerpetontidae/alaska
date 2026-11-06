@@ -32,11 +32,11 @@
 
   .ak-hero{background:var(--hero-bg);color:var(--hero-fg);border-radius:3px;padding:30px 28px 26px;margin-top:14px;position:relative;overflow:hidden}
   .ak-hero > *:not(.ak-flag){position:relative;z-index:1}
-  .ak-flag{position:absolute;right:30px;top:26px;width:330px;height:auto;filter:drop-shadow(0 0 7px rgba(247,182,43,.3))}
+  .ak-flag{position:absolute;right:3%;top:50%;height:104%;width:auto;opacity:.3;transform:translateY(-50%) rotate(10deg);pointer-events:none}
   .ak-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;opacity:.7}
   .ak-title{font-family:var(--disp);font-weight:800;font-size:64px;line-height:.95;margin:8px 0 6px}
   .ak-sub{font-size:15px;opacity:.85;margin:0;max-width:60ch}
-  .ak-facts{display:flex;flex-wrap:wrap;gap:26px;margin-top:22px;max-width:calc(100% - 330px)}
+  .ak-facts{display:flex;flex-wrap:wrap;gap:26px;margin-top:22px}
   .ak-fact{font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;opacity:.62}
   .ak-fact b{display:block;font-family:var(--disp);font-weight:800;font-size:30px;letter-spacing:0;opacity:1;margin-top:2px}
   .ak-fact small{display:block;font-size:9.5px;letter-spacing:.08em;margin-top:1px;text-transform:none}
@@ -145,7 +145,7 @@
   @media (max-width:760px){
     .ak-hero{padding:24px 18px 20px}
     .ak-title{font-size:48px}
-    .ak-flag{width:150px;right:10px;top:auto;bottom:26px}
+    .ak-flag{height:auto;width:90%;right:4%;top:40%;opacity:.22}
     .ak-facts{max-width:none}
     .ak-card{padding:16px}
     .ak-map{height:440px}
@@ -163,7 +163,7 @@
   <div class="ak-themebar"></div>
 
   <div class="ak-hero">
-    <svg class="ak-flag" viewBox="0 0 300 200" aria-hidden="true"><g fill="#F7B62B"><polygon points="22.0,141.0 24.2,146.9 30.6,147.2 25.6,151.2 27.3,157.3 22.0,153.8 16.7,157.3 18.4,151.2 13.4,147.2 19.8,146.9"/><polygon points="62.0,120.0 64.2,125.9 70.6,126.2 65.6,130.2 67.3,136.3 62.0,132.8 56.7,136.3 58.4,130.2 53.4,126.2 59.8,125.9"/><polygon points="97.0,110.0 99.2,115.9 105.6,116.2 100.6,120.2 102.3,126.3 97.0,122.8 91.7,126.3 93.4,120.2 88.4,116.2 94.8,115.9"/><polygon points="130.0,110.0 132.2,115.9 138.6,116.2 133.6,120.2 135.3,126.3 130.0,122.8 124.7,126.3 126.4,120.2 121.4,116.2 127.8,115.9"/><polygon points="137.0,144.0 139.2,149.9 145.6,150.2 140.6,154.2 142.3,160.3 137.0,156.8 131.7,160.3 133.4,154.2 128.4,150.2 134.8,149.9"/><polygon points="184.0,147.0 186.2,152.9 192.6,153.2 187.6,157.2 189.3,163.3 184.0,159.8 178.7,163.3 180.4,157.2 175.4,153.2 181.8,152.9"/><polygon points="190.0,104.0 192.2,109.9 198.6,110.2 193.6,114.2 195.3,120.3 190.0,116.8 184.7,120.3 186.4,114.2 181.4,110.2 187.8,109.9"/><polygon points="262.0,25.0 265.7,34.9 276.3,35.4 268.0,41.9 270.8,52.1 262.0,46.3 253.2,52.1 256.0,41.9 247.7,35.4 258.3,34.9"/></g></svg>
+    <svg class="ak-flag" viewBox="150 120 1100 780" aria-hidden="true"><g fill="#FFB612"><polygon points="229,365 237,388 261,388 241,403 249,427 229,412 209,427 217,403 197,388 221,388"/><polygon points="396,427 404,450 428,450 408,465 416,489 396,474 376,489 384,465 364,450 388,450"/><polygon points="479,516 487,539 511,539 491,554 499,578 479,563 459,578 467,554 447,539 471,539"/><polygon points="563,609 571,632 595,632 575,647 583,671 563,656 543,671 551,647 531,632 555,632"/><polygon points="552,740 560,763 584,763 564,778 572,802 552,787 532,802 540,778 520,763 544,763"/><polygon points="740,802 748,825 772,825 752,840 760,864 740,849 720,864 728,840 708,825 732,825"/><polygon points="813,698 821,721 845,721 825,736 833,760 813,745 793,760 801,736 781,721 805,721"/><polygon points="1158,130 1171,170 1213,170 1179,194 1192,234 1158,209 1124,234 1137,194 1103,170 1145,170"/></g></svg>
     <div class="ak-eyebrow" id="ak-range">—</div>
     <h1 class="ak-title">Alaska New Year</h1>
     <p class="ak-sub">Ski trails, ice and everything else around Anchorage, for twelve short days at midwinter.</p>
