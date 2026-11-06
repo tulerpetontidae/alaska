@@ -97,6 +97,7 @@
   .ak-pop b{display:block;font-size:13.5px}
   .ak-pop small{display:block;font-family:var(--mono);font-size:10.5px;color:var(--muted);margin-top:2px}
   .ak-pop p{margin:6px 0 0}
+  .leaflet-popup-content{max-height:300px;overflow-y:auto}
 
   /* schedule */
   .ak-sched{margin-top:14px}
@@ -127,6 +128,9 @@
   .ak-item .t b{font-weight:600;font-size:14px}
   .ak-item .t .area{font-family:var(--mono);font-size:10.5px;color:var(--muted);margin-left:6px}
   .ak-item .t p{margin:4px 0 0;font-size:12.5px;color:var(--ink-2);max-width:80ch}
+  .ak-item .t p.ak-clamp{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .ak-item .t p.ak-clamp.open{display:block}
+  .ak-more{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;border:0;background:none;color:var(--muted);padding:2px 0;cursor:pointer;text-decoration:underline}
   .ak-item .t p.meta{font-family:var(--mono);font-size:10.5px;color:var(--muted)}
   .ak-tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:5px}
   .ak-tag{font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;padding:1px 5px;border:1px solid var(--rule);border-radius:2px;color:var(--ink-2)}
@@ -366,9 +370,10 @@
     var order={nogo:0,high:1,caution:2}; H=H.slice().sort(function(a,b){ return order[a.lv]-order[b.lv]; });
     return '<div class="ak-hz">'+H.map(function(z){ return '<div class="'+z.lv+'" title="'+HZL[z.lv][1]+'"><b>'+HZL[z.lv][0]+' '+esc(z.kind)+'</b>'+esc(short&&z.text.length>140?z.text.slice(0,137)+"…":z.text)+'</div>'; }).join("")+'</div>'; }
   function worst(p){ var H=p.hazards||[]; return H.some(function(z){ return z.lv==="nogo"; })?"nogo":H.some(function(z){ return z.lv==="high"; })?"high":null; }
+  function clip(s,n){ s=String(s); if(s.length<=n) return s; var c=s.slice(0,n), k=Math.max(c.lastIndexOf(". "),c.lastIndexOf("; ")); return (k>n*0.5?c.slice(0,k+1):c.replace(/\s+\S*$/,"")+"…"); }
   function pop(p){ var g=GOF[p.cat], dm=driveMin(p);
     return '<div class="ak-pop"><b>'+esc(p.name)+'</b><small>'+g.name+(p.area?' · '+esc(p.area):'')+(dm!=null?' · ~'+dm+' min drive':'')+'</small>'+hzBox(p,true)+
-      (p.highlights||p.notes?'<p>'+esc(p.highlights||p.notes)+'</p>':'')+
+      (p.highlights||p.notes?'<p>'+esc(clip(p.highlights||p.notes,190))+'</p>':'')+
       (p.url?'<p><a href="'+esc(p.url)+'" target="_blank" rel="noopener">More</a></p>':'')+'</div>'; }
   function drawPins(fit){
     layer.clearLayers(); pins={}; var pts=[];
@@ -448,7 +453,9 @@
     if(known(p.northView)) m.push("north view: "+p.northView);
     if(known(p.access)) m.push("access: "+p.access);
     if(known(p.parking)) m.push("parking: "+p.parking);
-    return m.length?'<p class="meta">'+esc(m.join(" · "))+'</p>':""; }
+    if(!m.length) return ""; var s=m.join(" · ");
+    return s.length>200?'<p class="meta ak-clamp">'+esc(s)+'</p><button type="button" class="ak-more">more</button>':'<p class="meta">'+esc(s)+'</p>'; }
+  function moreP(s){ if(!s) return ""; return s.length>230?'<p class="ak-clamp">'+esc(s)+'</p><button type="button" class="ak-more">more</button>':'<p>'+esc(s)+'</p>'; }
   function drawList(){
     var P=all(), fp=fromPt(), html="";
     GROUPS.forEach(function(g){ if(!ON[g.k]) return;
@@ -461,7 +468,7 @@
       html+='<div class="ak-group"><h3><i style="background:'+col(g)+'">'+g.L+'</i>'+g.name+' <span>'+items.length+'</span></h3>'+items.map(function(p){
         var dm=driveMin(p), k=p.lat!=null?km(fp,p):null;
         return '<div class="ak-item"><div class="t"><b>'+esc(p.name)+'</b><span class="area">'+esc(p.area||"")+'</span>'+
-          tags(p)+hzBox(p,false)+meta(p)+(p.highlights?'<p>'+esc(p.highlights)+'</p>':'')+(p.notes?'<p>'+esc(p.notes)+'</p>':'')+(p.grooming&&known(p.grooming)?'<p class="meta">grooming: '+esc(p.grooming)+'</p>':'')+
+          tags(p)+hzBox(p,false)+meta(p)+moreP([p.highlights,p.notes].filter(Boolean).join(" "))+(p.grooming&&known(p.grooming)?'<p class="meta">grooming: '+esc(p.grooming)+'</p>':'')+
           (p.url?'<p class="meta"><a href="'+esc(p.url)+'" target="_blank" rel="noopener">'+esc(p.url.replace(/^https?:\/\/(www\.)?/,"").split(/[/?#]/)[0])+'</a></p>':'')+'</div>'+
           '<div class="n">'+(dm!=null?'<b>~'+dm+' min</b>drive':'')+(k!=null?'<br>'+(k<1?Math.round(k*1000)+' m':k.toFixed(k<10?1:0)+' km')+' straight':'')+'</div>'+
           (p.lat!=null?'<button type="button" class="ak-go" data-id="'+esc(p.id)+'" aria-label="Show '+esc(p.name)+' on the map" title="Show on map">&#9906;</button>':'<span></span>')+'</div>';
@@ -469,6 +476,7 @@
     });
     document.getElementById("ak-list").innerHTML=html||'<p class="ak-empty">Nothing matches these filters.</p>';
     Array.prototype.forEach.call(document.querySelectorAll("#ak-list .ak-go"),function(b){ b.onclick=function(){ showOnMap(b.getAttribute("data-id")); }; });
+    Array.prototype.forEach.call(document.querySelectorAll("#ak-list .ak-more"),function(b){ b.onclick=function(){ var q=b.previousElementSibling, open=q.classList.toggle("open"); b.textContent=open?"less":"more"; }; });
   }
 
   function drawNotes(){

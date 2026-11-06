@@ -1,67 +1,414 @@
 {
  "_levels": "nogo = not allowed or don't go; high = serious risk, go only prepared and informed; caution = check before you go",
  "_default": {
-  "wild-ice": [["caution","thin ice","Natural ice, nobody measures it. Needs at least 4 in of clear hard ice per person (white ice ~2x); test as you go with a pole or auger, carry ice picks and a throw rope, never alone."]],
-  "lake-ski": [["caution","thin ice","Lake crossings: snow insulates and hides weak ice and overflow (slush under the snow). Stay on established tracks across the lake."]]
+  "wild-ice": [
+   [
+    "caution",
+    "thin ice",
+    "Natural ice, nobody measures it. Needs at least 4 in of clear hard ice per person (white ice ~2x); test as you go with a pole or auger, carry ice picks and a throw rope, never alone."
+   ]
+  ],
+  "lake-ski": [
+   [
+    "caution",
+    "thin ice",
+    "Lake crossings: snow insulates and hides weak ice and overflow (slush under the snow). Stay on established tracks across the lake."
+   ]
+  ]
  },
- "ice-lake-hood":      [["nogo","not allowed","Closed to pedestrians year-round: active seaplane / ski-plane base. Walking or skating on the ice is not permitted."]],
- "ice-lake-spenard":   [["nogo","not allowed","Part of the Lake Hood seaplane base: active aircraft operations on the ice. Airport guidance: stay off the ice."]],
- "ice-portage":        [["high","thin ice","Unmonitored ice over a 600-ft-deep lake; slow to freeze and often not safe in late December. Pressure ridges, leads, refrozen open water."],
-                        ["high","glacier","Calving sends waves under the ice (two skaters were stranded and helicopter-rescued in Feb 2025). Stay far back from the glacier face and off icebergs."],
-                        ["high","avalanche","Avalanche and rockfall from the side slopes. No cell service. Ice reports: USFS Glacier Ranger District 907-783-3242."]],
- "portage-lake":       [["high","thin ice","Lake ice is unmonitored and often not yet safe in late December; ask the USFS ranger district (907-783-3242) before walking out."],
-                        ["high","glacier","Keep well back from the calving glacier face."]],
- "byron":              [["nogo","avalanche","Trail runs through avalanche runout under steep walls; the Forest Service and the Chugach avalanche center advise against winter travel without avalanche gear and training. Never enter the 'ice caves' (collapsing avalanche debris)."]],
- "flattop":            [["high","avalanche","The winter summit gully is icy and avalanche-prone, with past fatalities. Turn around at Blueberry Knoll or the saddle unless experienced; microspikes. Check cnfaic.org."],
-                        ["caution","road","Glen Alps Road is steep and icy."]],
- "ski-turnagain-pass": [["high","avalanche","Serious avalanche terrain, ungroomed. Read the Chugach avalanche forecast (cnfaic.org) and carry beacon, probe, shovel and training."],
-                        ["caution","road","Seward Highway avalanche-control closures; check 511.alaska.gov."]],
- "ski-powerline-pass": [["high","avalanche","The upper valley below the pass is avalanche terrain; the lower valley is gentle. Check cnfaic.org (Chugach State Park) before going past the first few miles."]],
- "ski-rabbit-lake":    [["high","avalanche","Bowl below the Suicide Peaks: avalanche terrain. Canyon Road is rough (4WD)."]],
- "ice-rabbit-lake":    [["high","avalanche","Alpine bowl in avalanche terrain; by late December usually snowed over. Check cnfaic.org."]],
- "ice-eagle-symphony": [["high","avalanche","~5 mi in through avalanche terrain; usually snowed over by late December."]],
- "ski-archangel":      [["high","avalanche","Valley road lined by avalanche paths. Check the Hatcher Pass Avalanche Center (hpavalanche.org)."]],
- "ski-independence-mine": [["high","avalanche","Avalanche terrain directly above the groomed area; stay on the trails and check hpavalanche.org."],
-                        ["caution","road","Hatcher Pass road: steep, icy, plowed only to the lower lots; 4WD and snow tyres advised. Grooming permit uncertain this season."]],
- "hatcher":            [["high","avalanche","Steep avalanche terrain everywhere off the road. Check hpavalanche.org and 511.alaska.gov."],
-                        ["caution","road","Road can be icy and closed after storms; colder and windier than Anchorage."]],
- "ski-johnson-pass":   [["caution","avalanche","Easy valley touring at first, but avalanche paths farther in. Check cnfaic.org."]],
- "ski-bird-valley":    [["caution","avalanche","Crosses the Penguin Peak avalanche path: cross quickly, one at a time. Watch for creek overflow."]],
- "ski-indian-valley":  [["caution","avalanche","Upper valley toward Powerline Pass is avalanche terrain; mid-winter means trail breaking."]],
- "ski-ernc":           [["caution","avalanche","Mountain-valley touring: avalanche paths reach the trail in places. Ask at the nature center."]],
- "ski-resurrection-north": [["caution","avalanche","Long backcountry route with avalanche exposure in places; confirm motorized/non-motorized year with the Seward Ranger District."]],
- "ski-eklutna":        [["caution","thin ice","Lake ice is unreliable: stay on the shoreline trail. Shared with snowmachines; side valleys are avalanche terrain; no cell signal."]],
- "eklutna":            [["caution","thin ice","Lake ice is unmonitored; stay on the trail. Very windy and cold at the lake; side valleys are avalanche terrain."],
-                        ["caution","road","Eklutna Lake Road (10 mi) is winding and icy."]],
- "ice-eklutna":        [["high","thin ice","Huge lake that freezes out of step with others; wind can open or roughen it, and a warm spell once thinned the ice to under 1 in. Check recent reports."],
-                        ["caution","avalanche","Side valleys are avalanche terrain."]],
- "ice-potter":         [["high","thin ice","Very variable ice with open holes from marsh gas; inflow channels stay thin."]],
- "ice-twentymile":     [["high","thin ice","Thin ice in the passageways, gas holes throughout, wind-blown silt; Turnagain Arm swings from chinook rain to deep cold."]],
- "ice-placer":         [["caution","thin ice","Tidal-influenced lagoons: silt, wind and uneven ice."]],
- "ice-coastal-refuge": [["high","tides","Extreme tides and thin, inconsistent sea ice; stay close to shore. Salt and silt dull blades."]],
- "ice-jim-creek":      [["high","thin ice","Creek and the braided glacial Knik River are moving water: the highest break-through risk of any spot here."]],
- "ice-rabbit-slough":  [["caution","thin ice","Overflow, very variable thickness and glacial silt in the channels; often wind-scoured, so one of the better late-December bets."]],
- "ice-big-lake":       [["caution","traffic","High-speed snowmachine traffic on the ice; pressure ridges."]],
- "ice-finger":         [["caution","holes","Busy ice-fishing lake: watch for auger holes."]],
- "ice-matanuska-lakes":[["caution","holes","Heavily ice-fished: watch for auger holes."]],
- "ice-skilak":         [["high","thin ice","Very large lake with leads and pressure ridges; outside the 2-hour range."]],
- "ice-westchester":    [["caution","ice","Only groomed once the ice is 12 in; inflow and outflow never freeze, so stay inside the groomed area. Late-December opening varies year to year."]],
- "ice-cheney":         [["caution","ice","Maintained only once the ice is 12 in; recurring overflow."]],
- "ice-goose":          [["caution","ice","Opens later in the season; the city grooms the trail around it but not always the lake."]],
- "ice-jewel":          [["caution","ice","City lists it as ice-fishing only: no maintained skating."]],
- "ice-delong":         [["caution","ice","City lists it as ice-fishing only: no maintained skating."]],
- "ice-beach-lake":     [["caution","ice","The lake is for ice fishing only and isn't maintained for skating; ski the trails."]],
- "ski-edmonds-mirror": [["caution","thin ice","Lake skiing: only once the ice is safe."]],
- "ski-glen-alps":      [["caution","road","Steep, icy access road; the lot fills on clear days. Above the groomed area is avalanche terrain."]],
- "ski-coastal-trail":  [["caution","conditions","Exposed to wind off Cook Inlet; coastal snow is often thin or icy. Multi-use: walkers, bikes and dogs."]],
- "ski-girdwood-moose-meadows": [["caution","conditions","Rain-on-snow and running water can stop grooming; check the Girdwood Nordic report."]],
- "thunderbird":        [["caution","ice","Packed, icy trail: microspikes essential. The side path down to the creek is steep and slick."]],
- "beluga-point":       [["caution","road","Seward Highway: wind, ice, avalanche-control closures and a bad crash record. Drive in daylight, headlights on, check 511.alaska.gov."]],
- "bird-point":         [["caution","road","Notoriously windy; avalanche paths and control closures between Indian and Girdwood."]],
- "matanuska":          [["caution","glacier","Winter glacier travel only with a guide. 4-hour round trip on the icy Glenn Highway; often −20 °C or colder with strong winds."]],
- "alyeska-ski":        [["caution","road","Seward Highway avalanche closures can block access; the upper mountain often goes on wind or visibility holds."]],
- "nye-alyeska":        [["caution","road","Driving back to Anchorage late on New Year's Eve on the Seward Highway is dark and risky: stay in Girdwood or have a sober driver."]],
- "snowmachine":        [["caution","avalanche","Guided backcountry riding: follow the guide's avalanche protocol."]],
- "warm-alyeska-nordic-spa": [["caution","booking","Adults 18+ only; holiday dates sell out."]],
- "warm-tolovana-hot-springs": [["high","remote","10+ mi backcountry ski in, remote, extreme cold possible: a serious trip, far beyond the 2-hour range."]]
+ "ice-lake-hood": [
+  [
+   "nogo",
+   "not allowed",
+   "Closed to pedestrians year-round: active seaplane / ski-plane base. Walking or skating on the ice is not permitted."
+  ]
+ ],
+ "ice-lake-spenard": [
+  [
+   "nogo",
+   "not allowed",
+   "Part of the Lake Hood seaplane base: active aircraft operations on the ice. Airport guidance: stay off the ice."
+  ]
+ ],
+ "ice-portage": [
+  [
+   "high",
+   "thin ice",
+   "Unmonitored ice over a 600-ft-deep lake; slow to freeze and often not safe in late December. Pressure ridges, leads, refrozen open water."
+  ],
+  [
+   "high",
+   "glacier",
+   "Calving sends waves under the ice (two skaters were stranded and helicopter-rescued in Feb 2025). Stay far back from the glacier face and off icebergs."
+  ],
+  [
+   "high",
+   "avalanche",
+   "Avalanche and rockfall from the side slopes. No cell service. Ice reports: USFS Glacier Ranger District 907-783-3242."
+  ]
+ ],
+ "portage-lake": [
+  [
+   "high",
+   "thin ice",
+   "Lake ice is unmonitored and often not yet safe in late December; ask the USFS ranger district (907-783-3242) before walking out."
+  ],
+  [
+   "high",
+   "glacier",
+   "Keep well back from the calving glacier face."
+  ]
+ ],
+ "byron": [
+  [
+   "nogo",
+   "avalanche",
+   "Trail runs through avalanche runout under steep walls; the Forest Service and the Chugach avalanche center advise against winter travel without avalanche gear and training. Never enter the 'ice caves' (collapsing avalanche debris)."
+  ]
+ ],
+ "flattop": [
+  [
+   "high",
+   "avalanche",
+   "The winter summit gully is icy and avalanche-prone, with past fatalities. Turn around at Blueberry Knoll or the saddle unless experienced; microspikes. Check cnfaic.org."
+  ],
+  [
+   "caution",
+   "road",
+   "Glen Alps Road is steep and icy."
+  ]
+ ],
+ "ski-turnagain-pass": [
+  [
+   "high",
+   "avalanche",
+   "Serious avalanche terrain, ungroomed. Read the Chugach avalanche forecast (cnfaic.org) and carry beacon, probe, shovel and training."
+  ],
+  [
+   "caution",
+   "road",
+   "Seward Highway avalanche-control closures; check 511.alaska.gov."
+  ]
+ ],
+ "ski-powerline-pass": [
+  [
+   "high",
+   "avalanche",
+   "The upper valley below the pass is avalanche terrain; the lower valley is gentle. Check cnfaic.org (Chugach State Park) before going past the first few miles."
+  ]
+ ],
+ "ski-rabbit-lake": [
+  [
+   "high",
+   "avalanche",
+   "Bowl below the Suicide Peaks: avalanche terrain. Canyon Road is rough (4WD)."
+  ]
+ ],
+ "ice-rabbit-lake": [
+  [
+   "high",
+   "avalanche",
+   "Alpine bowl in avalanche terrain; by late December usually snowed over. Check cnfaic.org."
+  ]
+ ],
+ "ice-eagle-symphony": [
+  [
+   "high",
+   "avalanche",
+   "~5 mi in through avalanche terrain; usually snowed over by late December."
+  ]
+ ],
+ "ski-archangel": [
+  [
+   "high",
+   "avalanche",
+   "Valley road lined by avalanche paths. Check the Hatcher Pass Avalanche Center (hpavalanche.org)."
+  ]
+ ],
+ "ski-independence-mine": [
+  [
+   "high",
+   "avalanche",
+   "Avalanche terrain directly above the groomed area; stay on the trails and check hpavalanche.org."
+  ],
+  [
+   "caution",
+   "road",
+   "Hatcher Pass road: steep, icy, plowed only to the lower lots; 4WD and snow tyres advised. Grooming permit uncertain this season."
+  ]
+ ],
+ "hatcher": [
+  [
+   "high",
+   "avalanche",
+   "Steep avalanche terrain everywhere off the road. Check hpavalanche.org and 511.alaska.gov."
+  ],
+  [
+   "caution",
+   "road",
+   "Road can be icy and closed after storms; colder and windier than Anchorage."
+  ]
+ ],
+ "ski-johnson-pass": [
+  [
+   "caution",
+   "avalanche",
+   "Easy valley touring at first, but avalanche paths farther in. Check cnfaic.org."
+  ]
+ ],
+ "ski-bird-valley": [
+  [
+   "caution",
+   "avalanche",
+   "Crosses the Penguin Peak avalanche path: cross quickly, one at a time. Watch for creek overflow."
+  ]
+ ],
+ "ski-indian-valley": [
+  [
+   "caution",
+   "avalanche",
+   "Upper valley toward Powerline Pass is avalanche terrain; mid-winter means trail breaking."
+  ]
+ ],
+ "ski-ernc": [
+  [
+   "caution",
+   "avalanche",
+   "Mountain-valley touring: avalanche paths reach the trail in places. Ask at the nature center."
+  ]
+ ],
+ "ski-resurrection-north": [
+  [
+   "caution",
+   "avalanche",
+   "Long backcountry route with avalanche exposure in places; confirm motorized/non-motorized year with the Seward Ranger District."
+  ]
+ ],
+ "ski-eklutna": [
+  [
+   "caution",
+   "thin ice",
+   "Lake ice is unreliable: stay on the shoreline trail. Shared with snowmachines; side valleys are avalanche terrain; no cell signal."
+  ]
+ ],
+ "eklutna": [
+  [
+   "caution",
+   "thin ice",
+   "Lake ice is unmonitored; stay on the trail. Very windy and cold at the lake; side valleys are avalanche terrain."
+  ],
+  [
+   "caution",
+   "road",
+   "Eklutna Lake Road (10 mi) is winding and icy."
+  ]
+ ],
+ "ice-eklutna": [
+  [
+   "high",
+   "thin ice",
+   "Huge lake that freezes out of step with others; wind can open or roughen it, and a warm spell once thinned the ice to under 1 in. Check recent reports."
+  ],
+  [
+   "caution",
+   "avalanche",
+   "Side valleys are avalanche terrain."
+  ]
+ ],
+ "ice-potter": [
+  [
+   "high",
+   "thin ice",
+   "Very variable ice with open holes from marsh gas; inflow channels stay thin."
+  ]
+ ],
+ "ice-twentymile": [
+  [
+   "high",
+   "thin ice",
+   "Thin ice in the passageways, gas holes throughout, wind-blown silt; Turnagain Arm swings from chinook rain to deep cold."
+  ]
+ ],
+ "ice-placer": [
+  [
+   "caution",
+   "thin ice",
+   "Tidal-influenced lagoons: silt, wind and uneven ice."
+  ]
+ ],
+ "ice-coastal-refuge": [
+  [
+   "high",
+   "tides",
+   "Extreme tides and thin, inconsistent sea ice; stay close to shore. Salt and silt dull blades."
+  ]
+ ],
+ "ice-jim-creek": [
+  [
+   "high",
+   "thin ice",
+   "Creek and the braided glacial Knik River are moving water: the highest break-through risk of any spot here."
+  ]
+ ],
+ "ice-rabbit-slough": [
+  [
+   "caution",
+   "thin ice",
+   "Overflow, very variable thickness and glacial silt in the channels; often wind-scoured, so one of the better late-December bets."
+  ]
+ ],
+ "ice-big-lake": [
+  [
+   "caution",
+   "traffic",
+   "High-speed snowmachine traffic on the ice; pressure ridges."
+  ]
+ ],
+ "ice-finger": [
+  [
+   "caution",
+   "holes",
+   "Busy ice-fishing lake: watch for auger holes."
+  ]
+ ],
+ "ice-matanuska-lakes": [
+  [
+   "caution",
+   "holes",
+   "Heavily ice-fished: watch for auger holes."
+  ]
+ ],
+ "ice-skilak": [
+  [
+   "high",
+   "thin ice",
+   "Very large lake with leads and pressure ridges; outside the 2-hour range."
+  ]
+ ],
+ "ice-westchester": [
+  [
+   "caution",
+   "ice",
+   "Only groomed once the ice is 12 in; inflow and outflow never freeze, so stay inside the groomed area. Late-December opening varies year to year."
+  ]
+ ],
+ "ice-cheney": [
+  [
+   "caution",
+   "ice",
+   "Maintained only once the ice is 12 in; recurring overflow."
+  ]
+ ],
+ "ice-goose": [
+  [
+   "caution",
+   "ice",
+   "Opens later in the season; the city grooms the trail around it but not always the lake."
+  ]
+ ],
+ "ice-jewel": [
+  [
+   "caution",
+   "ice",
+   "City lists it as ice-fishing only: no maintained skating."
+  ]
+ ],
+ "ice-delong": [
+  [
+   "caution",
+   "ice",
+   "City lists it as ice-fishing only: no maintained skating."
+  ]
+ ],
+ "ice-beach-lake": [
+  [
+   "caution",
+   "ice",
+   "The lake is for ice fishing only and isn't maintained for skating; ski the trails."
+  ]
+ ],
+ "ski-edmonds-mirror": [
+  [
+   "caution",
+   "thin ice",
+   "Lake skiing: only once the ice is safe."
+  ]
+ ],
+ "ski-glen-alps": [
+  [
+   "caution",
+   "road",
+   "Steep, icy access road; the lot fills on clear days. Above the groomed area is avalanche terrain."
+  ]
+ ],
+ "ski-coastal-trail": [
+  [
+   "caution",
+   "conditions",
+   "Exposed to wind off Cook Inlet; coastal snow is often thin or icy. Multi-use: walkers, bikes and dogs."
+  ]
+ ],
+ "ski-girdwood-moose-meadows": [
+  [
+   "caution",
+   "conditions",
+   "Rain-on-snow and running water can stop grooming; check the Girdwood Nordic report."
+  ]
+ ],
+ "thunderbird": [
+  [
+   "caution",
+   "ice",
+   "Packed, icy trail: microspikes essential. The side path down to the creek is steep and slick."
+  ]
+ ],
+ "beluga-point": [
+  [
+   "caution",
+   "road",
+   "Seward Highway: wind, ice, avalanche-control closures and a bad crash record. Drive in daylight, headlights on, check 511.alaska.gov."
+  ]
+ ],
+ "bird-point": [
+  [
+   "caution",
+   "road",
+   "Notoriously windy; avalanche paths and control closures between Indian and Girdwood."
+  ]
+ ],
+ "matanuska": [
+  [
+   "caution",
+   "glacier",
+   "Winter glacier travel only with a guide. 4-hour round trip on the icy Glenn Highway; often −20 °C or colder with strong winds."
+  ]
+ ],
+ "alyeska-ski": [
+  [
+   "caution",
+   "road",
+   "Seward Highway avalanche closures can block access; the upper mountain often goes on wind or visibility holds."
+  ]
+ ],
+ "nye-alyeska": [
+  [
+   "caution",
+   "road",
+   "Driving back to Anchorage late on New Year's Eve on the Seward Highway is dark and risky: stay in Girdwood or have a sober driver."
+  ]
+ ],
+ "snowmachine": [
+  [
+   "caution",
+   "avalanche",
+   "Guided backcountry riding: follow the guide's avalanche protocol."
+  ]
+ ],
+ "warm-tolovana-hot-springs": [
+  [
+   "high",
+   "remote",
+   "10+ mi backcountry ski in, remote, extreme cold possible: a serious trip, far beyond the 2-hour range."
+  ]
+ ]
 }
