@@ -482,6 +482,7 @@
 
   D=JSON.parse(document.getElementById("ak-data").textContent);
   var tj=document.getElementById("ak-tracks"); T=tj&&tj.textContent.trim()?JSON.parse(tj.textContent):null;
+  if(T&&T.strs) T.ways.forEach(function(w){ ["g","org","lvl"].forEach(function(k){ if(typeof w[k]==="number") w[k]=T.strs[w[k]]; }); w.n=w.n||""; w.l=w.l||0; w.so=w.so||0; });
   drawHead(); drawFilters(); drawZoom(); buildMap(); drawTKey(); drawSched(); drawList(); drawNotes(); liveFetch();
 })();
 </script>

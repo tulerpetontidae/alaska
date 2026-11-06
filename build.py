@@ -27,7 +27,7 @@ def enc(pts):
         plat, plon = round(la * 1e5), round(lo * 1e5)
     return "".join(out)
 
-def simplify(pts, tol_m=4.0):
+def simplify(pts, tol_m=8.0):
     if len(pts) < 3: return pts
     k = math.cos(math.radians(pts[0][0])) * 111320
     xy = [(lo * k, la * 110540) for la, lo in pts]
@@ -130,7 +130,19 @@ def build_tracks(skiplaces):
             add({"src": "bc", "s": "bc", "l": 0, "n": w["route"], "sys": BC_SYS.get(w["route"])}, pts)
     for v in stats.values():
         for k in ("km", "lit", "classic", "skate", "skiOnly"): v[k] = round(v[k], 1)
-    tracks = {"ways": out, "moaService": "https://services2.arcgis.com/Ce3DhLRthdwbHlfF/arcgis/rest/services/NordicTrails/FeatureServer/0"}
+    strs = []
+    def sid_(v):
+        if v not in strs: strs.append(v)
+        return strs.index(v)
+    for w in out:
+        for k in ("g", "org", "lvl"):
+            if w.get(k): w[k] = sid_(w[k])
+            else: w.pop(k, None)
+        if not w.get("n"): w.pop("n", None)
+        for k in ("l", "so"):
+            if not w.get(k): w.pop(k, None)
+        if w.get("sys") is None: w.pop("sys", None)
+    tracks = {"strs": strs, "ways": out, "moaService": "https://services2.arcgis.com/Ce3DhLRthdwbHlfF/arcgis/rest/services/NordicTrails/FeatureServer/0"}
     return stats, tracks
 
 def main():
@@ -166,6 +178,11 @@ def main():
     if stats:
         for p in places:
             if p["id"] in stats: p["osm"] = stats[p["id"]]
+    for p in places:
+        for k in ("coordNote", "groupFit", "pairsWith", "kind" if p["cat"] not in ("sauna",) else "_"):
+            p.pop(k, None)
+        if p["id"] in drive.get("h1", {}): p.pop("driveFromDowntownMin", None)
+    drive = {k: v for k, v in drive.items() if k in ("h1", "downtown")}
     data = dict(base, places=places, drive=drive, generated=dt.date.today().isoformat())
     def js(o):  # JSON safe inside a <script> element
         return json.dumps(o, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
