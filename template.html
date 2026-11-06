@@ -290,7 +290,7 @@
       '<div class="ak-fact">Trail systems to ski<b>'+n("ski")+'</b>'+(groomed?'<small>'+Math.round(groomed)+' km groomed in Anchorage</small>':'')+'</div>'+
       '<div class="ak-fact">Ice to skate<b>'+skate.length+'</b><small>'+rinks+' rinks · '+(skate.length-rinks)+' lakes & lagoons</small></div>'+
       (A.value?'<div class="ak-fact">Aurora chance (est.)<b>'+esc(A.value)+'</b><small>'+esc(A.note||"")+'</small></div>':'')+
-      (F.length?'<div class="ak-fact">Holiday feasts to cook<b>'+F.length+'</b><small>'+F.map(function(f){ return esc(f.name.replace(/ dinner$/,"")); }).join(" · ")+'</small></div>':'')+
+      (F.length?'<div class="ak-fact">Holiday feasts to cook<b>'+F.length+'</b><small>'+F.map(function(f){ var t=dd(f.date); return esc(f.name)+' '+t.d+' '+t.m; }).join(" · ")+'</small></div>':'')+
       '<div class="ak-fact">Sunrise – sunset<b>'+hm(first.rise)+'–'+hm(first.set)+'</b><small>'+dur(first.set-first.rise)+' of sun, '+dur(last.set-last.rise)+' by 3 Jan</small></div>';
   }
 
