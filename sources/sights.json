@@ -477,37 +477,6 @@
   "url": "https://www.alaskabg.org/"
  },
  {
-  "id": "nordic-spa",
-  "name": "Alyeska Nordic Spa (closest 'hot springs' option)",
-  "cat": "sight",
-  "area": "Girdwood",
-  "lat": 60.9706815,
-  "lon": -149.0959393,
-  "driveFromDowntownMin": 45,
-  "hoursOrDates": "Daily ~10am-9pm (verify). Twilight pass from 5pm. Holiday hours ?",
-  "cost": "~$110+ pp day pass (dated figure); twilight cheaper?",
-  "bookAhead": true,
-  "durationHours": 3,
-  "notes": "Heated outdoor pools, saunas and cold plunges under the Chugach. Not a natural spring, but the realistic substitute within a day trip. Adults 18+ only. Reservations are required and holidays sell out, so book weeks ahead. 24 h cancellation. Great after-dark activity.",
-  "url": "https://anordicspa.com/"
- },
- {
-  "id": "chena",
-  "name": "Chena Hot Springs (natural, but far)",
-  "cat": "sight",
-  "area": "Fairbanks (60 mi NE)",
-  "lat": 65.0529036,
-  "lon": -146.0589357,
-  "coordNote": "resort area (Moose Lodge)",
-  "driveFromDowntownMin": 420,
-  "hoursOrDates": "Year-round",
-  "cost": "? (pool day pass ~$20-30)",
-  "bookAhead": true,
-  "durationHours": 24,
-  "notes": "No developed natural hot spring lies within a 3 h day trip of Anchorage. Chena takes ~7 h by car or 12 h on the Aurora train plus a shuttle, so it is only workable as a 2-3 night side trip. Its main draws are top-tier aurora odds and an ice museum.",
-  "url": "https://chenahotsprings.com/"
- },
- {
   "id": "snow-city",
   "name": "Snow City Cafe",
   "cat": "food",

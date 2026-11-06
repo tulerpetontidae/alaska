@@ -25,7 +25,7 @@
     --rule:#D5DDE2; --rule-2:#E7ECEF;
     --hero-bg:#0B1F33; --hero-fg:#EEF2F4;
     /* categories: Okabe–Ito, every marker also carries a letter */
-    --c-ski:#0072B2; --c-rink:#56B4E9; --c-ice:#009E73; --c-sight:#E69F00; --c-tour:#CC79A7; --c-event:#D55E00; --c-food:#8C6A4F; --c-stay:#0F1A24;
+    --c-ski:#0072B2; --c-rink:#56B4E9; --c-ice:#009E73; --c-sight:#E69F00; --c-tour:#CC79A7; --c-event:#D55E00; --c-food:#8C6A4F; --c-stay:#0F1A24; --c-warm:#6A4C93;
     --day:#FFF4D6; --twi:#F2E7CF; --night:#E4E9EE;
     --disp:'Big Shoulders Display','Arial Narrow',sans-serif;
     --body:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
@@ -35,7 +35,7 @@
     --page:#0B0F13; --paper:#151B21; --ink:#F2F5F7; --ink-2:#C2CBD2; --muted:#85909A; --muted-d:#5F6A73;
     --rule:#26303A; --rule-2:#1D252D;
     --hero-bg:#13212F; --hero-fg:#F2F5F7;
-    --c-stay:#F2F5F7; --c-food:#B48C6C;
+    --c-stay:#F2F5F7; --c-food:#B48C6C; --c-warm:#A78BD0;
     --day:#3A3320; --twi:#272A26; --night:#12171C;
   }
   html,body{background:var(--page);margin:0}
@@ -210,6 +210,7 @@
     {k:"rink",  name:"Outdoor rinks",     L:"R", cats:["rink-outdoor"]},
     {k:"ice",   name:"Wild ice & lakes",  L:"I", cats:["wild-ice","lake-ski"]},
     {k:"sight", name:"Sights & hikes",    L:"V", cats:["sight","hike"]},
+    {k:"warm",  name:"Saunas & hot springs", L:"W", cats:["sauna"]},
     {k:"tour",  name:"Tours & downhill",  L:"T", cats:["tour","downhill"]},
     {k:"event", name:"Events",            L:"E", cats:["event"]},
     {k:"food",  name:"Food & drink",      L:"F", cats:["food"]},
@@ -398,6 +399,9 @@
     if(p.cat==="rink-outdoor") t.push('<span class="ak-tag'+(p.muni?' on">city-maintained':'">outdoor')+'</span>');
     if(p.cat==="wild-ice") t.push('<span class="ak-tag warn">natural ice · check first</span>');
     if(p.cat==="lake-ski") t.push('<span class="ak-tag">lake ski</span>');
+    if(p.kind==="hot-spring") t.push('<span class="ak-tag on">hot spring</span>');
+    if(p.kind==="spa") t.push('<span class="ak-tag on">spa</span>');
+    if(p.kind==="pool") t.push('<span class="ak-tag">pool / hot tub</span>');
     if(p.bookAhead===true) t.push('<span class="ak-tag warn">book ahead</span>');
     if(known(p.dogs) && /no|not/i.test(p.dogs)) t.push('<span class="ak-tag">no dogs</span>');
     return t.length?'<div class="ak-tags">'+t.join("")+'</div>':""; }
