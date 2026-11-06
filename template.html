@@ -204,7 +204,7 @@
   var root=document.documentElement;
   var GROUPS=[
     {k:"ski",   name:"Cross-country ski", L:"S", cats:["ski"]},
-    {k:"rink",  name:"Skating rinks",     L:"R", cats:["rink-outdoor","rink-indoor"]},
+    {k:"rink",  name:"Outdoor rinks",     L:"R", cats:["rink-outdoor"]},
     {k:"ice",   name:"Wild ice & lakes",  L:"I", cats:["wild-ice","lake-ski"]},
     {k:"sight", name:"Sights & hikes",    L:"V", cats:["sight","hike"]},
     {k:"tour",  name:"Tours & downhill",  L:"T", cats:["tour","downhill"]},
@@ -372,8 +372,6 @@
   function tags(p){ var t=[];
     (p.styles||[]).forEach(function(s){ t.push('<span class="ak-tag on">'+s+'</span>'); });
     if(known(p.lit) && !/^no\b/i.test(p.lit)) t.push('<span class="ak-tag">lit</span>');
-    if(p.kind||p.cat==="rink-indoor") {}
-    if(p.cat==="rink-indoor") t.push('<span class="ak-tag">indoor</span>');
     if(p.cat==="rink-outdoor") t.push('<span class="ak-tag">outdoor</span>');
     if(p.cat==="wild-ice") t.push('<span class="ak-tag warn">natural ice · check first</span>');
     if(p.cat==="lake-ski") t.push('<span class="ak-tag">lake ski</span>');
