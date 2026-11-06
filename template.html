@@ -31,8 +31,25 @@
   .ak a{color:inherit}
 
   .ak-hero{background:var(--hero-bg);color:var(--hero-fg);border-radius:3px;padding:30px 28px 26px;margin-top:14px;position:relative;overflow:hidden}
-  .ak-hero > *:not(.ak-sky){position:relative;z-index:1}
-  .ak-sky{position:absolute;right:-2.5%;top:50%;height:86%;width:56%;transform:translateY(-50%);pointer-events:none;overflow:visible;opacity:.62}
+  .ak-hero > *:not(.ak-sky):not(.ak-aurora){position:relative;z-index:1}
+  .ak-aurora{position:absolute;top:-30%;right:-8%;width:78%;height:150%;z-index:0;pointer-events:none;overflow:hidden;
+    -webkit-mask-image:radial-gradient(ellipse 70% 60% at 60% 45%,#000 30%,transparent 75%);mask-image:radial-gradient(ellipse 70% 60% at 60% 45%,#000 30%,transparent 75%)}
+  .ak-aurora i{position:absolute;left:5%;width:95%;height:24%;border-radius:50% 50% 40% 40%;filter:blur(9px);mix-blend-mode:screen;opacity:0;
+    background:repeating-linear-gradient(90deg,rgba(255,255,255,0) 0 5px,rgba(255,255,255,.22) 5px 7px,rgba(255,255,255,0) 7px 13px),
+               linear-gradient(180deg,transparent 0%,var(--a1) 40%,var(--a2) 78%,transparent 100%);
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 18%,#000 82%,transparent);mask-image:linear-gradient(90deg,transparent,#000 18%,#000 82%,transparent);
+    transform-origin:50% 100%;animation:akAur var(--t) ease-in-out var(--dl) infinite alternate,akAurIn 4s ease-out var(--dl) forwards}
+  .ak-aurora i:nth-child(1){top:26%;--a1:rgba(120,255,190,.55);--a2:rgba(40,210,160,.35);--t:17s;--dl:.4s;--r:-9deg;--x:-6%}
+  .ak-aurora i:nth-child(2){top:16%;--a1:rgba(150,120,255,.28);--a2:rgba(90,255,200,.38);--t:23s;--dl:1.6s;--r:-14deg;--x:8%;width:80%;left:18%}
+  .ak-aurora i:nth-child(3){top:38%;--a1:rgba(60,230,210,.32);--a2:rgba(110,255,170,.30);--t:29s;--dl:3s;--r:-5deg;--x:-12%;height:26%}
+  .ak-aurora i:nth-child(4){top:8%;--a1:rgba(190,140,255,.18);--a2:rgba(120,255,200,.2);--t:37s;--dl:5s;--r:-18deg;--x:14%;width:60%;left:35%;height:24%}
+  @keyframes akAurIn{to{opacity:1}}
+  @keyframes akAur{
+    0%{transform:translateX(0) rotate(var(--r)) skewX(-18deg) scaleY(1)}
+    35%{transform:translateX(var(--x)) rotate(calc(var(--r) + 4deg)) skewX(-6deg) scaleY(1.25)}
+    70%{transform:translateX(calc(var(--x) * -.6)) rotate(calc(var(--r) - 3deg)) skewX(-24deg) scaleY(.85)}
+    100%{transform:translateX(calc(var(--x) * .4)) rotate(var(--r)) skewX(-12deg) scaleY(1.1)}}
+  .ak-sky{position:absolute;right:-6%;top:50%;height:86%;width:56%;transform:translateY(-50%);pointer-events:none;overflow:visible;opacity:.62}
   .ak-sky .bg{fill:#fff;opacity:0;animation:akBg var(--d) ease-in-out var(--dl) infinite}
   .ak-sky .ln{stroke:#CFE3FF;stroke-width:2;stroke-linecap:round;opacity:.28;stroke-dasharray:var(--len);stroke-dashoffset:var(--len);animation:akDraw .55s ease-out var(--dl) forwards}
   .ak-sky .st{opacity:0;transform-box:fill-box;transform-origin:center;animation:akBloom .9s cubic-bezier(.2,.8,.2,1.2) var(--in) forwards}
@@ -46,7 +63,7 @@
   @keyframes akTwinkle{0%,100%{opacity:1;transform:scale(1) rotate(0)}30%{opacity:calc(var(--s)*.5);transform:scale(.72) rotate(8deg)}55%{opacity:1;transform:scale(1.12) rotate(-4deg)}}
   @keyframes akPulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.35);opacity:.6}}
   @media (prefers-reduced-motion:reduce){
-    .ak-sky *{animation:none!important}
+    .ak-sky *,.ak-aurora i{animation:none!important} .ak-aurora i{opacity:.8}
     .ak-sky .st{opacity:1} .ak-sky .ln{stroke-dashoffset:0} .ak-sky .bg{opacity:var(--o)}
   }
   .ak-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;opacity:.7}
@@ -162,6 +179,7 @@
   @media (max-width:760px){
     .ak-hero{padding:24px 18px 20px}
     .ak-title{font-size:48px}
+    .ak-aurora{top:130px;right:-20%;width:140%;height:300px}
     .ak-sky{position:relative;display:block;right:auto;top:auto;transform:none;width:100%;height:170px;margin:10px 0 0;opacity:.8}
     .ak-facts{max-width:none}
     .ak-card{padding:16px}
@@ -180,6 +198,7 @@
   <div class="ak-themebar"></div>
 
   <div class="ak-hero">
+    <div class="ak-aurora" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
     <div class="ak-eyebrow" id="ak-range">—</div>
     <h1 class="ak-title">Alaska New Year</h1>
     <p class="ak-sub">Ski trails, ice and everything else around Anchorage, for twelve short days at midwinter.</p>
