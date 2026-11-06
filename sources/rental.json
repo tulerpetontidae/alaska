@@ -1,0 +1,292 @@
+[
+ {
+  "id": "gear-amh-spenard",
+  "name": "Alaska Mountaineering & Hiking (AMH)",
+  "cat": "rental",
+  "area": "Spenard, Anchorage",
+  "lat": 61.1966339,
+  "lon": -149.9047733,
+  "driveFromDowntownMin": 6,
+  "rents": [
+   "skate skis",
+   "classic skis (skin-style waxless)",
+   "metal-edge scale skis",
+   "roller skis",
+   "nordic skates",
+   "nordic skate boots",
+   "alpine touring skis",
+   "AT boots",
+   "avalanche gear",
+   "snowshoes",
+   "crampons",
+   "ice axes",
+   "helmets",
+   "double plastic boots"
+  ],
+  "prices": "source alaskamountaineering.com/service/rentals (accessed 2026-11-05; page undated); skate package (skis+boots+poles) $29.95 1d / $54.95 3d / $99.95 wk; skin-style classic package $29.95 1d / $54.95 3d / $99.95 wk; metal-edge scale package $29.95 1d / $54.95 3d / $99.95 wk / $199.95 mo; roller skis $15 1d / $35 3d / $65 wk; nordic skates + guards $15 1d / $30 3d / $60 wk; nordic skate boots $15 1d / $30 3d / $60 wk; AT skis w/ tech bindings + skins $55 1d / $95 3d / $170 wk / $295 mo; AT full package $95 1d / $170 3d / $285 wk / $495 mo; avalanche gear (beacon+shovel+probe) $35 1d / $50 3d / $75 wk / $150 mo; snowshoes $19.95 1d / $29.95 3d / $49.95 wk / $99.95 mo",
+  "hoursOrDates": "Mon-Sat 9am-7pm, Sun 11am-7pm (website). Holiday hours for 24/25/31 Dec and 1 Jan: ? (not published; call 907-272-1811).",
+  "bookAhead": false,
+  "notes": "Walking distance from Spenard lodging. Only shop found renting classic, skate AND metal-edge nordic packages plus nordic skates and avalanche kits under one roof. Nordic rentals are same-day first-come-first-served; only AT/ski-mountaineering gear can be reserved (non-refundable), so 6 nordic sets on a holiday-week morning is a risk - arrive at opening or phone ahead. Classic rentals are skin skis (no kick wax needed); no waxable classic rental listed. Ski models/performance level, whether they hot-wax/prep rentals: ? Skate blade brand: ? (shop retails Zandstra Tango/Delta NIS). No ice picks/throw ropes or pulks listed for rent. Shop does tuning/waxing as a service.",
+  "url": "https://www.alaskamountaineering.com/service/rentals/"
+ },
+ {
+  "id": "gear-rei-anchorage",
+  "name": "REI Anchorage",
+  "cat": "rental",
+  "area": "Midtown, Anchorage",
+  "lat": 61.1942903,
+  "lon": -149.875351,
+  "driveFromDowntownMin": 6,
+  "rents": [
+   "snowshoes",
+   "cross-country skis (unverified for 2026-27)",
+   "alpine touring skis (unverified)"
+  ],
+  "prices": "all ? (rei.com pages blocked automated fetch; members get 33% off rentals per REI)",
+  "hoursOrDates": "Regular hours per Yelp: Mon-Fri 10am-8pm, Sat 10am-7pm, Sun 10am-6pm (conflicting third-party data). REI closes chain-wide on Christmas Day (25 Dec). 24 Dec, 31 Dec, 1 Jan: ? (third-party sites conflict; check rei.com/stores/anchorage).",
+  "bookAhead": "?",
+  "notes": "500 E Northern Lights Blvd, (907) 272-4565. REI store page says it rents winter gear (skis, snowboards, snowshoes) and to call for availability. A 2016 ADN article and a 2020 REI post indicated Anchorage rented Nordic gear and AT/splitboard gear, but current nordic/avalanche rental stock could not be verified. Has a ski shop for tuning/waxing.",
+  "url": "https://www.rei.com/stores/anchorage"
+ },
+ {
+  "id": "gear-aog-anchorage",
+  "name": "Alaska Outdoor Gear Rental (Alaska Outdoor Gear Outfitter & Rentals)",
+  "cat": "rental",
+  "area": "Midtown/Campbell, Anchorage",
+  "lat": 61.1705516,
+  "lon": -149.8927997,
+  "driveFromDowntownMin": 8,
+  "rents": [
+   "classic skis",
+   "touring skis (backcountry classic package)",
+   "alpine skis",
+   "alpine touring skis",
+   "snowboards",
+   "snowshoes",
+   "hockey skates",
+   "figure skates",
+   "microspikes",
+   "avalanche gear",
+   "sleds",
+   "winter clothing"
+  ],
+  "prices": "source alaskaoutdoorgearrental.com/shop and /wintercamping (accessed 2026-11-05); cross-country ski package (skis+boots+poles) from $48 (rate basis per day not stated clearly); snowshoes + trekking poles $22 on /wintercamping; 'from $12' on /shop (conflicting); ice skates (figure or hockey, adult/youth) $12; reservations 50% deposit at booking, 100% if within 30 days (older rate sheet)",
+  "hoursOrDates": "Winter 10am-5pm (site); extended 8am-10pm pickup/return by arrangement with 24h notice. Holiday hours: ?",
+  "bookAhead": true,
+  "notes": "540 W Potter Dr; call/text 907-830-0232. States it has NO skate skis. Classic packages include gear bag; waxless/waxable and ski model: ?. Strong for group logistics: hotel/airport delivery, after-hours pickup, ice skates for rinks, snowshoes, microspikes and clothing in one booking. Booking via aog.rezdy.com (blocked automated access, so many prices unverified). Reviews praise condition and fit.",
+  "url": "https://www.alaskaoutdoorgearrental.com/"
+ },
+ {
+  "id": "gear-pias-spenard",
+  "name": "Play It Again Sports - Anchorage North (Spenard)",
+  "cat": "rental",
+  "area": "Spenard, Anchorage",
+  "lat": 61.196807,
+  "lon": -149.9056076,
+  "driveFromDowntownMin": 6,
+  "rents": [
+   "hockey skates",
+   "figure skates",
+   "cross-country skis",
+   "snowshoes",
+   "alpine skis",
+   "snowboards"
+  ],
+  "prices": "source playitagainsports.com/locations/anchorage-ak-north (accessed 2026-11-05); all ? (rental pages are script-rendered; skate sharpening $12)",
+  "hoursOrDates": "Mon 10am-7pm per Yelp; other days ?. Holiday hours: ?",
+  "bookAhead": "?",
+  "notes": "2636 Spenard Rd, directly across from AMH; phone (907) 278-7529 per Yelp (conflicting numbers listed). Services page lists rentals for ice skates, XC skis, snowshoes, downhill skis and snowboards; whether these are daily or season-lease rentals is unverified. Used-gear store, so also an option to buy cheap rink skates. A Tripadvisor reviewer rented skates here for Westchester Lagoon.",
+  "url": "https://playitagainsports.com/locations/anchorage-ak-north/Services"
+ },
+ {
+  "id": "gear-pias-south",
+  "name": "Play It Again Sports - Anchorage South",
+  "cat": "rental",
+  "area": "South Anchorage (Old Seward Hwy)",
+  "lat": 61.1403779,
+  "lon": -149.8650232,
+  "driveFromDowntownMin": 12,
+  "rents": [
+   "hockey skates",
+   "figure skates"
+  ],
+  "prices": "source playitagainsports.com/locations/anchorage-ak-south (accessed 2026-11-05); ice skates ? (daily and weekly rentals offered)",
+  "hoursOrDates": "? (not shown on site). Holiday hours: ?",
+  "bookAhead": "?",
+  "notes": "8840 Old Seward Hwy. Site states 'Daily and weekly Ice Skate rentals are available'. Also sharpens skates.",
+  "url": "https://playitagainsports.com/locations/anchorage-ak-south/"
+ },
+ {
+  "id": "gear-apu-outdoor-programs",
+  "name": "Alaska Pacific University Outdoor Programs gear room",
+  "cat": "rental",
+  "area": "University area, Anchorage",
+  "lat": 61.190953,
+  "lon": -149.8043379,
+  "driveFromDowntownMin": 12,
+  "rents": [
+   "skate skis",
+   "classic skis (waxless)",
+   "telemark skis",
+   "nordic skates",
+   "snowshoes",
+   "avalanche gear",
+   "fat bikes",
+   "crampons",
+   "trekking poles"
+  ],
+  "prices": "source APU Equipment-Rentals-Prices.pdf (dated Nov 2019 - may be outdated); general-public daily rates; ski package (skate, classic waxless or telemark; boots+poles+skis) $25/day; skis only $10/day; boots only $10/day; poles $3/day; nordic ice skates $15/day; snowshoes $5/day; avalanche set (beacon+probe+shovel) $30/day; fat bike (Fatback Rhino studded) $40/day; multi-day weekend Fri-Mon = 2 days; weekly 7 days = 5 days",
+  "hoursOrDates": "Atwood Center basement, 4455 University Dr; hours vary seasonally; closed weekends AND holidays. Winter-break schedule (23 Dec-3 Jan): ? - likely closed on 24/25/31 Dec and 1 Jan; call 907-564-8614.",
+  "bookAhead": true,
+  "notes": "Public may rent with ID + credit card on file. Cheapest option found, but the rate sheet is from 2019 and the gear room may be shut over the university winter break - verify first. Quality/age of fleet: ?. Fat bike reservations take 100% fee as deposit.",
+  "url": "https://www.alaskapacific.edu/student-life/outdoor-programs/equipment-rentals/"
+ },
+ {
+  "id": "gear-kincaid-chalet",
+  "name": "Kincaid Park Chalet / Kincaid Outdoor Center",
+  "cat": "rental",
+  "area": "Kincaid Park, west Anchorage",
+  "lat": 61.1542136,
+  "lon": -150.0554761,
+  "driveFromDowntownMin": 17,
+  "rents": [
+   "cross-country skis (unverified)"
+  ],
+  "prices": "",
+  "hoursOrDates": "? (chalet hours not published on official pages found; phone 907-343-6397 per Muni form/Yelp)",
+  "bookAhead": "?",
+  "notes": "UNVERIFIED. Only secondary/blog-style sites claim classic and skate rentals at the chalet (one says adult sizes only, when staffed); the Municipality pages that might confirm this returned 404. No evidence NSAA rents to visitors (NSAA/CERNSC rentals are for Junior Nordic only). Treat as a maybe; rent in town instead. Kincaid is the premier groomed trail system, with a wax room in the chalet.",
+  "url": "https://www.muni.org/Departments/parks/"
+ },
+ {
+  "id": "gear-alyeska-mountain-sports",
+  "name": "Alyeska Mountain Sports (Hotel Alyeska)",
+  "cat": "rental",
+  "area": "Girdwood",
+  "lat": 60.9702713,
+  "lon": -149.0986622,
+  "driveFromDowntownMin": 58,
+  "rents": [
+   "cross-country skis",
+   "snowshoes",
+   "alpine skis (performance/demo)",
+   "snowboards"
+  ],
+  "prices": "all ? (alyeskaresort.com rental page not readable by fetch)",
+  "hoursOrDates": "? Holiday hours: ?",
+  "bookAhead": true,
+  "notes": "2nd floor of Hotel Alyeska next to Tramway Cafe. Third-party guides (Powderhounds, Visit Girdwood, Visit Anchorage) say it stocks XC skis and snowshoes; classic vs skate not specified. Resort policy: photo ID and card deposit required; reservations non-refundable within 48h of arrival; no telemark rentals. Useful only if skiing the ~3 mi Girdwood Nordic trails.",
+  "url": "https://www.alyeskaresort.com/ski-snowboard-rentals/",
+  "coordNote": "approx (geocoded to Alyeska Resort, 1000 Arlberg Ave; shop is inside the hotel)"
+ },
+ {
+  "id": "gear-powder-hound-girdwood",
+  "name": "Powder Hound Ski & Bike Shop",
+  "cat": "rental",
+  "area": "Girdwood",
+  "lat": 60.9605245,
+  "lon": -149.1119368,
+  "driveFromDowntownMin": 55,
+  "rents": [
+   "cross-country skis",
+   "alpine skis (standard/performance/demo)",
+   "snowboards"
+  ],
+  "prices": "source powderhoundak.com/pages/ski-snowboard (accessed 2026-11-05); cross-country ski package $30/day; performance ski package $70; demo ski package $85; multi-day 10% off entire bill for 3+ days",
+  "hoursOrDates": "Yelp (updated Sep 2026): Wed-Sun 10am-6pm, closed Mon-Tue. Shop site shows only a spring schedule. Holiday hours: ?",
+  "bookAhead": true,
+  "notes": "210 Arlberg Ave, 907-783-2525. Online XC reservations (winter.powderhoundak.com). 24h cancellation policy. Classic vs skate, waxless vs waxable: ?. Snowshoe rentals claimed only by a third-party directory (unverified). No avalanche gear found.",
+  "url": "https://www.powderhoundak.com/pages/ski-snowboard"
+ },
+ {
+  "id": "gear-girdwood-ski-cyclery",
+  "name": "Girdwood Ski & Cyclery",
+  "cat": "rental",
+  "area": "Girdwood",
+  "lat": 60.9590365,
+  "lon": -149.1520442,
+  "driveFromDowntownMin": 52,
+  "rents": [
+   "classic skis (unverified)",
+   "skate skis (unverified)"
+  ],
+  "prices": "",
+  "hoursOrDates": "? (appears to be by arrangement with owner)",
+  "bookAhead": "?",
+  "notes": "1553 Alyeska Hwy. No official website found. Only an old travel guide and Tripadvisor reviews mention cross-country and skate ski rentals; current operation for 2026-27 is unverified. Call before relying on it.",
+  "url": "https://www.tripadvisor.com/Attraction_Review-g31000-d586646-Reviews-Girdwood_Ski_and_Cyclery-Girdwood_Anchorage_Alaska.html"
+ },
+ {
+  "id": "gear-eagle-river-nature-center",
+  "name": "Eagle River Nature Center",
+  "cat": "rental",
+  "area": "Eagle River Valley",
+  "lat": 61.2342788,
+  "lon": -149.2712204,
+  "driveFromDowntownMin": 38,
+  "rents": [
+   "snowshoes"
+  ],
+  "prices": "snowshoes ? (call for fee schedule); parking $5/vehicle/24h (ernc.org, accessed 2026-11-05)",
+  "hoursOrDates": "Building open Oct-Apr Fri-Sun 10am-5pm; trails 24/7. 25 Dec (Fri) and 1 Jan (Fri) opening: ?",
+  "bookAhead": true,
+  "notes": "Visit Anchorage says snowshoes can be rented here and to reserve well in advance at 907-694-2108; ernc.org itself does not list gear rentals. Only useful if snowshoeing on-site.",
+  "url": "https://www.anchorage.net/winter/things-to-do/snowshoeing/"
+ },
+ {
+  "id": "gear-backcountry-bike-ski-palmer",
+  "name": "Backcountry Bike & Ski",
+  "cat": "rental",
+  "area": "Palmer (Mat-Su)",
+  "lat": 61.6064681,
+  "lon": -149.1158409,
+  "driveFromDowntownMin": 56,
+  "rents": [
+   "classic skis (waxless)",
+   "skate skis",
+   "touring skis (Altai Hok)",
+   "snowshoes",
+   "fat bikes"
+  ],
+  "prices": "source backcountrybikeandski.com/rentals (accessed 2026-11-05); nordic package classic or skate (Rossignol Evo XT 60 / Delta Sport Skate, Rossignol X-1/X-R boots, alu poles) $30 first day + $15 each additional day, or $80/week; Altai Hok trek skis + universal binding + poles $30/day or $90/week; snowshoes + trekking poles $10/day; fat bike (Trek Farley 5, studs, pogies, helmet) $60/day or $285/week",
+  "hoursOrDates": "Tue-Sat 10am-6pm; closed Sun & Mon. 24 Dec (Thu) and 31 Dec (Thu): ?; 25 Dec and 1 Jan (Fri): ?",
+  "bookAhead": true,
+  "notes": "132 W Arctic Ave, Palmer; 907-746-5018; reservations highly recommended. Best value for a week (Rossignol recreational-level gear, sized on-site), and a good base for Hatcher Pass / Government Peak, but ~1h from Spenard and closed Sun/Mon. Rental is 24h from pickup.",
+  "url": "https://www.backcountrybikeandski.com/rentals"
+ },
+ {
+  "id": "gear-downtown-bicycle-rental",
+  "name": "Downtown Bicycle Rental",
+  "cat": "rental",
+  "area": "Downtown Anchorage",
+  "lat": 61.2186357,
+  "lon": -149.8881092,
+  "driveFromDowntownMin": 1,
+  "rents": [
+   "fat bikes",
+   "electric fat bikes"
+  ],
+  "prices": "source alaska-bike-rentals.com/More-Info/Winter-Rental-Rates (accessed 2026-11-05); studded fat/plus bike $30 first 4h weekday ($35 weekend); 24h $45 weekday / $55 Sat-Sun; week $175; electric studded fat bike $45 first 4h weekday ($50 weekend); 24h $60 / $75 weekend; add-ons car rack $5/day, pogies $5/day",
+  "hoursOrDates": "Open every day year-round; Nov hours 10am-6pm. Holiday hours: ?",
+  "bookAhead": false,
+  "notes": "333 W 4th Ave; 907-279-3334, text 907-250-1170 for same/next day. Does not rent skis, snowshoes or skates. Walk-ins welcome, but for 6 bikes reserve via the online form. Fleet reportedly ~13 fat bikes.",
+  "url": "https://www.alaska-bike-rentals.com/More-Info/Winter-Rental-Rates"
+ },
+ {
+  "id": "gear-kicksled-alaska",
+  "name": "Kicksled Alaska",
+  "cat": "rental",
+  "area": "Midtown/Campbell, Anchorage",
+  "lat": 61.1684691,
+  "lon": -149.8916654,
+  "driveFromDowntownMin": 9,
+  "rents": [
+   "kicksleds (unverified for public rental)"
+  ],
+  "prices": "",
+  "hoursOrDates": "? - homepage says the business is closing 'this winter' after seven years (announcement undated)",
+  "bookAhead": "?",
+  "notes": "502 W 58th Ave Unit J; 907-519-2237, hello@kicksledalaska.com. Public kicksled rental in Anchorage not confirmed; free kicksled rentals via ASYMCA are for military families only. Alaska Botanical Garden has a kicksled trail and a donated kicksled fleet (borrowing policy unverified). No pulk rentals found anywhere in the area.",
+  "url": "https://kicksledalaska.com/blogs/rentals"
+ }
+]
