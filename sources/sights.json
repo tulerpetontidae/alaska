@@ -277,36 +277,6 @@
   "url": "https://www.talkeetnaair.com/flightseeing/winter-explorer/"
  },
  {
-  "id": "aurora-glenalps",
-  "name": "Aurora viewing: Glen Alps overlook",
-  "cat": "sight",
-  "area": "Anchorage Hillside",
-  "lat": 61.1048086,
-  "lon": -149.6843541,
-  "driveFromDowntownMin": 25,
-  "hoursOrDates": "Night; dark from ~5pm to ~9am",
-  "cost": "$5 parking",
-  "bookAhead": false,
-  "durationHours": 2,
-  "notes": "Closest high, dark spot above city lights. Looks north over the city, where aurora usually appears. Road steep and icy. Very cold at night.",
-  "url": "https://www.gi.alaska.edu/monitors/aurora-forecast"
- },
- {
-  "id": "aurora-woronzof",
-  "name": "Aurora viewing: Point Woronzof",
-  "cat": "sight",
-  "area": "West Anchorage",
-  "lat": 61.2041967,
-  "lon": -150.018709,
-  "driveFromDowntownMin": 15,
-  "hoursOrDates": "Night",
-  "cost": "Free",
-  "bookAhead": false,
-  "durationHours": 1,
-  "notes": "Bluff over Knik Arm with an open north and west horizon. Some airport and city glow. Fast option on short notice. Windy.",
-  "url": "https://www.gi.alaska.edu/monitors/aurora-forecast"
- },
- {
   "id": "dogsled",
   "name": "Snowhook Adventures dog sled ride",
   "cat": "tour",

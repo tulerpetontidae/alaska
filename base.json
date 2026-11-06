@@ -64,7 +64,10 @@
   {
    "h": "Aurora",
    "p": [
-    "Anchorage needs roughly Kp 4+ for a good show. The moon is full around 24 Dec and bright until about 29 Dec; the darkest nights are 30 Dec – 3 Jan. Clouds are the main limit, so chase clear skies (Glen Alps, Eklutna, Hatcher Pass) and watch the UAF aurora forecast."
+    "Full moon is 23 Dec, so 23–26 Dec are washed out; 27–28 Dec work only in the evening. The best nights are 29 Dec – 2 Jan, when the moon rises after 01:00. Astronomical darkness is about 18:40–07:20; peak activity is usually 22:00–02:00.",
+    "At Anchorage, Kp 2–3 gives a low arc to the north from dark sites, Kp 4 brings it near overhead, Kp 5+ makes it visible in town and over Turnagain Arm (rough thresholds). Mountains block the north from Turnagain Arm spots, so those need a strong display.",
+    "Plan each evening around 19:00–20:00: UAF Geophysical Institute and NOAA SWPC 3-day forecasts (and the OVATION map), then cloud cover from Clear Outside, Windy or NWS Anchorage; check 511.alaska.gov and hpavalanche.org before Hatcher Pass. City parks close at 23:00 unless posted (Kincaid reportedly 22:00).",
+    "Guided tours: Alaska Photo Treks Aurora Quest from $295 pp; Greatland Adventures $345 pp with a free repeat if no aurora (hotel pickups only)."
    ]
   },
   {
@@ -112,6 +115,6 @@
  ],
  "aurora": {
   "value": "~1 in 2",
-  "note": "≥1 good display in 11 nights; darkest 30 Dec–3 Jan"
+  "note": "≥1 good display in 11 nights; best 29 Dec–2 Jan"
  }
 }

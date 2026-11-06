@@ -1,0 +1,658 @@
+[
+ {
+  "id": "aur-hatcher-pass-independence-mine",
+  "name": "Hatcher Pass – Independence Mine lower/winter lot (Hatcher Pass Lodge area)",
+  "cat": "aurora",
+  "area": "Mat-Su – Hatcher Pass East Management Area",
+  "lat": 61.7771,
+  "lon": -149.2763,
+  "coordNote": "Nominatim: Hatcher Pass Lodge; Independence Mine SHP centroid is 61.7868,-149.2751; the winter lot itself is not geocoded separately",
+  "driveFromDowntownMin": 85,
+  "darkness": "Bortle 3 (Clear Outside est. SQM 21.74); faint glow from Palmer/Wasilla to S–SSE and Anchorage to SSW, mostly hidden by terrain",
+  "northView": "Partly blocked: the Independence Mine bowl is ringed by peaks to the N and W, so a low northern arc may be hidden; good for mid-sky/overhead aurora (Kp 3+ here). One source says 'select views toward the north'",
+  "access": "Palmer-Fishhook Rd is paved and open year-round to the park, except the last mile to Independence Mine in winter. 4WD recommended Oct 1–May 31. Road is periodically closed at ~Mile 14 (Gold Mint area) for avalanche danger. Upper-lot gate has seasonal hours (reported 9am–7pm) or stays closed in winter; park at the lower lot and walk ~0.5 mi. Check 511.alaska.gov and the Hatcher Pass @ MP 15 DOT camera before going",
+  "parking": "Lower lot below the park is open year-round; Independence Bowl lot also used. $5 State Parks day-use fee or annual pass required at most Hatcher Pass trailheads (card pay stations). Overnight/night rules for the lot: ?",
+  "notes": "Most-cited dark-sky spot within ~1.5 h of Anchorage. Foreground: snowy peaks and historic mine buildings. Warm-up: Hatcher Pass Lodge (cafe hours in winter ?; lodge reported reserved for cabin guests in evenings). Restrooms at lot: ?",
+  "url": "https://dnr.alaska.gov/parks/aspunits/matsu/indepmineshp.htm",
+  "hazards": [
+   {
+    "lv": "high",
+    "kind": "night trip",
+    "text": "Designated AVALANCHE HAZARD AREA (beacon checkers at Gold Mint, Fishhook, Independence Bowl lots). Steep switchbacks with ice; whiteout/wind on the pass; very cold. Do not walk onto slopes in the dark. Hatcher Pass Avalanche Center forecasts the area"
+   }
+  ],
+  "top": 2
+ },
+ {
+  "id": "aur-hatcher-pass-gold-mint",
+  "name": "Gold Mint Trailhead / parking (Hatcher Pass)",
+  "cat": "aurora",
+  "area": "Mat-Su – Hatcher Pass East Management Area",
+  "lat": 61.7789583,
+  "lon": -149.1961035,
+  "driveFromDowntownMin": 77,
+  "darkness": "Bortle 3 (Clear Outside est. SQM 21.75); faint Palmer/Wasilla glow to S–SSE, Anchorage to SSW",
+  "northView": "Fair–good up the Little Susitna valley, which runs north from the lot; ridges on both sides",
+  "access": "Paved Palmer-Fishhook Rd (Mile ~14), plowed; same 4WD advice and avalanche closures as the rest of the pass (closures have included the Gold Mint lot area)",
+  "parking": "Large lot shared with snowmachiners in winter (start of Hatcher Pass snowmachine corridor). $5 day-use fee or annual pass; card pay station. Gold Mint lot also allows camping ($15/vehicle) per the Oct 2026 conditions report, so night presence is normal",
+  "notes": "Lower and slightly closer than Independence Mine with a more northerly valley view; mountain and river-valley foreground. Restrooms: ? ('limited amenities'). Nearest warm-up: Hatcher Pass Lodge (~10 min up the road, hours ?) or Palmer",
+  "url": "https://dnr.alaska.gov/parks/aspunits/matsu/goldminttrl.htm",
+  "hazards": [
+   {
+    "lv": "high",
+    "kind": "night trip",
+    "text": "Avalanche hazard area; road can be closed at Mile 14 during high danger. Icy lot, snowmachine traffic. Cold-air pooling in the valley"
+   }
+  ],
+  "top": 1
+ },
+ {
+  "id": "aur-archangel-road",
+  "name": "Archangel Road / Archangel Winter Trailhead (Hatcher Pass)",
+  "cat": "aurora",
+  "area": "Mat-Su – Hatcher Pass East Management Area",
+  "lat": 61.8076327,
+  "lon": -149.2091194,
+  "coordNote": "Nominatim point is on Archangel Road, not the winter trailhead lot (approx)",
+  "driveFromDowntownMin": 88,
+  "darkness": "Bortle 3 (Clear Outside est. SQM 21.82); darkest of the Hatcher Pass points tested",
+  "northView": "Archangel Valley runs north; deep valley with high walls",
+  "access": "Archangel Road is open to highway vehicles in summer only; reports from Nov 2025 say it is closed for winter. In winter it is a snowmachine/ski route, so cars stop at the Archangel Winter Trailhead near its start. Exact winter car access: ?",
+  "parking": "Archangel Winter Trailhead: day-use pass required, cash only (Oct 2026 report). Size/plowing: ?",
+  "notes": "Not recommended as a car-based night spot; Gold Mint is the practical alternative ~1 mi away",
+  "url": "https://dnr.alaska.gov/parks/aspunits/matsu/arcangeltrl.htm",
+  "hazards": [
+   {
+    "lv": "high",
+    "kind": "night trip",
+    "text": "Avalanche terrain along the valley; do not travel up the road on foot at night. Snowmachine traffic"
+   }
+  ]
+ },
+ {
+  "id": "aur-knik-river-bridge",
+  "name": "Old Knik River Bridge parking / Knik River Road start",
+  "cat": "aurora",
+  "area": "Mat-Su – Knik River (Butte, south of Palmer)",
+  "lat": 61.5019482,
+  "lon": -149.0315031,
+  "driveFromDowntownMin": 51,
+  "darkness": "Bortle 4 (Clear Outside est. SQM 21.41); Anchorage glow to SW, Palmer glow to NNW",
+  "northView": "Fairly open N/NW across the Matanuska/Knik river flats toward Butte and the Talkeetna Mtns; Palmer lights sit low to the NNW",
+  "access": "Glenn Hwy to the Old Glenn Hwy, then the old Knik River bridge; Knik River Rd branches east. Paved; winter maintenance level ?",
+  "parking": "Old Knik River Bridge parking area (OSM-mapped). A 'swimming hole' pullout is 1.6 mi up Knik River Rd. No State Parks fee known: ?",
+  "notes": "Popular local aurora area with many pullouts; Pioneer Peak and the river as foreground. Restrooms: ?. Warm-up: Palmer (~15–20 min) or Butte stores (hours ?)",
+  "url": "https://theauroraguy.com/pages/anchorage-visitors-guide",
+  "hazards": [
+   {
+    "lv": "caution",
+    "kind": "night trip",
+    "text": "Strong valley outflow winds can blow in the Knik/Matanuska valleys; icy riverbanks and unstable ice (scout in daylight). Don't park on private property"
+   }
+  ],
+  "top": 3
+ },
+ {
+  "id": "aur-knik-river-road-jim-creek",
+  "name": "Knik River Road east / Jim Creek (Knik Glacier side)",
+  "cat": "aurora",
+  "area": "Mat-Su – Knik River valley",
+  "lat": 61.5250468,
+  "lon": -148.9423055,
+  "coordNote": "Nominatim: Jim Creek (stream); use as an area marker (approx)",
+  "driveFromDowntownMin": 62,
+  "darkness": "Bortle 4 (Clear Outside est. SQM 21.45); Anchorage glow to WSW, Palmer to NW, both low and partly hidden",
+  "northView": "Limited: the road runs up a valley with Chugach foothills on the north side; best for overhead aurora. The Knik Glacier itself is ~13 mi beyond the road end and not visible at night from the car in any useful way",
+  "access": "Knik River Rd is paved and ends ~13 mi short of the glacier; winter maintenance ?. Glacier access in winter is via private Hunter Creek/Knik Glacier Tours property (fat-bike/ski, when river frozen)",
+  "parking": "Pullouts along the road (sizes ?). Knik Glacier Tours lot on Buckshot Ln (private; donation box) – daytime use, night rules ?. A Mile 6.8 viewpoint pullout was proposed in 2014; built ?",
+  "notes": "Darker than the bridge but with a tighter north horizon. Good mountain silhouettes. Restrooms: none known (?)",
+  "url": "https://www.adn.com/economy/article/road-paving-boost-knik-glacier-tourism-gets-chilly-reception/2014/04/14/",
+  "hazards": [
+   {
+    "lv": "caution",
+    "kind": "night trip",
+    "text": "Valley winds; river ice; private land at the end. Residential road – keep headlights low and don't block driveways"
+   }
+  ]
+ },
+ {
+  "id": "aur-glen-alps",
+  "name": "Glen Alps Trailhead and Overlook (Flattop)",
+  "cat": "aurora",
+  "area": "Anchorage – Hillside, Chugach State Park",
+  "lat": 61.1030481,
+  "lon": -149.6832548,
+  "driveFromDowntownMin": 28,
+  "darkness": "Bortle 5 (Clear Outside est. SQM 20.43); the whole Anchorage Bowl is below you to the NW–W – city glow sits under the northern sky",
+  "northView": "Very wide and elevated (2,200 ft) over the Anchorage Bowl toward Knik Arm, Sleeping Lady and (on clear nights) the Alaska Range; aurora appears above the city lights",
+  "access": "Seward Hwy → O'Malley → Hillside → Upper Huffman → Toilsome Rd. Toilsome has a sharp switchback and steep grades; AWD and/or good winter tires may be needed",
+  "parking": "Large State Parks lot (100+ vehicles reported). $5 day-use or annual pass. Posted night hours: ? (no source found). Glen Alps webcam shows lot conditions",
+  "notes": "Closest elevated spot to Spenard (~30 min). Outhouses open all year. Foreground: city lights, Chugach ridges. Can be crowded on big nights. Warm-up: back in town",
+  "url": "https://www.alaska.org/advice/best-northern-lights-viewing-spots-near-anchorage",
+  "hazards": [
+   {
+    "lv": "caution",
+    "kind": "night trip",
+    "text": "Lot and paths ice over – microspikes and headlamp advised. Exposed to Hillside wind; very cold. Do not hike onto Flattop/avalanche slopes at night"
+   }
+  ],
+  "top": 4
+ },
+ {
+  "id": "aur-eklutna-lake",
+  "name": "Eklutna Lake Road pullouts and Eklutna Lake lot",
+  "cat": "aurora",
+  "area": "Chugiak/Eklutna – Chugach State Park",
+  "lat": 61.4077691,
+  "lon": -149.1437569,
+  "coordNote": "Nominatim: Eklutna Lake Campground; pullouts at road Mile ~1.8 and ~2.5 are not geocoded",
+  "driveFromDowntownMin": 60,
+  "darkness": "Bortle 4 (Clear Outside est. SQM 21.54 at the lake); Anchorage/Eagle River glow to WSW behind ridges",
+  "northView": "Road pullouts (Mile ~1.8 near the water treatment plant, ~2.5 gorge overlook) give 'dark views of the northern sky'. At the lake the north is partly blocked by peaks; the lake runs SE–NW",
+  "access": "Glenn Hwy exit Mile 26, then ~10 mi of narrow, paved road with ~600 ft gain. Low (Priority 4) state plowing; after big storms it can take a week+ to clear; thaw ice. AWD/4WD and studded tires advised; don't continue past the low pullouts at night unless going all the way to the lake",
+  "parking": "Paved day-use lot at the lake; $5 State Parks fee (historically cash). Pullouts at Mile 1.8/2.5 are free (?). No cell signal at the lake",
+  "notes": "Frozen lake and Bold Peak make strong foreground. Restrooms at lot: ? (campground has toilets in season). No warm-up nearby; nearest services Eagle River/Chugiak",
+  "url": "https://www.alaska.org/advice/best-northern-lights-viewing-spots-near-anchorage",
+  "hazards": [
+   {
+    "lv": "caution",
+    "kind": "night trip",
+    "text": "Narrow road hard to turn around on when snowbound; lake ice unmonitored – stay off at night; wind can funnel down the valley"
+   }
+  ],
+  "top": 6
+ },
+ {
+  "id": "aur-reflections-lake",
+  "name": "Reflections Lake (Palmer Hay Flats State Game Refuge)",
+  "cat": "aurora",
+  "area": "Mat-Su – Glenn Hwy Mile 30.6 (Knik River Access exit)",
+  "lat": 61.4870519,
+  "lon": -149.2570317,
+  "driveFromDowntownMin": 43,
+  "darkness": "Bortle 4 (Clear Outside est. SQM 20.97); Anchorage glow to SW, Wasilla to NW, Palmer to NNE (all low)",
+  "northView": "Good: flat wetlands; a 30-ft observation tower faces west and north",
+  "access": "Glenn Hwy Mile 30.6 Knik River Access exit, frontage road to the lot. Winter plowing of the frontage road/lot: ?",
+  "parking": "Small lot. Fee: none listed (?). Night rules: ?",
+  "notes": "Frozen lake and Chugach (Pioneer Peak) foreground; 1-mi loop trail. Easy, close Mat-Su option. Restrooms: ?. Warm-up: Palmer/Wasilla ~15 min",
+  "url": "https://www.alaska.org/advice/best-northern-lights-viewing-spots-near-anchorage",
+  "hazards": [
+   {
+    "lv": "caution",
+    "kind": "night trip",
+    "text": "Open flats = wind chill; tower stairs icy; Glenn Hwy traffic noise. Lake ice thickness unknown"
+   }
+  ],
+  "top": 5
+ },
+ {
+  "id": "aur-arctic-valley",
+  "name": "Arctic Valley Road / Arctic Valley Ski Area",
+  "cat": "aurora",
+  "area": "Anchorage – JBER/Chugach front",
+  "lat": 61.2477031,
+  "lon": -149.5204483,
+  "driveFromDowntownMin": 33,
+  "darkness": "Bortle 4 (Clear Outside est. SQM 20.63); Anchorage glow to W, Eagle River glow to NNW",
+  "northView": "Good from the upper road: views over Knik Arm and toward Denali on clear nights; nearby ridges to the E",
+  "access": "Glenn Hwy Arctic Valley exit (not the JBER gate), ~7 mi gravel road through Fort Richardson land; steep, infrequently maintained in winter, often snow-covered and icy – 4WD or capable AWD. Can close for live-fire exercises. Winter gate/night closure: ?",
+  "parking": "Ski-area lot (ski area operates weekends mid-Dec–mid-Apr). Night parking legality: ?. Fee: ?",
+  "notes": "Close and fairly dark, but road quality is the limiter; check arcticvalley.org conditions. Restrooms/warm-up: ski lodge only during operating hours (?)",
+  "url": "https://www.alaska.org/guide/arctic-valley-road-scenic-drive",
+  "hazards": [
+   {
+    "lv": "caution",
+    "kind": "night trip",
+    "text": "Icy steep gravel road; wind at elevation; military land rules; avalanche terrain above the ski area"
+   }
+  ]
+ },
+ {
+  "id": "aur-mount-baldy-skyline",
+  "name": "Mount Baldy Trailhead (West Skyline Drive), Eagle River",
+  "cat": "aurora",
+  "area": "Eagle River",
+  "lat": 61.3265345,
+  "lon": -149.5418346,
+  "coordNote": "approx – Nominatim returned West Skyline Drive, not the trailhead",
+  "driveFromDowntownMin": 26,
+  "darkness": "Bortle 5 (Clear Outside est. SQM 19.94); Eagle River glow directly below to WSW, Anchorage farther SW",
+  "northView": "Good – the alaska.org guide says the panorama rivals Glen Alps for an uninterrupted view of the northern sky",
+  "access": "Eagle River Loop → West Skyline Dr, ~2.5 mi up six switchbacks (~1,800 ft); AWD/winter tires may be needed; very icy in winter",
+  "parking": "Small trailhead lot in a residential area; crowded on forecast nights. Fee: none listed (?). Turn off all lights",
+  "notes": "Overlooks Eagle River valley. Restrooms: ?. Warm-up: Eagle River town ~10 min",
+  "url": "https://www.alaska.org/advice/best-northern-lights-viewing-spots-near-anchorage",
+  "hazards": [
+   {
+    "lv": "caution",
+    "kind": "night trip",
+    "text": "Ice on switchbacks and lot; residential street – respect neighbors"
+   }
+  ]
+ },
+ {
+  "id": "aur-south-fork-eagle-river",
+  "name": "South Fork Eagle River Trailhead (Hiland Road)",
+  "cat": "aurora",
+  "area": "Eagle River – Chugach State Park",
+  "lat": 61.2326298,
+  "lon": -149.456066,
+  "driveFromDowntownMin": 38,
+  "darkness": "Bortle 4 (Clear Outside est. SQM 20.49 nearby); Anchorage glow to W, Eagle River to NNW",
+  "northView": "Moderate – looking N/NW back down the valley over snow-covered slopes; valley walls limit the low horizon",
+  "access": "Glenn Hwy Eagle River Loop/Hiland Rd ~7.5 mi up, right on South Creek Rd, right on West River Dr; residential roads, winter tires",
+  "parking": "State Parks lot; $5 or annual pass. Night rules: ?",
+  "notes": "Elevation ~2,000 ft; other viewpoints along Hiland Rd. Restrooms: ?",
+  "url": "https://www.alaska.org/advice/best-northern-lights-viewing-spots-near-anchorage",
+  "hazards": [
+   {
+    "lv": "caution",
+    "kind": "night trip",
+    "text": "Avalanche terrain in the valley beyond the trailhead (stay at the lot); icy residential hills"
+   }
+  ]
+ },
+ {
+  "id": "aur-eagle-river-nature-center",
+  "name": "Eagle River Nature Center (end of Eagle River Road)",
+  "cat": "aurora",
+  "area": "Eagle River – Chugach State Park",
+  "lat": 61.2348552,
+  "lon": -149.2745742,
+  "coordNote": "Nominatim: ERNC overflow parking",
+  "driveFromDowntownMin": 42,
+  "darkness": "Bortle 4 (Clear Outside est. SQM 21.35); Eagle River/Anchorage glow to W–WNW",
+  "northView": "Limited – deep valley surrounded by mountains; an aurora guide notes a dark eastern sky with mountain silhouettes; best for overhead displays",
+  "access": "Eagle River Rd ~12 mi from the Glenn Hwy; paved, winter road conditions ?",
+  "parking": "$5/vehicle (non-members); State Park passes NOT valid. Trails open 24/7 per ERNC; no sleeping in vehicles. Lot gate at night: ?",
+  "notes": "Mountain-ringed foreground, river. Nature center building open limited daytime hours only. Restrooms: ? at night",
+  "url": "https://www.ernc.org/",
+  "hazards": [
+   {
+    "lv": "caution",
+    "kind": "night trip",
+    "text": "Moose; icy trails; cold-air pooling"
+   }
+  ]
+ },
+ {
+  "id": "aur-eklutna-tailrace",
+  "name": "Eklutna Tailrace Fishing Access",
+  "cat": "aurora",
+  "area": "Mat-Su – Old Glenn Hwy near Knik River",
+  "lat": 61.4768162,
+  "lon": -149.1566303,
+  "driveFromDowntownMin": 45,
+  "darkness": "Bortle 4 (Clear Outside est. SQM 21.16); Anchorage glow to SW",
+  "northView": "Good toward N/NW over the Knik River flats (recommended when aurora is low)",
+  "access": "Old Glenn Hwy, south of the Knik River bridge",
+  "parking": "Gate may be closed in winter; sources say you can park outside and walk in. Whether parking at the gate is legal: ?",
+  "notes": "Close to the Knik River bridge area – combine both. Restrooms: ?",
+  "url": "https://auroranotify.com/wheretogo/wheretogoanc/",
+  "hazards": [
+   {
+    "lv": "caution",
+    "kind": "night trip",
+    "text": "Open water/ice at the tailrace channel; icy footing; dark walk-in"
+   }
+  ]
+ },
+ {
+  "id": "aur-point-woronzof",
+  "name": "Point Woronzof Overlook",
+  "cat": "aurora",
+  "area": "Anchorage – west (near airport)",
+  "lat": 61.2041967,
+  "lon": -150.018709,
+  "driveFromDowntownMin": 12,
+  "darkness": "Bortle 6 (Clear Outside est. SQM 19.2); city glow to E–ENE, lit airport immediately S/SE",
+  "northView": "Excellent – NW-facing bluff 120 ft above Knik Arm, the whole northern sky open over the water to Sleeping Lady/Susitna",
+  "access": "Northern Lights Blvd west until it becomes Point Woronzof Rd; city-plowed roads",
+  "parking": "Lot ~5.5 mi west of the Seward Hwy; walk 1/4 mi N on the Coastal Trail to the high point. Police near the airport may ask you to move on. Anchorage municipal parks default hours are 6am–11pm unless posted (whether this lot is posted differently: ?)",
+  "notes": "Best in-town option for strong displays (Kp 5+); 15 min from Spenard. Foreground: Knik Arm, Sleeping Lady, Denali on clear nights. Restrooms: ?",
+  "url": "https://www.alaska.org/advice/best-northern-lights-viewing-spots-near-anchorage",
+  "hazards": [
+   {
+    "lv": "caution",
+    "kind": "night trip",
+    "text": "Mudflats below – do not walk on the beach. Wind off Knik Arm. Airport light washes out the southern sky"
+   }
+  ]
+ },
+ {
+  "id": "aur-earthquake-park",
+  "name": "Earthquake Park",
+  "cat": "aurora",
+  "area": "Anchorage – Turnagain/west",
+  "lat": 61.1981361,
+  "lon": -149.9718187,
+  "driveFromDowntownMin": 8,
+  "darkness": "Bortle 7 (Clear Outside est. SQM 18.84); downtown glow to ENE",
+  "northView": "Good across Knik Arm to the N/NW; trees in places",
+  "access": "Off W Northern Lights Blvd; city roads",
+  "parking": "Municipal park lot. Anchorage parks default hours 6am–11pm unless posted – late-night use may be technically closed. Fee: none",
+  "notes": "Only worth it on big nights; downtown skyline as foreground. Restrooms: ?",
+  "url": "https://auroranotify.com/wheretogo/wheretogoanc/",
+  "hazards": [
+   {
+    "lv": "caution",
+    "kind": "night trip",
+    "text": "Mudflats below the bluff; ice on paths"
+   }
+  ]
+ },
+ {
+  "id": "aur-northern-lights-blvd-viewpoint",
+  "name": "'Downtown Viewpoint' gravel lot, W Northern Lights Blvd",
+  "cat": "aurora",
+  "area": "Anchorage – west, between Earthquake Park and Point Woronzof",
+  "lat": 61.1901443,
+  "lon": -149.9902823,
+  "coordNote": "approx – Nominatim returned Postmark Drive; the lot is just west of Postmark Dr on Northern Lights Blvd",
+  "driveFromDowntownMin": 10,
+  "darkness": "Bortle 6–7 (interpolated between Earthquake Park and Point Woronzof estimates); city glow to E",
+  "northView": "Unobstructed N over Knik Arm",
+  "access": "Northern Lights Blvd west, ~4.2 mi west of the Seward Hwy, just west of Postmark Dr",
+  "parking": "Gravel lot, popular with guided tours. Hours/legality: ?",
+  "notes": "Anchorage skyline against the Chugach front as foreground. Restrooms: none known (?)",
+  "url": "https://www.alaska.org/advice/best-northern-lights-viewing-spots-near-anchorage",
+  "hazards": [
+   {
+    "lv": "caution",
+    "kind": "night trip",
+    "text": "Airport lighting nearby; roadside traffic"
+   }
+  ]
+ },
+ {
+  "id": "aur-kincaid-park",
+  "name": "Kincaid Park (coastal bluffs)",
+  "cat": "aurora",
+  "area": "Anchorage – far west",
+  "lat": 61.1553426,
+  "lon": -150.0401984,
+  "driveFromDowntownMin": 16,
+  "darkness": "Bortle 5 (Clear Outside est. SQM 19.62); city glow to NE",
+  "northView": "Good to NW/W over Cook Inlet from the bluffs; airport to the N/NE",
+  "access": "Raspberry Rd west; city plowed",
+  "parking": "Free lots. Park hours reported as 6am–10pm (U.S. News) – late-night entry likely not permitted; gate status: ?",
+  "notes": "Practical only for early-evening displays before closing. Chalet has restrooms during open hours (?). Ski trails busy",
+  "url": "https://travel.usnews.com/Anchorage_AK/Things_To_Do/Kincaid_Park_61934/",
+  "hazards": [
+   {
+    "lv": "caution",
+    "kind": "night trip",
+    "text": "Moose are common; icy bluffs"
+   }
+  ]
+ },
+ {
+  "id": "aur-potter-marsh",
+  "name": "Potter Marsh boardwalk lot",
+  "cat": "aurora",
+  "area": "Anchorage – south, Seward Hwy",
+  "lat": 61.0774016,
+  "lon": -149.8288633,
+  "driveFromDowntownMin": 16,
+  "darkness": "Bortle 5 (Clear Outside est. SQM 19.58); Anchorage glow directly N–NNW",
+  "northView": "Open marsh, but the city glow is in the north; recommended only when aurora is high",
+  "access": "Seward Hwy Mile ~117, roadside lot",
+  "parking": "Lot size and night rules: ?",
+  "notes": "Frozen marsh foreground. Low priority",
+  "url": "https://auroranotify.com/wheretogo/wheretogoanc/",
+  "hazards": [
+   {
+    "lv": "caution",
+    "kind": "night trip",
+    "text": "Seward Hwy traffic; ice on boardwalk"
+   }
+  ]
+ },
+ {
+  "id": "aur-beluga-point",
+  "name": "Beluga Point Lookout (Seward Hwy Mile 110.4)",
+  "cat": "aurora",
+  "area": "Turnagain Arm",
+  "lat": 61.0052778,
+  "lon": -149.6941667,
+  "driveFromDowntownMin": 26,
+  "darkness": "Bortle 4 (Clear Outside est. SQM 21.12); 'around the corner' from Anchorage, whose glow is to the NNW behind the Chugach front",
+  "northView": "Poor – steep Chugach slopes rise immediately north of the highway; works for high/overhead aurora (full-sky forecast). Open views are S/E across the Arm to the Kenai Mtns",
+  "access": "Seward Hwy, ~18 mi from downtown; plowed state highway, but subject to closures after avalanches, crashes and storms",
+  "parking": "Pullout/lot on the Arm side; fee: none listed (?)",
+  "notes": "Big-night photo spot with Turnagain Arm ice and Kenai peaks. Restrooms: none known (?)",
+  "url": "https://www.alaska.org/detail/beluga-point",
+  "hazards": [
+   {
+    "lv": "caution",
+    "kind": "night trip",
+    "text": "Rockfall zone near Mile 109; high-speed two-lane highway with frequent crashes; strong Turnagain winds; tide flats – don't cross the railroad or go onto mudflats"
+   }
+  ]
+ },
+ {
+  "id": "aur-bird-point",
+  "name": "Bird Point Scenic Overlook (Seward Hwy)",
+  "cat": "aurora",
+  "area": "Turnagain Arm – near Bird/Girdwood",
+  "lat": 60.9286111,
+  "lon": -149.3625,
+  "driveFromDowntownMin": 43,
+  "darkness": "Bortle 3 (Clear Outside est. SQM 21.75); Anchorage glow to NW, mostly blocked by mountains",
+  "northView": "Poor–fair: mountains to the N; open E down the Arm toward Girdwood/Portage and S to the Kenai Mtns",
+  "access": "Seward Hwy, plowed; avalanche-control zone between Bird and Girdwood can close the road",
+  "parking": "Chugach State Park lot with pay kiosk ($5 or annual pass). Winter gate/closure: ? (no source found)",
+  "notes": "Restrooms in season (?). Warm-up: Girdwood ~10 min",
+  "url": "https://www.alaska.org/detail/bird-point-park",
+  "hazards": [
+   {
+    "lv": "caution",
+    "kind": "night trip",
+    "text": "Avalanche paths and Turnagain winds; highway traffic"
+   }
+  ]
+ },
+ {
+  "id": "aur-girdwood-alyeska",
+  "name": "Girdwood / Alyeska Resort",
+  "cat": "aurora",
+  "area": "Girdwood (Turnagain Arm)",
+  "lat": 60.9702713,
+  "lon": -149.0986622,
+  "driveFromDowntownMin": 59,
+  "darkness": "Bortle 4 (Clear Outside est. SQM 21.02); local resort/village lights; Anchorage glow blocked by mountains",
+  "northView": "Poor – the valley is enclosed by mountains to the N; best for overhead aurora",
+  "access": "Seward Hwy + Alyeska Hwy; plowed. The aerial tram does NOT run at aurora hours: winter hours 11:30am–6pm, to 8pm on select Thu–Sat night-skiing dates; Roundhouse at the top 11am–4pm Fri–Sun",
+  "parking": "Resort lots; night rules: ?",
+  "notes": "Hotel Alyeska advertises a northern lights wake-up call (details ?). Warm-up and restrooms: hotel/restaurants. Tram-top aurora viewing is not a realistic option",
+  "url": "https://www.alyeskaresort.com/aerial-tram-winter/",
+  "hazards": [
+   {
+    "lv": "caution",
+    "kind": "night trip",
+    "text": "Avalanche-controlled stretch of Seward Hwy en route; heavy snowfall"
+   }
+  ]
+ },
+ {
+  "id": "aur-portage-lake",
+  "name": "Portage Lake (Begich, Boggs Visitor Center lot)",
+  "cat": "aurora",
+  "area": "Portage Valley, head of Turnagain Arm",
+  "lat": 60.7688756,
+  "lon": -148.8060894,
+  "driveFromDowntownMin": 77,
+  "darkness": "Bortle 3 (Clear Outside est. SQM 21.88); minimal glow, Anchorage far to NW behind mountains",
+  "northView": "Limited – deep glacial valley; the view NW down-valley is the most open direction. Aurora can reflect on the lake ice",
+  "access": "Seward Hwy Mile 78.9, then Portage Glacier Rd 5.5 mi. One guide says the road may not be plowed to the end in winter (adds ~2 mi on foot). Check 511",
+  "parking": "Visitor-center lot (people park there at night per a 2024 NPR story); fee/night rules: ?",
+  "notes": "Dramatic mountain/ice foreground. Visitor center is summer-only (?). Restrooms: ?. Warm-up: Girdwood ~25 min",
+  "url": "https://www.alaska.org/detail/ice-skating-skiing-more-at-portage-glacier",
+  "hazards": [
+   {
+    "lv": "caution",
+    "kind": "night trip",
+    "text": "Portage Valley is notorious for very strong winds; lake ice is unmonitored and glacier calves – stay off at night; avalanche paths along the Seward Hwy"
+   }
+  ]
+ },
+ {
+  "id": "aur-big-lake",
+  "name": "Big Lake (south shore / State Recreation Sites)",
+  "cat": "aurora",
+  "area": "Mat-Su – Big Lake",
+  "lat": 61.5417461,
+  "lon": -149.830355,
+  "coordNote": "Nominatim: Big Lake (lake centroid); specific SRS lots not geocoded",
+  "driveFromDowntownMin": 78,
+  "darkness": "Bortle 4 (Clear Outside est. SQM 21.0); Wasilla/Houston glow to ENE–E, Anchorage to S",
+  "northView": "Good across the frozen lake from the south shore, looking N",
+  "access": "Parks Hwy to Big Lake Rd; community roads plowed (level ?)",
+  "parking": "Big Lake North and South SRS list $7/day; winter plowing and night rules: ?",
+  "notes": "Wide flat frozen-lake foreground. Restrooms: ?. Warm-up: Big Lake stores/gas (hours ?)",
+  "url": "https://dnr.alaska.gov/parks/asp/unitfees.htm",
+  "hazards": [
+   {
+    "lv": "caution",
+    "kind": "night trip",
+    "text": "Snowmachine traffic on lake ice; ice safety unknown"
+   }
+  ]
+ },
+ {
+  "id": "aur-wasilla-lakes",
+  "name": "Wasilla in-town lakes (Lake Lucille / Wasilla Lake)",
+  "cat": "aurora",
+  "area": "Mat-Su – Wasilla",
+  "lat": 61.5754106,
+  "lon": -149.4766027,
+  "coordNote": "Nominatim: Lake Lucille (lake centroid)",
+  "driveFromDowntownMin": 59,
+  "darkness": "Bortle 5 (Clear Outside est. SQM 19.82); Wasilla town glow all around, strongest E",
+  "northView": "Open across lake ice, but town lights on the shores",
+  "access": "City streets",
+  "parking": "Lake Lucille Park / Wasilla Lake access lots; hours and night rules: ?",
+  "notes": "Only a fallback; locals recommend driving north of town (Trunk Rd, Clark-Wolverine Rd) and using public parking only",
+  "url": "https://auroranotify.com/wheretogo/wheretogoanc/",
+  "hazards": [
+   {
+    "lv": "caution",
+    "kind": "night trip",
+    "text": "Ice safety unknown"
+   }
+  ]
+ },
+ {
+  "id": "aur-nancy-lake-willow",
+  "name": "Nancy Lake Parkway winter trailhead (Willow)",
+  "cat": "aurora",
+  "area": "Mat-Su – Willow",
+  "lat": 61.6766533,
+  "lon": -150.0670747,
+  "coordNote": "approx – Nominatim point on Nancy Lake Parkway, not the Mile 2.2 winter trailhead",
+  "driveFromDowntownMin": 105,
+  "darkness": "Bortle 3 (Clear Outside est. SQM 21.76); faint Houston/Wasilla glow to ESE, Anchorage to S",
+  "northView": "Mostly forested; an open northern horizon needs a lakeshore or clearing: ?",
+  "access": "Parks Hwy (Willow), Nancy Lake Parkway plowed only to the Winter Trailhead at Mile 2.2",
+  "parking": "Winter trailhead lot (plowing/size ?); $5 State Parks fee for Nancy Lake SRA",
+  "notes": "Very dark but forested and ~1h45 each way. Restrooms: ?. Warm-up: Willow/Houston gas stations (hours ?)",
+  "url": "https://dnr.alaska.gov/parks/aspunits/matsu/nancylksra.htm",
+  "hazards": [
+   {
+    "lv": "caution",
+    "kind": "night trip",
+    "text": "Snowmachine traffic; deep cold in the Susitna lowlands"
+   }
+  ]
+ },
+ {
+  "id": "aur-talkeetna",
+  "name": "Talkeetna riverfront (Susitna/Talkeetna confluence)",
+  "cat": "aurora",
+  "area": "Mat-Su – Talkeetna (beyond 2 h)",
+  "lat": 62.3234762,
+  "lon": -150.1125699,
+  "coordNote": "Nominatim: Talkeetna (village); riverfront park not geocoded (approx)",
+  "driveFromDowntownMin": 154,
+  "darkness": "Bortle 4 (Clear Outside est. SQM 21.53); small village lights only",
+  "northView": "Good up the Susitna valley N/NW toward the Alaska Range",
+  "access": "Parks Hwy + Talkeetna Spur Rd; plowed",
+  "parking": "Village/riverfront lots; rules: ?",
+  "notes": "Outside the 2-hour limit – only as an overnight. Restaurants/lodges in town (winter hours ?)",
+  "url": "https://alaskaphototreks.com/treks/anchorage-aurora-quest/",
+  "hazards": [
+   {
+    "lv": "caution",
+    "kind": "night trip",
+    "text": "River ice; ~2.5 h drive each way at night"
+   }
+  ]
+ },
+ {
+  "id": "aur-king-mountain-sutton",
+  "name": "Glenn Highway near Sutton/Chickaloon (King Mountain SRS area)",
+  "cat": "aurora",
+  "area": "Glenn Highway – Sutton/Chickaloon",
+  "lat": 61.7750873,
+  "lon": -148.4938512,
+  "driveFromDowntownMin": 95,
+  "darkness": "Bortle 2 (Clear Outside est. SQM 21.96); Palmer glow far to WSW",
+  "northView": "Limited – Talkeetna Mtn foothills rise north of the highway; King Mountain is to the S across the Matanuska River",
+  "access": "Glenn Hwy (plowed state highway, winding)",
+  "parking": "King Mountain SRS winter status/plowing: ?; other highway pullouts (unnamed) ?",
+  "notes": "Very dark; King Mountain and the river as foreground. Restrooms/warm-up: ?",
+  "url": "https://dnr.alaska.gov/parks/asp/unitfees.htm",
+  "hazards": [
+   {
+    "lv": "caution",
+    "kind": "night trip",
+    "text": "Winding mountain highway, black ice, Matanuska valley winds; wildlife"
+   }
+  ]
+ },
+ {
+  "id": "aur-matanuska-glacier",
+  "name": "Matanuska Glacier viewpoints (Mile 101 SRS / Mile 102 Long Rifle Lodge / Mile 103 pullout)",
+  "cat": "aurora",
+  "area": "Glenn Highway – Glacier View",
+  "lat": 61.7988076,
+  "lon": -147.8141323,
+  "coordNote": "Nominatim: Matanuska Glacier State Recreation Site",
+  "driveFromDowntownMin": 127,
+  "darkness": "Bortle 1 (Clear Outside est. SQM 21.99); essentially no artificial light",
+  "northView": "Limited – the glacier is S of the highway and mountains rise to the N; best when aurora is overhead or with the glacier in the foreground to the S",
+  "access": "Glenn Hwy, ~2 h+ in winter conditions; plowed highway",
+  "parking": "Mile 101 SRS ($7/day) is 'open until closed by winter snow and ice'; Mile 103 roadside turnout is free; winter plowing of each: ?",
+  "notes": "Darkest site within ~2 h; glacier and Chugach peaks as foreground. Warm-up: Long Rifle Lodge (Mile 102; hours conflict across sources, roughly midday–7pm, not open at aurora hours). Winter here is often cloudy",
+  "url": "https://www.alaska.org/detail/matanuska-glacier-scenic-turnout",
+  "hazards": [
+   {
+    "lv": "caution",
+    "kind": "night trip",
+    "text": "Remote, no cell coverage in places (?); black ice; wind. Glacier ice access needs a guide"
+   }
+  ]
+ },
+ {
+  "id": "aur-sheep-mountain",
+  "name": "Sheep Mountain Lodge area (Glenn Hwy Mile ~113)",
+  "cat": "aurora",
+  "area": "Glenn Highway – Sheep Mountain (beyond 2 h)",
+  "lat": 61.8123689,
+  "lon": -147.4993971,
+  "driveFromDowntownMin": 141,
+  "darkness": "Bortle 1 (Clear Outside est. SQM 22.0)",
+  "northView": "? – Sheep Mountain rises to the N of the lodge; horizon not verified",
+  "access": "Glenn Hwy, plowed; ~2.5 h in winter",
+  "parking": "Lodge lot is for guests (cabins open year-round); public pullouts: ?",
+  "notes": "Outside the 2-hour limit; makes sense only as an overnight stay. Restaurant closed in winter; room service for guests",
+  "url": "https://sheepmountain.com/contact/",
+  "hazards": [
+   {
+    "lv": "caution",
+    "kind": "night trip",
+    "text": "Remote mountain highway; extreme cold"
+   }
+  ]
+ }
+]

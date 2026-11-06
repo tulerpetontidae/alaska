@@ -25,7 +25,7 @@
     --rule:#D5DDE2; --rule-2:#E7ECEF;
     --hero-bg:#0B1F33; --hero-fg:#EEF2F4;
     /* categories: Okabe–Ito, every marker also carries a letter */
-    --c-ski:#0072B2; --c-rink:#56B4E9; --c-ice:#009E73; --c-sight:#E69F00; --c-tour:#CC79A7; --c-event:#D55E00; --c-food:#8C6A4F; --c-stay:#0F1A24; --c-warm:#6A4C93; --c-gear:#2F6F6F; --c-shop:#5B6770;
+    --c-ski:#0072B2; --c-rink:#56B4E9; --c-ice:#009E73; --c-sight:#E69F00; --c-tour:#CC79A7; --c-event:#D55E00; --c-food:#8C6A4F; --c-stay:#0F1A24; --c-warm:#6A4C93; --c-gear:#2F6F6F; --c-shop:#5B6770; --c-aurora:#5E9A1C;
     --day:#FFF4D6; --twi:#F2E7CF; --night:#E4E9EE;
     --hz-nogo:#B3261E; --hz-nogo-bg:#FBEAE8; --hz-high:#C25400; --hz-high-bg:#FDF0E4; --hz-caut:#C79A00; --hz-caut-t:#7A5D00; --hz-caut-bg:#FBF6E4;
     --disp:'Big Shoulders Display','Arial Narrow',sans-serif;
@@ -36,7 +36,7 @@
     --page:#0B0F13; --paper:#151B21; --ink:#F2F5F7; --ink-2:#C2CBD2; --muted:#85909A; --muted-d:#5F6A73;
     --rule:#26303A; --rule-2:#1D252D;
     --hero-bg:#13212F; --hero-fg:#F2F5F7;
-    --c-stay:#F2F5F7; --c-food:#B48C6C; --c-warm:#A78BD0; --c-gear:#5FA8A8; --c-shop:#9AA6AF;
+    --c-stay:#F2F5F7; --c-food:#B48C6C; --c-warm:#A78BD0; --c-gear:#5FA8A8; --c-shop:#9AA6AF; --c-aurora:#A3D65C;
     --day:#3A3320; --twi:#272A26; --night:#12171C;
     --hz-nogo:#F28B82; --hz-nogo-bg:#3A1D1B; --hz-high:#F6A65A; --hz-high-bg:#3A2716; --hz-caut:#E3C255; --hz-caut-t:#E3C255; --hz-caut-bg:#302A16;
   }
@@ -221,6 +221,7 @@
     {k:"rink",  name:"Outdoor rinks",     L:"R", cats:["rink-outdoor"]},
     {k:"ice",   name:"Wild ice & lakes",  L:"I", cats:["wild-ice","lake-ski"]},
     {k:"sight", name:"Sights & hikes",    L:"V", cats:["sight","hike"]},
+    {k:"aurora",name:"Aurora spots",      L:"A", cats:["aurora"]},
     {k:"warm",  name:"Saunas & hot springs", L:"W", cats:["sauna"]},
     {k:"gear",  name:"Gear rentals",      L:"G", cats:["rental"]},
     {k:"tour",  name:"Tours & downhill",  L:"T", cats:["tour","downhill"]},
@@ -425,6 +426,7 @@
     if(p.kind==="hot-spring") t.push('<span class="ak-tag on">hot spring</span>');
     if(p.kind==="spa") t.push('<span class="ak-tag on">spa</span>');
     if(p.kind==="pool") t.push('<span class="ak-tag">pool / hot tub</span>');
+    if(p.top) t.push('<span class="ak-tag on">top pick #'+p.top+'</span>');
     if(p.bookAhead===true) t.push('<span class="ak-tag warn">book ahead</span>');
     if(known(p.dogs) && /no|not/i.test(p.dogs)) t.push('<span class="ak-tag">no dogs</span>');
     return t.length?'<div class="ak-tags">'+t.join("")+'</div>':""; }
@@ -442,13 +444,19 @@
     if(known(p.fee)) m.push(p.fee);
     if(known(p.cost)) m.push(p.cost);
     if(known(p.prices)) m.push(p.prices);
+    if(known(p.darkness)) m.push("sky: "+p.darkness);
+    if(known(p.northView)) m.push("north view: "+p.northView);
+    if(known(p.access)) m.push("access: "+p.access);
+    if(known(p.parking)) m.push("parking: "+p.parking);
     return m.length?'<p class="meta">'+esc(m.join(" · "))+'</p>':""; }
   function drawList(){
     var P=all(), fp=fromPt(), html="";
     GROUPS.forEach(function(g){ if(!ON[g.k]) return;
       var items=P.filter(function(p){ return GOF[p.cat]===g && visible(p); });
       if(!items.length) return;
-      items.sort(function(a,b){ var da=driveMin(a), db=driveMin(b);
+      var bortle=function(p){ var m=/Bortle\s*(\d)/i.exec(p.darkness||""); return m?+m[1]:9; };
+      if(g.k==="aurora") items.sort(function(a,b){ return ((a.top||99)-(b.top||99)) || (bortle(a)-bortle(b)) || ((driveMin(a)||999)-(driveMin(b)||999)); });
+      else items.sort(function(a,b){ var da=driveMin(a), db=driveMin(b);
         if(da!=null||db!=null) return (da==null?1e9:da)-(db==null?1e9:db); return km(fp,a)-km(fp,b); });
       html+='<div class="ak-group"><h3><i style="background:'+col(g)+'">'+g.L+'</i>'+g.name+' <span>'+items.length+'</span></h3>'+items.map(function(p){
         var dm=driveMin(p), k=p.lat!=null?km(fp,p):null;
