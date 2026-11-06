@@ -919,5 +919,26 @@
   "highlights": "Long backcountry route; 2026-27 should be the non-motorized winter (odd/even rule, confirm with Seward RD).",
   "url": "https://www.fs.usda.gov/r10/chugach/recreation/trails/resurrection-pass-trail-north",
   "cat": "ski"
+ },
+ {
+  "id": "ski-yosemite",
+  "name": "Yosemite Drive Trails",
+  "cat": "ski",
+  "area": "Eagle River",
+  "lat": 61.3045,
+  "lon": -149.57435,
+  "coordNote": "centre of the groomed loops (MOA layer)",
+  "styles": [
+   "classic",
+   "skate"
+  ],
+  "groomedBy": "Nordic Skiing Association of Anchorage",
+  "grooming": "NSAA, track-set; live status on the MOA grooming map",
+  "km": "~2.2",
+  "lit": "yes (whole system, per MOA layer)",
+  "dogs": "no (ski-only)",
+  "fee": "Free",
+  "highlights": "Small lit, ski-only loop system in Eagle River, groomed by NSAA. Found in the Municipality's official grooming layer.",
+  "url": "https://anchoragenordicski.com/trails/"
  }
 ]

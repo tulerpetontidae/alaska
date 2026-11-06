@@ -14,7 +14,8 @@
   "driveFromDowntownMin": 5,
   "notes": "The city's main outdoor skating spot. Groomed only once ice is at least 12 in. It then has an open skate area, 2 hockey rinks and a ~1/4-mile oval around the small islands on the north shore. When conditions allow you can skate more than 1 mile around the shoreline. Burn barrels and firewood are provided. Saturday Family Skate runs 1–3pm, typically January–February, so it probably starts after the trip. Opening dates vary a lot: 27 Nov 2024 (12–14 in), 10 Dec 2021 (13 in), but in late Dec 2023 the ice was only 8 in and it opened in January. Ice never forms at the inflow and outflow, so stay in the groomed area.",
   "url": "https://www.alaska.org/detail/ice-skating-at-westchester-lagoon-other-anchorage-lake",
-  "cat": "rink-outdoor"
+  "cat": "rink-outdoor",
+  "muni": true
  },
  {
   "id": "ice-cuddy",
@@ -28,11 +29,12 @@
   "lit": "yes (LED lighting on oval)",
   "hours": "?",
   "fee": "free",
-  "rentals": "none found",
+  "rentals": "Muni lists skate rentals at the speed-skating rink (details ?)",
   "driveFromDowntownMin": 7,
   "notes": "400 m outdoor long-track oval, one of only a handful in the US, and usually the smoothest outdoor ice in town. The oval is flooded, so it can open before the lakes. The separate skate pond is an MOA-maintained skating zone once ice is 12 in. A PA system plays music.",
   "url": "https://www.anchorage.net/winter/things-to-do/ice-skating-and-hockey/",
-  "cat": "rink-outdoor"
+  "cat": "rink-outdoor",
+  "muni": true
  },
  {
   "id": "ice-delaney",
@@ -50,7 +52,8 @@
   "driveFromDowntownMin": 3,
   "notes": "Walkable from downtown. Rinks can be reserved through Active Communities, so pickup hockey may take the ice.",
   "url": "https://www.muni.org/departments/parks_and_recreation/park_amenities.php",
-  "cat": "rink-outdoor"
+  "cat": "rink-outdoor",
+  "muni": true
  },
  {
   "id": "ice-townsquare",
@@ -81,11 +84,12 @@
   "lit": "?",
   "hours": "?",
   "fee": "? (free when not reserved)",
-  "rentals": "none",
+  "rentals": "Muni lists rentals at the CCSC rink (details ?)",
   "driveFromDowntownMin": 5,
   "notes": "Next to Ben Boeke and Sullivan Arena. Open skating is often unavailable because of permitted or reserved events.",
   "url": "https://www.muni.org/departments/parks_and_recreation/park_amenities.php",
-  "cat": "rink-outdoor"
+  "cat": "rink-outdoor",
+  "muni": true
  },
  {
   "id": "ice-tikishla",
@@ -102,7 +106,8 @@
   "driveFromDowntownMin": 9,
   "notes": "The rink where NHL player Scott Gomez learned. Open in late Nov 2024. Hockey practices and games can block open skating.",
   "url": "https://www.alaskasnewssource.com/2024/11/28/thats-green-light-municipality-anchorage-measure-enough-ice-depth-certain-rinks-open/",
-  "cat": "rink-outdoor"
+  "cat": "rink-outdoor",
+  "muni": true
  },
  {
   "id": "ice-muldoon",
@@ -119,7 +124,8 @@
   "driveFromDowntownMin": 14,
   "notes": "A skating path (ribbon) through the park, regularly maintained. Open in late Nov 2024.",
   "url": "https://www.anchorage.net/winter/things-to-do/ice-skating-and-hockey/",
-  "cat": "rink-outdoor"
+  "cat": "rink-outdoor",
+  "muni": true
  },
  {
   "id": "ice-cheney",
@@ -136,7 +142,8 @@
   "driveFromDowntownMin": 13,
   "notes": "Maintained skating zone (open area, hockey rinks, ribbon) once ice is 12 in. It usually opens after Westchester. Recurring overflow problem with unknown cause.",
   "url": "https://anchorageparkfoundation.org/winter-recreation/",
-  "cat": "rink-outdoor"
+  "cat": "rink-outdoor",
+  "muni": true
  },
  {
   "id": "ice-goose",
@@ -153,7 +160,8 @@
   "driveFromDowntownMin": 10,
   "notes": "Listed as an MOA-maintained skating zone in 2025, but it tends to open later in the season. Connects to the Chester Creek trail.",
   "url": "https://anchorageparkfoundation.org/winter-recreation/",
-  "cat": "rink-outdoor"
+  "cat": "rink-outdoor",
+  "muni": true
  },
  {
   "id": "ice-jewel",
@@ -161,7 +169,7 @@
   "area": "Anchorage – Southwest (4342 W 88th Ave)",
   "lat": 61.139791,
   "lon": -149.9628,
-  "maintainedBy": "MOA historically; current status ?",
+  "maintainedBy": "none for skating (Muni lists it as ice-fishing only, no skating rink)",
   "surface": "? (plowed when maintained)",
   "lit": "?",
   "hours": "?",
@@ -170,7 +178,7 @@
   "driveFromDowntownMin": 15,
   "notes": "An older MOA memo lists it as maintained at 12 in, but in 2018 it was only measured and it is not on the 2025 list. When the ground is frozen you can sometimes walk or skate between Jewel, Sundi and Sand lakes.",
   "url": "https://www.alaska.org/detail/ice-skating-at-westchester-lagoon-other-anchorage-lake",
-  "cat": "rink-outdoor"
+  "cat": "wild-ice"
  },
  {
   "id": "ice-delong",
@@ -178,7 +186,7 @@
   "area": "Anchorage – Southwest (6420 Jewel Lake Rd)",
   "lat": 61.162447,
   "lon": -149.95715,
-  "maintainedBy": "? (only measured by MOA in 2018)",
+  "maintainedBy": "none for skating (Muni lists it as ice-fishing only, no skating rink)",
   "surface": "? / natural",
   "lit": "?",
   "hours": "?",
@@ -187,7 +195,7 @@
   "driveFromDowntownMin": 12,
   "notes": "Alaska.org lists it among maintained lakes, but it is not on the 2025 MOA list. Treat it as unmaintained unless the MOA status report says otherwise.",
   "url": "https://www.alaska.org/detail/ice-skating-at-westchester-lagoon-other-anchorage-lake",
-  "cat": "rink-outdoor"
+  "cat": "wild-ice"
  },
  {
   "id": "ice-wasilla-lake",
@@ -731,5 +739,22 @@
   "notes": "Outside the 2-hour range (about 3+ h). The campground road is unplowed: park at the Alaska Veterans Memorial (mile 147.1) and ski 0.9 mi to the day-use area. Public-use cabins. Ski touring and ice fishing.",
   "url": "https://dnr.alaska.gov/parks/aspcabins/byerslakecabin1.htm",
   "cat": "lake-ski"
+ },
+ {
+  "id": "ice-engine556",
+  "name": "Engine 556 ice skating area (Delaney Park Strip)",
+  "cat": "rink-outdoor",
+  "area": "Anchorage – downtown (by the Engine 556 locomotive, ~E St)",
+  "lat": 61.21304,
+  "lon": -149.89095,
+  "maintainedBy": "MOA Parks & Rec",
+  "surface": "flooded",
+  "lit": "?",
+  "hours": "?",
+  "fee": "free",
+  "rentals": "none",
+  "notes": "Open skating area next to the Delaney Park Strip rinks, on the Municipality's outdoor-ice status list. Walkable from downtown.",
+  "url": "https://www.muni.org/departments/parks_and_recreation/park_amenities.php",
+  "muni": true
  }
 ]

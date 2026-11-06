@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build data.json for the Alaska winter page.
+"""Build index.html for the Alaska New Year page.
 
   python3 build.py
 
@@ -52,30 +52,86 @@ def style_of(t):
     c, s = "classic" in parts, "skating" in parts
     return "both" if c and s else "classic" if c else "skate" if s else "?"
 
+# official groomed trails (Municipality of Anchorage NordicTrails layer) -> our ski places
+MOA_SYS = {"Kincaid Ski Trails": "ski-kincaid", "Beach Lake Ski Trails": "ski-beach-lake", "Hillside Ski Trails": "ski-hillside",
+           "Russian Jack Springs Park": "ski-russian-jack", "Bartlett Ski Trails": "ski-bartlett", "APU Trails": "ski-apu-goose",
+           "Girdwood Multi-Use": "ski-girdwood-moose-meadows", "Girdwood Ski Trails": "ski-girdwood-5k",
+           "Chester Creek Trail": "ski-chester-creek", "Mirror Lake MS/ Coyote": "ski-mirror-lake-coyote",
+           "Campbell Creek Trail": "ski-campbell-creek-trail", "Chugach Foothills Connector": "ski-fnbp-tour",
+           "Eagle River HS Ski Trails": "ski-erhs", "Yosemite Drive Trails": "ski-yosemite"}
+MOA_SEG = {("Tour of Anchorage", "Coastal Trail"): "ski-coastal-trail", ("Tour of Anchorage", "Chester Creek Trail"): "ski-chester-creek",
+           ("Tour of Anchorage", "Tour of Anchorage Trail"): "ski-fnbp-tour"}
+BC_SYS = {"Powerline Pass": "ski-powerline-pass", "Eklutna Lakeside Trail": "ski-eklutna", "Turnagain Pass": "ski-turnagain-pass",
+          "Johnson Pass": "ski-johnson-pass", "Resurrection Pass (north)": "ski-resurrection-north", "Indian Valley": "ski-indian-valley",
+          "Rabbit Lake": "ski-rabbit-lake", "Middle Fork (Prospect Heights)": "ski-prospect-heights", "Archangel Road (Hatcher Pass)": "ski-archangel",
+          "Matanuska Lakes": "ski-matanuska-lakes", "Nancy Lake: Lynx Lake route": "ski-nancy-lake", "Eagle River Nature Center": "ski-ernc"}
+
+def densify(pts, step_m=20):
+    out = [pts[0]]
+    for a, b in zip(pts, pts[1:]):
+        n = max(1, int(length_km([a, b]) * 1000 / step_m))
+        out += [(a[0] + (b[0] - a[0]) * t / n, a[1] + (b[1] - a[1]) * t / n) for t in range(1, n + 1)]
+    return out
+
 def build_tracks(skiplaces):
-    if not os.path.exists("sources/osm-nordic.raw"): return None, None
-    raw = json.load(open("sources/osm-nordic.raw"))
-    out, sys_stats = [], {}
-    heads = [p for p in skiplaces if p.get("lat") is not None]
-    for e in raw["elements"]:
-        if e["type"] != "way" or not e.get("geometry"): continue
-        t = e.get("tags", {}); pts = [(g["lat"], g["lon"]) for g in e["geometry"]]
-        st = style_of(t); lit = t.get("lit") == "yes"; km_ = length_km(pts)
-        mid = pts[len(pts) // 2]
-        near = min(heads, key=lambda p: (p["lat"] - mid[0]) ** 2 + ((p["lon"] - mid[1]) * 0.48) ** 2) if heads else None
-        if near and length_km([mid, (near["lat"], near["lon"])]) > 8: near = None
-        sid = near["id"] if near else None
-        out.append({"p": enc(simplify(pts)), "s": st, "l": 1 if lit else 0, "n": t.get("piste:name") or t.get("name") or "",
-                    "k": round(km_, 2), "sys": sid})
+    out, stats = [], {}
+    def add(rec, pts):
+        rec["p"] = enc(simplify(pts)); rec["k"] = round(length_km(pts), 2); out.append(rec)
+        sid = rec.get("sys")
         if sid:
-            ss = sys_stats.setdefault(sid, {"km": 0, "lit": 0, "classic": 0, "skate": 0})
-            ss["km"] += km_; ss["lit"] += km_ if lit else 0
-            ss["classic"] += km_ if st in ("both", "classic") else 0
-            ss["skate"] += km_ if st in ("both", "skate") else 0
-    for v in sys_stats.values():
-        for k in v: v[k] = round(v[k], 1)
-    tracks = {"source": "OpenStreetMap contributors, piste:type=nordic", "fetched": raw.get("osm3s", {}).get("timestamp_osm_base", ""), "ways": out}
-    return sys_stats, tracks
+            v = stats.setdefault(sid, {"km": 0, "lit": 0, "classic": 0, "skate": 0, "skiOnly": 0, "src": rec["src"]})
+            v["km"] += rec["k"]; v["lit"] += rec["k"] if rec.get("l") else 0
+            v["classic"] += rec["k"] if rec["s"] in ("both", "classic") else 0
+            v["skate"] += rec["k"] if rec["s"] in ("both", "skate") else 0
+            v["skiOnly"] += rec["k"] if rec.get("so") else 0
+    # 1. official groomed network
+    grid = {}
+    if os.path.exists("sources/moa-nordic.geojson.raw"):
+        for f in json.load(open("sources/moa-nordic.geojson.raw"))["features"]:
+            pr, g = f["properties"], f["geometry"]
+            lines = g["coordinates"] if g["type"] == "MultiLineString" else [g["coordinates"]]
+            for ln in lines:
+                pts = [(c[1], c[0]) for c in ln]
+                if len(pts) < 2: continue
+                for la, lo in densify(pts): grid.setdefault((round(la * 2500), round(lo * 1200)), []).append((la, lo))
+                sysn, seg = pr["Grooming_System"], pr["Grooming_Segment"] or ""
+                add({"src": "moa", "oid": pr["OBJECTID"], "g": sysn, "n": seg,
+                     "s": "both" if pr["Track_Set"] == "Yes" else "skate", "so": 1 if pr["Ski_Only"] == "Yes" else 0,
+                     "l": 1 if pr["Lighted_Trail"] == "Yes" else 0, "lvl": pr["Difficulty_Level"],
+                     "org": pr["Winter_Maintenance_Organization"], "sys": MOA_SEG.get((sysn, seg)) or MOA_SYS.get(sysn)}, pts)
+    def near_official(pts):
+        if not grid: return 0
+        sm = densify(pts, 25); hit = 0
+        for la, lo in sm:
+            k = (round(la * 2500), round(lo * 1200)); found = False
+            for dk in ((0, 0), (1, 0), (-1, 0), (0, 1), (0, -1), (1, 1), (-1, -1), (1, -1), (-1, 1)):
+                for q in grid.get((k[0] + dk[0], k[1] + dk[1]), ()):
+                    if length_km([(la, lo), q]) < 0.04: found = True; break
+                if found: break
+            hit += found
+        return hit / len(sm)
+    # 2. OpenStreetMap ski trails where the official layer doesn't reach
+    heads = [p for p in skiplaces if p.get("lat") is not None]
+    if os.path.exists("sources/osm-nordic.raw"):
+        for e in json.load(open("sources/osm-nordic.raw"))["elements"]:
+            if e["type"] != "way" or not e.get("geometry"): continue
+            t = e.get("tags", {}); pts = [(g["lat"], g["lon"]) for g in e["geometry"]]
+            if near_official(pts) > 0.6: continue
+            mid = pts[len(pts) // 2]
+            near = min(heads, key=lambda p: (p["lat"] - mid[0]) ** 2 + ((p["lon"] - mid[1]) * 0.48) ** 2) if heads else None
+            if near and length_km([mid, (near["lat"], near["lon"])]) > 8: near = None
+            add({"src": "osm", "s": style_of(t), "l": 1 if t.get("lit") == "yes" else 0,
+                 "n": t.get("piste:name") or t.get("name") or "", "sys": near["id"] if near else None}, pts)
+    # 3. named backcountry routes (ungroomed, or groomed by snowmachine at best)
+    if os.path.exists("sources/osm-backcountry.raw"):
+        for w in json.load(open("sources/osm-backcountry.raw")):
+            pts = [(g["lat"], g["lon"]) for g in w["geometry"]]
+            if len(pts) < 2: continue
+            add({"src": "bc", "s": "bc", "l": 0, "n": w["route"], "sys": BC_SYS.get(w["route"])}, pts)
+    for v in stats.values():
+        for k in ("km", "lit", "classic", "skate", "skiOnly"): v[k] = round(v[k], 1)
+    tracks = {"ways": out, "moaService": "https://services2.arcgis.com/Ce3DhLRthdwbHlfF/arcgis/rest/services/NordicTrails/FeatureServer/0"}
+    return stats, tracks
 
 def main():
     base = json.load(open("base.json"))
