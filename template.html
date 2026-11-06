@@ -6,14 +6,7 @@
 <title>Alaska New Year</title>
 <meta name="description" content="Ski trails, ice and everything else around Anchorage, 23 Dec 2026 – 3 Jan 2027.">
 <meta name="theme-color" content="#0B1F33">
-<script>
-  (function(){
-    var m="auto"; try{ m=localStorage.getItem("ak-theme")||"auto"; }catch(e){}
-    var r=document.documentElement; r.setAttribute("data-mode",m);
-    r.setAttribute("data-theme", m!=="auto" ? m :
-      (window.matchMedia && matchMedia("(prefers-color-scheme:dark)").matches ? "dark" : "light"));
-  })();
-</script>
+<meta name="color-scheme" content="light">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -32,22 +25,10 @@
     --body:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
     --mono:'IBM Plex Mono','SF Mono',Menlo,monospace;
   }
-  :root[data-theme="dark"]{
-    --page:#0B0F13; --paper:#151B21; --ink:#F2F5F7; --ink-2:#C2CBD2; --muted:#85909A; --muted-d:#5F6A73;
-    --rule:#26303A; --rule-2:#1D252D;
-    --hero-bg:#13212F; --hero-fg:#F2F5F7;
-    --c-stay:#F2F5F7; --c-food:#B48C6C; --c-warm:#A78BD0; --c-gear:#5FA8A8; --c-shop:#9AA6AF; --c-aurora:#A3D65C;
-    --day:#3A3320; --twi:#272A26; --night:#12171C;
-    --hz-nogo:#F28B82; --hz-nogo-bg:#3A1D1B; --hz-high:#F6A65A; --hz-high-bg:#3A2716; --hz-caut:#E3C255; --hz-caut-t:#E3C255; --hz-caut-bg:#302A16;
-  }
   html,body{background:var(--page);margin:0}
   .ak{font-family:var(--body);color:var(--ink);line-height:1.45;max-width:1120px;margin:0 auto;padding:0 16px 56px;-webkit-font-smoothing:antialiased}
   .ak *{box-sizing:border-box}
   .ak a{color:inherit}
-  .ak-themebar{display:flex;justify-content:flex-end;padding-top:14px}
-  .ak-theme{display:inline-flex;gap:2px;border:1px solid var(--rule);border-radius:99px;padding:2px;background:var(--paper)}
-  .ak-theme button{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:5px 11px;border:0;background:transparent;color:var(--muted);border-radius:99px;cursor:pointer}
-  .ak-theme button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
 
   .ak-hero{background:var(--hero-bg);color:var(--hero-fg);border-radius:3px;padding:30px 28px 26px;margin-top:14px}
   .ak-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;opacity:.7}
@@ -175,9 +156,7 @@
 </head>
 <body>
 <div class="ak">
-  <div class="ak-themebar"><div class="ak-theme" role="group" aria-label="Colour theme">
-    <button type="button" data-theme-set="auto">Auto</button><button type="button" data-theme-set="light">Light</button><button type="button" data-theme-set="dark">Dark</button>
-  </div></div>
+  <div class="ak-themebar"></div>
 
   <div class="ak-hero">
     <div class="ak-eyebrow" id="ak-range">—</div>
@@ -326,7 +305,7 @@
 
   /* ---------- map ---------- */
   function tiles(){
-    var dark=root.getAttribute("data-theme")==="dark";
+    var dark=false;
     return dark ? L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}",{maxZoom:16,attribution:"Tiles &copy; Esri"})
                 : L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}",{maxZoom:18,attribution:"Tiles &copy; Esri"});
   }
@@ -346,7 +325,7 @@
   function sysLive(id){ var best=null; if(!T) return null;
     T.ways.forEach(function(w){ if(w.sys===id && w.oid && LIVE[w.oid] && fresh(LIVE[w.oid].Grooming_Date) && (!best||LIVE[w.oid].Grooming_Date>best.Grooming_Date)) best=LIVE[w.oid]; }); return best; }
   function drawTracks(){ if(!tlayer||!T) return; tlayer.clearLayers();
-    var c=col(GROUPS[0]), glow=root.getAttribute("data-theme")==="dark"?"#d9c23a":"#F0E442", byId={};
+    var c=col(GROUPS[0]), glow="#F0E442", byId={};
     D.places.forEach(function(p){ byId[p.id]=p; });
     var order={bc:0,osm:1,moa:2}; T.ways.slice().sort(function(a,b){ return order[a.src]-order[b.src]; }).forEach(function(w){ if(!trackOn(w)) return;
       var pts=w._pts||(w._pts=decode(w.p)), s=TSTY[tkey(w)], lv=w.oid&&LIVE[w.oid];
@@ -358,13 +337,13 @@
         (lv&&fresh(lv.Grooming_Date)?'<br><b>Last groomed '+ago(lv.Grooming_Date)+'</b>'+(lv.Grooming_Comments?': '+esc(lv.Grooming_Comments):''):'')+
         (lv&&lv.Conditions_Warning&&lv.Conditions_Warning!=="No"?'<br>⚠ '+esc(lv.Conditions_Warning):'')+
         (w.sys&&byId[w.sys]?'<br><span style="color:var(--muted)">'+esc(byId[w.sys].name)+'</span>':'');
-      var colr=w.src==="bc"?(root.getAttribute("data-theme")==="dark"?"#aebfcf":"#3a5269"):c;
+      var colr=w.src==="bc"?("#3a5269"):c;
       L.polyline(pts,{pane:"tracks",color:colr,weight:s.w,opacity:s.o||.95,dashArray:s.d||null,lineCap:"butt"}).bindTooltip(tip,{sticky:true}).addTo(tlayer);
     });
   }
   function drawTKey(){ var el=document.getElementById("ak-tkey"); if(!T){ el.hidden=true; return; } el.hidden=false;
-    var c=col(GROUPS[0]), glow=root.getAttribute("data-theme")==="dark"?"#d9c23a":"#F0E442";
-    var bcc=root.getAttribute("data-theme")==="dark"?"#aebfcf":"#3a5269";
+    var c=col(GROUPS[0]), glow="#F0E442";
+    var bcc="#3a5269";
     var line=function(s,k){ return '<svg width="26" height="10" aria-hidden="true"><line x1="1" y1="5" x2="25" y2="5" stroke="'+(k==="bc"?bcc:c)+'" stroke-width="'+s.w+'"'+(s.d?' stroke-dasharray="'+s.d+'"':'')+' opacity="'+(s.o||1)+'"/></svg>'; };
     var km={}, lit=0; T.ways.forEach(function(w){ var k=tkey(w); km[k]=(km[k]||0)+w.k; if(w.l) lit+=w.k; });
     el.innerHTML='<span class="ak-tk-h">Trail lines</span>'+["moa_both","moa_skate","osm","bc"].map(function(k){ return '<span>'+line(TSTY[k],k)+TSTY[k].n+' · '+Math.round(km[k]||0)+' km</span>'; }).join("")+
@@ -496,16 +475,6 @@
     document.getElementById("ak-foot").innerHTML='Map tiles &copy; Esri. Groomed trails from the Municipality of Anchorage NordicTrails layer (NSAA, Anchorage Parks &amp; Rec, Girdwood Nordic Ski Club); other trail lines and place positions &copy; OpenStreetMap contributors; drive times from OSRM on OpenStreetMap roads, without winter conditions. '+
       'Sunrise and sunset computed for downtown Anchorage. Grooming, hours and ice change daily: check the linked source before going.'+(D.generated?' Updated '+esc(D.generated)+'.':'');
   }
-
-  /* ---------- theme ---------- */
-  function setTheme(m){ try{ localStorage.setItem("ak-theme",m); }catch(e){}
-    root.setAttribute("data-mode",m);
-    root.setAttribute("data-theme", m!=="auto"?m:(matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"));
-    Array.prototype.forEach.call(document.querySelectorAll("[data-theme-set]"),function(b){ b.setAttribute("aria-pressed",b.getAttribute("data-theme-set")===m); });
-    if(D){ drawFilters(); buildMap(); drawTKey(); drawSched(); drawList(); } }
-  Array.prototype.forEach.call(document.querySelectorAll("[data-theme-set]"),function(b){ b.onclick=function(){ setTheme(b.getAttribute("data-theme-set")); }; });
-  Array.prototype.forEach.call(document.querySelectorAll("[data-theme-set]"),function(b){ b.setAttribute("aria-pressed",b.getAttribute("data-theme-set")===root.getAttribute("data-mode")); });
-  if(window.matchMedia) matchMedia("(prefers-color-scheme:dark)").addEventListener("change",function(){ if(root.getAttribute("data-mode")==="auto") setTheme("auto"); });
 
   D=JSON.parse(document.getElementById("ak-data").textContent);
   var tj=document.getElementById("ak-tracks"); T=tj&&tj.textContent.trim()?JSON.parse(tj.textContent):null;
